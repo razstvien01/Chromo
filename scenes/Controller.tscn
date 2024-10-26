@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tyb4sddahgx3"]
+
+[ext_resource type="Texture2D" uid="uid://22geh8svt5qc" path="res://assets/controller/right.png" id="2_0as1j"]
+
+[node name="Controller" type="Node2D"]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(211, 583)
+rotation = 3.14159
+scale = Vector2(0.104508, 0.1)
+texture_normal = ExtResource("2_0as1j")
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(211, 461)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("2_0as1j")
+action = "ui_right"

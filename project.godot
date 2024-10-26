@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Chromo Game"
-run/main_scene="res://scenes/node_2d.tscn"
+run/main_scene="res://scenes/Controller.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -25,4 +30,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
