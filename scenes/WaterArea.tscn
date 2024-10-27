@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cudojfv8acq6d"]
+
+[ext_resource type="Script" path="res://scripts/WaterArea.cs" id="1_gqcy4"]
+
+[node name="WaterArea" type="Area2D"]
+script = ExtResource("1_gqcy4")
+
+[connection signal="body_entered" from="." to="." method="_OnBodyEntered"]
