@@ -1,18 +1,28 @@
 [gd_scene load_steps=2 format=3 uid="uid://tyb4sddahgx3"]
 
-[ext_resource type="Texture2D" uid="uid://22geh8svt5qc" path="res://assets/controller/right.png" id="2_0as1j"]
+[ext_resource type="Texture2D" uid="uid://dnbeigqu4juo8" path="res://assets/Icons/arrow.png" id="1_g3r0k"]
 
 [node name="Controller" type="Node2D"]
 
 [node name="Left" type="TouchScreenButton" parent="."]
-position = Vector2(211, 583)
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(273, 649)
 rotation = 3.14159
 scale = Vector2(0.104508, 0.1)
-texture_normal = ExtResource("2_0as1j")
+texture_normal = ExtResource("1_g3r0k")
 action = "ui_left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
-position = Vector2(211, 461)
-scale = Vector2(0.1, 0.1)
-texture_normal = ExtResource("2_0as1j")
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(273, 448)
+scale = Vector2(0.104508, 0.1)
+texture_normal = ExtResource("1_g3r0k")
 action = "ui_right"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(871, 648)
+rotation = 4.71239
+scale = Vector2(0.104508, 0.1)
+texture_normal = ExtResource("1_g3r0k")
+action = "ui_up"
