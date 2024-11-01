@@ -51,12 +51,11 @@ public partial class WaterArea : Area2D
 
 			if (targetY != -1 && frameCoords.Y != targetY)
 			{
-				icon.FrameCoords = new Vector2I(frameCoords.X, 0); //* Resetting color
-
+				// TODO - will change the character to dead character
+				
 				Node2D uiControls = GetParent().GetNode<Node2D>("Controller");
 				uiControls.Visible = false;
-
-				// character.Position = new Vector2(60, 60);	//* Back to start position
+				
 				EmitSignal(SignalName.ShowGameOver);
 
 			}
