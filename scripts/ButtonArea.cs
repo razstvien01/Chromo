@@ -1,9 +1,17 @@
 using Godot;
 using System;
+using System.Collections;
+using System.Numerics;
 
 public partial class ButtonArea : Area2D
 {
-	// Called when the node enters the scene tree for the first time.
+	[Export]
+	public ButtonType buttonType { get; set; }
+	public enum ButtonType
+	{
+		YELLOW, PURPLE
+	}
+
 	public override void _Ready()
 	{
 	}
@@ -12,20 +20,36 @@ public partial class ButtonArea : Area2D
 	public override void _Process(double delta)
 	{
 	}
-	
-	public void _OnButtonBodyEntered(Node2D body){
+
+	public void _OnButtonBodyEntered(Node2D body)
+	{
 		GD.Print("Body Entered.");
-		if(body is CharacterBody2D character){
+		if (body is CharacterBody2D character)
+		{
 			Sprite2D icon = character.GetNode<Sprite2D>("Icon");
-			
-			if(icon != null){
-				Vector2 frameCoords = icon.FrameCoords;
-        GD.Print($"Icon Animation Frame Coords: X = {frameCoords.X}, Y = {frameCoords.Y}");
+
+			if (icon != null)
+			{
+				int targetFrame = 0;
+				
+				//* Change color here
+				switch (buttonType)
+				{
+					case ButtonType.YELLOW:{
+						targetFrame = 1;
+						break;
+					}
+					case ButtonType.PURPLE:{
+						targetFrame = 2;
+						break;
+					}
+				}
+				icon.FrameCoords = new Vector2I(icon.FrameCoords.X, targetFrame);
 			}
 			else
-      {
-        GD.Print("Character does not have an Icon node with AnimatedSprite2D.");
-      }
+			{
+				GD.Print("Character does not have an Icon node with AnimatedSprite2D.");
+			}
 		}
 	}
 }

@@ -712,7 +712,7 @@ tile_map_data = PackedByteArray("AAABAA0AAQACAAAAAAAAAA0AAQAAAAEAAAAAAAwAAQAFAAE
 tile_set = SubResource("TileSet_2t2kc")
 
 [node name="Character" parent="." instance=ExtResource("4_2bsvh")]
-position = Vector2(79, 71)
+position = Vector2(981, 408)
 
 [node name="Interactables" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAGAAsAAAAHAAQAAAAHAAsAAAAJAAQAAAARAAwAAQABAAAAAAAWAAwAAQABAAEAAAAJAAcAAQAAAAAAAAACAAIAAAAHAAUAAAADAAIAAAAIAAUAAAAEAAIAAAAJAAUAAAA=")
@@ -729,3 +729,7 @@ polygon = PackedVector2Array(103.812, 95.6968, 115, 103, 227, 103, 235, 96)
 
 [node name="ButtonArea" parent="." instance=ExtResource("7_h2kdb")]
 position = Vector2(841, 622)
+
+[node name="ButtonArea2" parent="." instance=ExtResource("7_h2kdb")]
+position = Vector2(1081, 622)
+buttonType = 1
