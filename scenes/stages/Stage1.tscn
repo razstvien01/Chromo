@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://eiw30gr3vxf"]
+[gd_scene load_steps=16 format=4 uid="uid://eiw30gr3vxf"]
 
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_6kvfg"]
 [ext_resource type="Texture2D" uid="uid://doodglfv7jpah" path="res://assets/Tilemaps/Platform.png" id="2_3nd2s"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="5_7nurx"]
 [ext_resource type="PackedScene" uid="uid://cudojfv8acq6d" path="res://scenes/WaterArea.tscn" id="6_gng15"]
 [ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="7_h2kdb"]
+[ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="8_cgl2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("1_6kvfg")
@@ -715,7 +716,8 @@ tile_set = SubResource("TileSet_2t2kc")
 position = Vector2(981, 408)
 
 [node name="Interactables" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAGAAsAAAAHAAQAAAAHAAsAAAAJAAQAAAARAAwAAQABAAAAAAAWAAwAAQABAAEAAAAJAAcAAQAAAAAAAAACAAIAAAAHAAUAAAADAAIAAAAIAAUAAAAEAAIAAAAJAAUAAAA=")
+position = Vector2(-1, -1)
+tile_map_data = PackedByteArray("AAAGAAsAAAAHAAQAAAAHAAsAAAAJAAQAAAARAAwAAQABAAAAAAAWAAwAAQABAAEAAAACAAIAAAAHAAUAAAADAAIAAAAIAAUAAAAEAAIAAAAJAAUAAAARAAoAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ls32l")
 
 [node name="Controller" parent="." instance=ExtResource("5_7nurx")]
@@ -733,3 +735,5 @@ position = Vector2(841, 622)
 [node name="ButtonArea2" parent="." instance=ExtResource("7_h2kdb")]
 position = Vector2(1081, 622)
 buttonType = 1
+
+[node name="DoorArea" parent="." instance=ExtResource("8_cgl2t")]

@@ -23,7 +23,6 @@ public partial class ButtonArea : Area2D
 
 	public void _OnButtonBodyEntered(Node2D body)
 	{
-		GD.Print("Body Entered.");
 		if (body is CharacterBody2D character)
 		{
 			Sprite2D icon = character.GetNode<Sprite2D>("Icon");
@@ -32,7 +31,6 @@ public partial class ButtonArea : Area2D
 			{
 				int targetFrame = 0;
 				
-				//* Change color here
 				switch (buttonType)
 				{
 					case ButtonType.YELLOW:{
