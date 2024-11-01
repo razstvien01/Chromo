@@ -4,8 +4,8 @@ using System;
 public partial class WaterArea : Area2D
 {
 	[Export]
-	public WaterType waterType{ get; set; }
-	
+	public WaterType waterType { get; set; }
+
 	public enum WaterType
 	{
 		PURPLE, YELLOW
@@ -15,25 +15,43 @@ public partial class WaterArea : Area2D
 	{
 
 	}
-	
+
 	public override void _Process(double delta)
 	{
 
 	}
-	
-	public void _OnBodyEntered(Node2D body){
-		
-		if(body is CharacterBody2D character){
-			Sprite2D icon = character.GetNode<Sprite2D>("Icon");
-			
-			if(icon != null){
-				Vector2 frameCoords = icon.FrameCoords;
-        GD.Print($"Icon Animation Frame Coords: X = {frameCoords.X}, Y = {frameCoords.Y}");
+
+	public void _OnBodyEntered(Node2D body)
+	{
+
+		if (body is CharacterBody2D character)
+		{
+			Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+			if (icon == null)
+			{
+				GD.Print("Character does not have an 'Icon' node with a Sprite2D.");
+				return;
 			}
-			else
-      {
-        GD.Print("Character does not have an Icon node with AnimatedSprite2D.");
-      }
+			
+			Vector2I frameCoords = icon.FrameCoords;
+			
+			int targetY = -1;
+			switch (waterType)
+			{
+				case WaterType.YELLOW:
+					targetY = 1;
+					break;
+
+				case WaterType.PURPLE:
+					targetY = 2;
+					break;
+			}
+			
+			if (targetY != -1 && frameCoords.Y != targetY)
+			{
+				icon.FrameCoords = new Vector2I(frameCoords.X, 0); //* Resetting color
+				character.Position = new Vector2(60, 60);	//* Back to start positionn
+			}
 		}
 	}
 }
