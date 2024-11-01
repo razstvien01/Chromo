@@ -5,6 +5,8 @@ public partial class WaterArea : Area2D
 {
 	[Export]
 	public WaterType waterType { get; set; }
+	[Signal]
+	public delegate void ShowGameOverEventHandler();
 
 	public enum WaterType
 	{
@@ -32,9 +34,9 @@ public partial class WaterArea : Area2D
 				GD.Print("Character does not have an 'Icon' node with a Sprite2D.");
 				return;
 			}
-			
+
 			Vector2I frameCoords = icon.FrameCoords;
-			
+
 			int targetY = -1;
 			switch (waterType)
 			{
@@ -46,11 +48,17 @@ public partial class WaterArea : Area2D
 					targetY = 2;
 					break;
 			}
-			
+
 			if (targetY != -1 && frameCoords.Y != targetY)
 			{
 				icon.FrameCoords = new Vector2I(frameCoords.X, 0); //* Resetting color
-				character.Position = new Vector2(60, 60);	//* Back to start positionn
+
+				Node2D uiControls = GetParent().GetNode<Node2D>("Controller");
+				uiControls.Visible = false;
+
+				// character.Position = new Vector2(60, 60);	//* Back to start position
+				EmitSignal(SignalName.ShowGameOver);
+
 			}
 		}
 	}
