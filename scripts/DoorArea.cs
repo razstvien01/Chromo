@@ -3,6 +3,8 @@ using System;
 
 public partial class DoorArea : Area2D
 {
+	[Signal]
+	public delegate void NextSceneEventHandler();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -21,6 +23,8 @@ public partial class DoorArea : Area2D
 			if (icon != null)
 			{
 				icon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, icon.FrameCoords.Y) : new Vector2I(icon.FrameCoords.X, icon.FrameCoords.Y);
+				
+				EmitSignal(SignalName.NextScene);
 			}
 		}
 	}
