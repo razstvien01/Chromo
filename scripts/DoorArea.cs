@@ -18,14 +18,7 @@ public partial class DoorArea : Area2D
 	{
 		if (body is CharacterBody2D character)
 		{
-			Sprite2D icon = character.GetNode<Sprite2D>("Icon");
-
-			if (icon != null)
-			{
-				icon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, icon.FrameCoords.Y) : new Vector2I(icon.FrameCoords.X, icon.FrameCoords.Y);
-				
-				EmitSignal(SignalName.NextScene);
-			}
+			EmitSignal(SignalName.NextScene);
 		}
 	}
 }

@@ -28,14 +28,18 @@ public partial class Game : Node2D
 			currentInstance.QueueFree();
 		}
 
+
 		currentScene = (PackedScene)ResourceLoader.Load(scenePaths[index]);
 		if (currentScene != null)
 		{
+			// * Add new current scene
 			currentInstance = currentScene.Instantiate<Node2D>();
 			AddChild(currentInstance);
-			
+
+			// * Connect door area signal
 			Area2D doorArea = currentInstance.GetNode<DoorArea>("DoorArea");
 			doorArea?.Connect("NextScene", Callable.From(_NextScene));
+
 		}
 		else
 		{
@@ -43,9 +47,28 @@ public partial class Game : Node2D
 		}
 	}
 
+	public void _OnNewSceneReady()
+	{
+		// * Connect door area signal
+		GD.Print("_OnNewSceneReady called");
+	}
+
 	public void _NextScene()
 	{
+		// * Extract the character's values
+		CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+
 		currentIndex = (currentIndex + 1) % scenePaths.Count;
 		LoadScene(currentIndex);
+
+		// * Evolve the character
+		CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+		Sprite2D newIcon = newCharacter.GetNodeOrNull<Sprite2D>("Icon");
+
+		if (newIcon != null && icon != null)
+		{
+			newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, icon.FrameCoords.Y) : new Vector2I(icon.FrameCoords.X, icon.FrameCoords.Y);
+		}
 	}
 }
