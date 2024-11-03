@@ -1,11 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://ppy7dfy55u5m"]
+[gd_scene load_steps=12 format=3 uid="uid://ppy7dfy55u5m"]
 
 [ext_resource type="Script" path="res://scripts/Character.cs" id="1_1jj3k"]
 [ext_resource type="Texture2D" uid="uid://3pgiw4ql1ktk" path="res://assets/Sprites/Chara Dna.png" id="1_r2gal"]
+[ext_resource type="Texture2D" uid="uid://dfdr3e0hyuncq" path="res://assets/Tilemaps/FloatingCells.png" id="2_dddxm"]
 [ext_resource type="Texture2D" uid="uid://cqjc5hdyvjvxq" path="res://assets/Sprites/CharaEyes.png" id="3_p5605"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iraw6"]
 size = Vector2(34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86x4j"]
+atlas = ExtResource("2_dddxm")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="Gradient" id="Gradient_h8pbi"]
+colors = PackedColorArray(0.899, 0.899, 0.899, 0.692, 0.805, 0.805, 0.805, 0.368)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n7xbc"]
 atlas = ExtResource("3_p5605")
@@ -48,13 +56,32 @@ visible = false
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_iraw6")
 
+[node name="SmokeParticles" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1.047, 1)
+emitting = false
+lifetime = 0.5
+one_shot = true
+texture = SubResource("AtlasTexture_86x4j")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -100)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_h8pbi")
+
 [node name="Icon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(1.047, 1)
 texture = ExtResource("1_r2gal")
 hframes = 5
 vframes = 3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Eyes" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_aapt3")
 animation = &"blink"
 autoplay = "blink"

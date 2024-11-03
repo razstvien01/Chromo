@@ -7,9 +7,21 @@ public partial class Character : CharacterBody2D
 	public const float JumpVelocity = -500.0f;
 	private const double RotationSpeed = Math.PI * 1.5;
 
+	private CpuParticles2D smokeParticles;
+	private Sprite2D icon;
+	private AnimatedSprite2D eyes;
+
+	public override void _Ready()
+	{
+		smokeParticles = GetNode<CpuParticles2D>("%SmokeParticles");
+		icon = GetNode<Sprite2D>("%Icon");
+		eyes = GetNode<AnimatedSprite2D>("%Eyes");
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
+
 
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -40,5 +52,16 @@ public partial class Character : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void PerformDeathSprite() {
+		icon.Hide();
+		eyes.Hide();
+		smokeParticles.Emitting = true;
+	}
+
+	public void ResetSprite() {
+		icon.Show();
+		eyes.Show();
 	}
 }

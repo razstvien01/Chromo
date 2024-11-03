@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://eiw30gr3vxf"]
+[gd_scene load_steps=17 format=4 uid="uid://eiw30gr3vxf"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_0pspl"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_sudu4"]
@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ppy7dfy55u5m" path="res://scenes/Character.tscn" id="3_bu8ox"]
 [ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="4_rq1ob"]
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="5_bp3he"]
-[ext_resource type="PackedScene" uid="uid://cudojfv8acq6d" path="res://scenes/WaterArea.tscn" id="6_udsyd"]
+[ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="6_udsyd"]
 [ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="7_7lscq"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="8_votbd"]
-[ext_resource type="PackedScene" uid="uid://gmmrhjhr3prg" path="res://scenes/ui/GameOver.tscn" id="9_wv1gx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("1_sudu4")
@@ -751,19 +750,6 @@ position = Vector2(1081, 622)
 buttonType = 1
 
 [node name="DoorArea" parent="." instance=ExtResource("8_votbd")]
-
-[node name="GameOverDialog" parent="." instance=ExtResource("9_wv1gx")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1500, 648)
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = -500.0
-offset_right = 1152.0
-offset_bottom = 148.0
-grow_horizontal = 1
-grow_vertical = 1
-size_flags_horizontal = 0
 
 [connection signal="ShowGameOver" from="WaterArea" to="." method="_ShowGameOver"]
 [connection signal="ShowGameOver" from="WaterArea2" to="." method="_ShowGameOver"]

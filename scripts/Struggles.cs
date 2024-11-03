@@ -3,12 +3,15 @@ using System;
 
 public partial class Struggles : Node2D
 {
+	private const int START_XY_POS = 60;
+
 	[Signal]
 	public delegate void NextSceneEventHandler();
-	private GameOverDialog _gameOverDialog;
+	[Signal]
+	public delegate void GameOverEventHandler();
+
 	public override void _Ready()
 	{
-		this._gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
 	}
 
 	public override void _Process(double delta)
@@ -17,13 +20,25 @@ public partial class Struggles : Node2D
 
 	public void _ShowGameOver()
 	{
-		GetTree().CreateTween().TweenProperty(this._gameOverDialog, "position", Vector2.Zero, 1f).SetEase(Tween.EaseType.In);
-
-
+		GD.Print("Struggles: Show Game Over Emitted");
+		EmitSignal(SignalName.GameOver);
 	}
 
 	public void _NextScene()
 	{
 		EmitSignal(SignalName.NextScene);
+	}
+
+	public void ResetLevel() {
+		Character character = GetNode<Character>("Character");
+		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+		Node2D uiControls = GetNode<Node2D>("Controller");
+		Vector2I frameCoords = icon.FrameCoords;
+
+		icon.FrameCoords = new Vector2I(frameCoords.X, 0); //* Resetting color
+		character.Position = new Vector2(START_XY_POS, START_XY_POS); //* will reset the position of the character
+		uiControls.Visible = true;  //* will show again the UI Controls
+
+		character.ResetSprite();
 	}
 }
