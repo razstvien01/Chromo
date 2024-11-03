@@ -10,6 +10,7 @@ public partial class WaterArea : Area2D
 
 	private AudioStreamPlayer sfxPlayer;
 	private Character currentPlayerEntered;
+	private bool isDead = false;
 	public enum WaterType
 	{
 		PURPLE, YELLOW
@@ -24,8 +25,7 @@ public partial class WaterArea : Area2D
 	{
 		if (currentPlayerEntered != null)
 		{
-
-			if (isDiffColor())
+			if (isDiffColor() && !isDead) 
 				_OnBodyEntered(currentPlayerEntered);
 		}
 	}
@@ -54,16 +54,16 @@ public partial class WaterArea : Area2D
 		if (body is Character character)
 		{
 			currentPlayerEntered = null;
+			isDead = false;
 		}
 	}
 
 	public void _OnBodyEntered(Node2D body)
 	{
-
 		if (body is Character character)
 		{
 			currentPlayerEntered = character;
-			Sprite2D icon = currentPlayerEntered.GetNodeOrNull<Sprite2D>("Icon");
+			Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
 			if (icon == null)
 			{
 				GD.Print("Character does not have an 'Icon' node with a Sprite2D.");
@@ -72,12 +72,13 @@ public partial class WaterArea : Area2D
 
 			if (isDiffColor())
 			{
-				currentPlayerEntered.PerformDeathSprite();
+				isDead = true;
+				character.PerformDeathSprite();
 				sfxPlayer.Play();
 
 				Node2D uiControls = GetParent().GetNode<Node2D>("Controller");
 				uiControls.Visible = false;
-
+				
 				EmitSignal(SignalName.ShowGameOver);
 			}
 		}
