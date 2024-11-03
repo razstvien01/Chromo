@@ -7,6 +7,9 @@ public partial class ButtonArea : Area2D
 {
 	[Export]
 	public ButtonType buttonType { get; set; }
+
+	private AudioStreamPlayer sfxPlayer;
+
 	public enum ButtonType
 	{
 		YELLOW, PURPLE
@@ -14,6 +17,7 @@ public partial class ButtonArea : Area2D
 
 	public override void _Ready()
 	{
+		sfxPlayer = GetNode<AudioStreamPlayer>("%SfxPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,6 +29,8 @@ public partial class ButtonArea : Area2D
 	{
 		if (body is CharacterBody2D character)
 		{
+			sfxPlayer.Play();
+
 			Sprite2D icon = character.GetNode<Sprite2D>("Icon");
 
 			if (icon != null)

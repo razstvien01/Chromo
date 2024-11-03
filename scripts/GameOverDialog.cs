@@ -5,8 +5,11 @@ public partial class GameOverDialog : Control
 {
 	private const int INIT_POS_Y = -500;
 	private const int START_XY_POS = 60;
+	private AudioStreamPlayer sfxPlayer;
+
 	public override void _Ready()
 	{
+		sfxPlayer = GetNode<AudioStreamPlayer>("%SfxPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +19,7 @@ public partial class GameOverDialog : Control
 
 	public void _OnYesPressed()
 	{
-		CharacterBody2D character = GetParent().GetNode<CharacterBody2D>("Character");
+		Character character = GetParent().GetNode<Character>("Character");
 		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
 		Node2D uiControls = GetParent().GetNode<Node2D>("Controller");
 		Vector2I frameCoords = icon.FrameCoords;
@@ -25,11 +28,15 @@ public partial class GameOverDialog : Control
 		character.Position = new Vector2(START_XY_POS, START_XY_POS); //* will reset the position of the character
 		Position = new Vector2(0, INIT_POS_Y);  //* hide the button UI
 		uiControls.Visible = true;  //* will show again the UI Controls
+
+		character.ResetSprite();
+		sfxPlayer.Play();
 	}
 
 	public void _OnNoPressed()
 	{
 		// TODO - Go back to the Main Menu
 		GD.Print("No Hello World");
+		sfxPlayer.Play();
 	}
 }

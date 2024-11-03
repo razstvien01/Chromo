@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cudojfv8acq6d"]
+[gd_scene load_steps=3 format=3 uid="uid://5tnwsv10ckq7"]
 
 [ext_resource type="Script" path="res://scripts/WaterArea.cs" id="1_gqcy4"]
+[ext_resource type="AudioStream" uid="uid://5iywdnf4x05f" path="res://assets/Audio/SFX/510814__pablobd__water-drops-on-a-hot-surface.wav" id="2_aumrr"]
 
 [node name="WaterArea" type="Area2D"]
 script = ExtResource("1_gqcy4")
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_aumrr")
 
 [connection signal="body_entered" from="." to="." method="_OnBodyEntered"]

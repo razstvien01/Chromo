@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjuwsjv2auyde"]
+[gd_scene load_steps=4 format=3 uid="uid://cjuwsjv2auyde"]
 
 [ext_resource type="Script" path="res://scripts/ButtonArea.cs" id="1_lyvcp"]
+[ext_resource type="AudioStream" uid="uid://be68raj7c318h" path="res://assets/Audio/SFX/647631__northernelevatorfan16__button_-click_sound.wav" id="2_qb4wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_436qv"]
 size = Vector2(18, 10)
@@ -11,5 +12,9 @@ script = ExtResource("1_lyvcp")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_436qv")
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_qb4wh")
 
 [connection signal="body_entered" from="." to="." method="_OnButtonBodyEntered"]
