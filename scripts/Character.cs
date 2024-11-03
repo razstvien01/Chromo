@@ -38,7 +38,7 @@ public partial class Character : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		
+
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
@@ -47,23 +47,26 @@ public partial class Character : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
-		
+
 		Rotation += direction.X * (float)RotationSpeed * (float)delta;
 
 		Velocity = velocity;
 		MoveAndSlide();
 	}
 
-	public void PerformDeathSprite() {
+	public void PerformDeathSprite()
+	{
 		icon.Hide();
 		eyes.Hide();
 		smokeParticles.Emitting = true;
 	}
 
-	public void ResetSprite() {
+	public void ResetSprite()
+	{
+		Vector2I frameCoords = icon.FrameCoords;
+		icon.FrameCoords = new Vector2I(frameCoords.X, 0); //* Resetting color
+		
 		icon.Show();
 		eyes.Show();
-		
-		// TODO: Reset color here
 	}
 }

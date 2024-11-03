@@ -11,3 +11,4 @@ unique_name_in_owner = true
 stream = ExtResource("2_aumrr")
 
 [connection signal="body_entered" from="." to="." method="_OnBodyEntered"]
+[connection signal="body_exited" from="." to="." method="_OnBodyExited"]

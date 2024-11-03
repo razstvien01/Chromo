@@ -9,7 +9,9 @@ public partial class Struggles : Node2D
 	public delegate void NextSceneEventHandler();
 	[Signal]
 	public delegate void GameOverEventHandler();
-
+	
+	Character character;
+	
 	public override void _Ready()
 	{
 		foreach (Node child in GetChildren())
@@ -19,6 +21,9 @@ public partial class Struggles : Node2D
             child?.Connect("ShowGameOver", Callable.From(_ShowGameOver));
         }
 		}
+		
+		character = GetNode<Character>("Character");
+		character.ResetSprite();
 	}
 
 	public override void _Process(double delta)
@@ -38,12 +43,9 @@ public partial class Struggles : Node2D
 
 	public void ResetLevel()
 	{
-		Character character = GetNode<Character>("Character");
-		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+		character = GetNode<Character>("Character");
 		Node2D uiControls = GetNode<Node2D>("Controller");
-		Vector2I frameCoords = icon.FrameCoords;
-
-		icon.FrameCoords = new Vector2I(frameCoords.X, 0); //* Resetting color
+		
 		character.Position = new Vector2(START_XY_POS, START_XY_POS); //* will reset the position of the character
 		uiControls.Visible = true;  //* will show again the UI Controls
 

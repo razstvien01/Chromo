@@ -72,9 +72,7 @@ public partial class Game : Node2D
 		if (currentInstance != null)
 		{
 			RemoveChild(currentInstance);
-			currentInstance.QueueFree(); //! ERROR: Removing a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Remove with call_deferred() instead. at: _notification (scene/2d/physics/collision_object_2d.cpp:98)
-
-			// CallDeferred(nameof(RemoveOldScene)); 
+			currentInstance.QueueFree();
 		}
 
 		currentScene = (PackedScene)ResourceLoader.Load(scenePaths[index]);
@@ -82,12 +80,9 @@ public partial class Game : Node2D
 		{
 			currentInstance = currentScene.Instantiate<Struggles>();
 			AddChild(currentInstance);
-
-			// Use deferred call for MoveChild as well
+			
 			// * Make Sure the Scene is behind all of Game's Scenes
-			MoveChild(currentInstance, 0); //! ERROR: Can't change this state while flushing queries. Use call_deferred() or set_deferred() to change monitoring state instead. at: (servers/physics_2d/godot_physics_server_2d.cpp:355)
-
-			// CallDeferred(nameof(PlaceCurrentInstance));
+			MoveChild(currentInstance, 0);
 
 			// Connect signals
 			currentInstance.Connect(nameof(Struggles.GameOver), Callable.From(OnGameOver));
@@ -136,7 +131,8 @@ public partial class Game : Node2D
 
 		if (newIcon != null && icon != null)
 		{
-			newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, icon.FrameCoords.Y) : new Vector2I(icon.FrameCoords.X, icon.FrameCoords.Y);
+			newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, 0) : new Vector2I(icon.FrameCoords.X, 0);
+			
 		}
 	}
 }
