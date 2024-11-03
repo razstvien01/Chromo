@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bdkvdpo5bne1a"]
+[gd_scene load_steps=16 format=4 uid="uid://bdkvdpo5bne1a"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_gcmyl"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_mxq3e"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="6_edten"]
 [ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="8_bejqd"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="9_i72y7"]
-[ext_resource type="PackedScene" uid="uid://gmmrhjhr3prg" path="res://scenes/ui/GameOver.tscn" id="10_a4jlu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("2_mxq3e")
@@ -733,18 +732,3 @@ position = Vector2(1081, 622)
 buttonType = 1
 
 [node name="DoorArea" parent="." instance=ExtResource("9_i72y7")]
-
-[node name="GameOverDialog" parent="." instance=ExtResource("10_a4jlu")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1500, 648)
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = -500.0
-offset_right = 1152.0
-offset_bottom = 148.0
-grow_horizontal = 1
-grow_vertical = 1
-size_flags_horizontal = 0
-
-[connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]

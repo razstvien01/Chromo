@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://gmmrhjhr3prg"]
+[gd_scene load_steps=4 format=3 uid="uid://gmmrhjhr3prg"]
 
 [ext_resource type="Script" path="res://scripts/GameOverDialog.cs" id="1_sj3av"]
+[ext_resource type="AudioStream" uid="uid://dxu6re7hqclx2" path="res://assets/Audio/SFX/159408__noirenex__life-lost-game-over.wav" id="2_0r4av"]
 [ext_resource type="AudioStream" uid="uid://b6d66qg3d4f5m" path="res://assets/Audio/SFX/342200__christopherderp__videogame-menu-button-click.wav" id="2_awfhs"]
 
 [node name="GameOverDialog" type="Control"]
@@ -57,6 +58,10 @@ text = "YES?"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "NO?"
+
+[node name="LoseSfxPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_0r4av")
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

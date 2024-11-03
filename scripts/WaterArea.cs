@@ -60,7 +60,6 @@ public partial class WaterArea : Area2D
 				uiControls.Visible = false;
 				
 				EmitSignal(SignalName.ShowGameOver);
-
 			}
 		}
 	}

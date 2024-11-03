@@ -1,13 +1,21 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public partial class Game : Node2D
 {
+	private const int GAME_OVER_DIALOG_INIT_POS_Y = -500;
+	public enum AudioEnum {
+		GameOver = 0,
+		Level = 1
+	}
+
 	private PackedScene currentScene;
-	private Node2D currentInstance;
+	private Struggles currentInstance;
 	private int currentIndex = 0;
 	private AudioStreamPlayer bgAudioPlayer;
+	private GameOverDialog _gameOverDialog;
 
 	private List<string> scenePaths = new List<string>
 	{
@@ -17,6 +25,7 @@ public partial class Game : Node2D
 
 	private List<string> audio = new List<string>
 	{
+		"res://assets/Audio/BG/731713__antenalosmusic__sinister-instrumental-music.wav",
 		"res://assets/Audio/BG/670039__seth_makes_sounds__chill-background-music.wav"
 	};
 
@@ -25,8 +34,34 @@ public partial class Game : Node2D
 	public override void _Ready()
 	{
 		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
+		_gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
+
+		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 		
 		LoadScene(currentIndex);
+	}
+
+	private void OnGameOverDialogPressed(bool yesClicked) 
+	{
+		if(yesClicked) {
+			ChangeBgm(AudioEnum.Level);
+			currentInstance.ResetLevel();
+		}
+
+		_gameOverDialog.Position = new Vector2(0, GAME_OVER_DIALOG_INIT_POS_Y);  //* hide the button UI
+	}
+
+	private void OnGameOver() {
+		GD.Print("Game: Show Game Over Received");
+		_gameOverDialog.ShowFromAbove();
+		ChangeBgm(AudioEnum.GameOver);
+	}
+
+	private void ChangeBgm(AudioEnum audioEnum) 
+	{
+		AudioStream newBg = ResourceLoader.Load<AudioStream>(audio[(int)audioEnum]);
+		bgAudioPlayer.Stream = newBg;
+		bgAudioPlayer.Play();
 	}
 
 	private void LoadScene(int index)
@@ -37,22 +72,23 @@ public partial class Game : Node2D
 			currentInstance.QueueFree();
 		}
 
-
 		currentScene = (PackedScene)ResourceLoader.Load(scenePaths[index]);
 		if (currentScene != null)
 		{
 			// * Add new current scene
-			currentInstance = currentScene.Instantiate<Node2D>();
+			currentInstance = currentScene.Instantiate<Struggles>();
 			AddChild(currentInstance);
+			
+			// * Make Sure the Scene is behind all of Game's Scenes
+			MoveChild(currentInstance, 0);
+
+			currentInstance.Connect(nameof(Struggles.GameOver), Callable.From(OnGameOver));
 
 			// * Connect door area signal
 			Area2D doorArea = currentInstance.GetNode<DoorArea>("DoorArea");
 			doorArea?.Connect("NextScene", Callable.From(_NextScene));
 
-			//Play Audio
-			AudioStream newBg = ResourceLoader.Load<AudioStream>(audio[0]);
-			bgAudioPlayer.Stream = newBg;
-			bgAudioPlayer.Play();
+			ChangeBgm(AudioEnum.Level);
 		}
 		else
 		{
