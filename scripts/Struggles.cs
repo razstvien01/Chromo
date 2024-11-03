@@ -12,6 +12,13 @@ public partial class Struggles : Node2D
 
 	public override void _Ready()
 	{
+		foreach (Node child in GetChildren())
+		{
+			if (child.Name.ToString().Contains("Water") && child.HasSignal("ShowGameOver"))
+        {
+            child?.Connect("ShowGameOver", Callable.From(_ShowGameOver));
+        }
+		}
 	}
 
 	public override void _Process(double delta)
@@ -29,7 +36,8 @@ public partial class Struggles : Node2D
 		EmitSignal(SignalName.NextScene);
 	}
 
-	public void ResetLevel() {
+	public void ResetLevel()
+	{
 		Character character = GetNode<Character>("Character");
 		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
 		Node2D uiControls = GetNode<Node2D>("Controller");

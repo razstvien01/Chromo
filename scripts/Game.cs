@@ -6,7 +6,8 @@ using System.Diagnostics;
 public partial class Game : Node2D
 {
 	private const int GAME_OVER_DIALOG_INIT_POS_Y = -500;
-	public enum AudioEnum {
+	public enum AudioEnum
+	{
 		GameOver = 0,
 		Level = 1
 	}
@@ -37,13 +38,14 @@ public partial class Game : Node2D
 		_gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
 
 		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
-		
+
 		LoadScene(currentIndex);
 	}
 
-	private void OnGameOverDialogPressed(bool yesClicked) 
+	private void OnGameOverDialogPressed(bool yesClicked)
 	{
-		if(yesClicked) {
+		if (yesClicked)
+		{
 			ChangeBgm(AudioEnum.Level);
 			currentInstance.ResetLevel();
 		}
@@ -51,13 +53,14 @@ public partial class Game : Node2D
 		_gameOverDialog.Position = new Vector2(0, GAME_OVER_DIALOG_INIT_POS_Y);  //* hide the button UI
 	}
 
-	private void OnGameOver() {
+	private void OnGameOver()
+	{
 		GD.Print("Game: Show Game Over Received");
 		_gameOverDialog.ShowFromAbove();
 		ChangeBgm(AudioEnum.GameOver);
 	}
 
-	private void ChangeBgm(AudioEnum audioEnum) 
+	private void ChangeBgm(AudioEnum audioEnum)
 	{
 		AudioStream newBg = ResourceLoader.Load<AudioStream>(audio[(int)audioEnum]);
 		bgAudioPlayer.Stream = newBg;
@@ -69,22 +72,26 @@ public partial class Game : Node2D
 		if (currentInstance != null)
 		{
 			RemoveChild(currentInstance);
-			currentInstance.QueueFree();
+			currentInstance.QueueFree(); //! ERROR: Removing a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Remove with call_deferred() instead. at: _notification (scene/2d/physics/collision_object_2d.cpp:98)
+
+			// CallDeferred(nameof(RemoveOldScene)); 
 		}
 
 		currentScene = (PackedScene)ResourceLoader.Load(scenePaths[index]);
 		if (currentScene != null)
 		{
-			// * Add new current scene
 			currentInstance = currentScene.Instantiate<Struggles>();
 			AddChild(currentInstance);
-			
-			// * Make Sure the Scene is behind all of Game's Scenes
-			MoveChild(currentInstance, 0);
 
+			// Use deferred call for MoveChild as well
+			// * Make Sure the Scene is behind all of Game's Scenes
+			MoveChild(currentInstance, 0); //! ERROR: Can't change this state while flushing queries. Use call_deferred() or set_deferred() to change monitoring state instead. at: (servers/physics_2d/godot_physics_server_2d.cpp:355)
+
+			// CallDeferred(nameof(PlaceCurrentInstance));
+
+			// Connect signals
 			currentInstance.Connect(nameof(Struggles.GameOver), Callable.From(OnGameOver));
 
-			// * Connect door area signal
 			Area2D doorArea = currentInstance.GetNode<DoorArea>("DoorArea");
 			doorArea?.Connect("NextScene", Callable.From(_NextScene));
 
@@ -95,6 +102,18 @@ public partial class Game : Node2D
 			GD.PrintErr($"Failed to load scene at path: {scenePaths[index]}");
 		}
 	}
+
+	private void RemoveOldScene()
+	{
+		RemoveChild(currentInstance);
+		currentInstance.QueueFree();
+	}
+
+	private void PlaceCurrentInstance()
+	{
+		MoveChild(currentInstance, 0);
+	}
+
 
 	public void _OnNewSceneReady()
 	{
