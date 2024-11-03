@@ -72,7 +72,7 @@ region = Rect2(48, 0, 48, 48)
 offsets = PackedFloat32Array(0, 0.996296, 1)
 colors = PackedColorArray(0.5166, 0.63, 0.5544, 1, 0.4256, 0.56, 0.46592, 0.341176, 0.4256, 0.56, 0.46592, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqokn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nobl5"]
 texture = ExtResource("1_s6ty6")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
@@ -180,7 +180,6 @@ texture_region_size = Vector2i(48, 48)
 5:1/0/terrain_set = 0
 5:1/0/terrain = 0
 5:1/0/terrains_peering_bit/bottom_side = 0
-5:1/0/terrains_peering_bit/top_side = 0
 6:1/0 = 0
 6:1/0/terrain_set = 0
 6:1/0/terrain = 0
@@ -526,7 +525,7 @@ terrain_set_0/terrain_0/name = "WallContents"
 terrain_set_0/terrain_0/color = Color(0.0867, 0.51, 0.488835, 1)
 terrain_set_0/terrain_1/name = "Puddles"
 terrain_set_0/terrain_1/color = Color(0.583019, 0.244023, 0.79721, 1)
-sources/1 = SubResource("TileSetAtlasSource_wqokn")
+sources/1 = SubResource("TileSetAtlasSource_nobl5")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkihs"]
 atlas = ExtResource("4_pyvkg")
