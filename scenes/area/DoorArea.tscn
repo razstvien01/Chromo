@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://42saj7mmjk7x"]
+[gd_scene load_steps=5 format=3 uid="uid://42saj7mmjk7x"]
 
 [ext_resource type="Script" path="res://scripts/DoorArea.cs" id="1_qyi2x"]
+[ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="2_ak35u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fbp"]
+atlas = ExtResource("2_ak35u")
+region = Rect2(0, 48, 48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcheo"]
 size = Vector2(25, 43)
@@ -8,6 +13,17 @@ size = Vector2(25, 43)
 [node name="DoorArea" type="Area2D"]
 position = Vector2(837, 502)
 script = ExtResource("1_qyi2x")
+
+[node name="ExitIndicator" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1)
+amount = 3
+randomness = 0.7
+texture = SubResource("AtlasTexture_05fbp")
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+color = Color(0.99, 0.99, 0.99, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dcheo")
