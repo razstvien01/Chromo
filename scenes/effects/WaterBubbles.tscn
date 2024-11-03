@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://clurtyg7b5jbh"]
+
+[ext_resource type="Texture2D" uid="uid://dfdr3e0hyuncq" path="res://assets/Tilemaps/FloatingCells.png" id="1_nhmd8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv0kb"]
+atlas = ExtResource("1_nhmd8")
+region = Rect2(0, 0, 48, 48)
+
+[node name="WaterBubbles" type="CPUParticles2D"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(749, 387)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_cv0kb")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
