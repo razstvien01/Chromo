@@ -3,7 +3,7 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-	public const float Speed = 300.0f;
+	public const float Speed = 270.0f;
 	public const float JumpVelocity = -420.0f;
 	private const double RotationSpeed = Math.PI * 1.5;
 
