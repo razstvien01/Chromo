@@ -7,16 +7,25 @@ public partial class Game : Node2D
 	private PackedScene currentScene;
 	private Node2D currentInstance;
 	private int currentIndex = 0;
+	private AudioStreamPlayer bgAudioPlayer;
 
 	private List<string> scenePaths = new List<string>
 	{
 		"res://scenes/stages/Tutorial.tscn",
 		"res://scenes/stages/Stage_1.tscn"
 	};
+
+	private List<string> audio = new List<string>
+	{
+		"res://assets/Audio/BG/670039__seth_makes_sounds__chill-background-music.wav"
+	};
+
 	private const string DOOR_AREA_PATH = "scenes\\area\\DoorArea.tscn";
 
 	public override void _Ready()
 	{
+		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
+		
 		LoadScene(currentIndex);
 	}
 
@@ -40,6 +49,10 @@ public partial class Game : Node2D
 			Area2D doorArea = currentInstance.GetNode<DoorArea>("DoorArea");
 			doorArea?.Connect("NextScene", Callable.From(_NextScene));
 
+			//Play Audio
+			AudioStream newBg = ResourceLoader.Load<AudioStream>(audio[0]);
+			bgAudioPlayer.Stream = newBg;
+			bgAudioPlayer.Play();
 		}
 		else
 		{
