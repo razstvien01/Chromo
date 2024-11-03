@@ -63,5 +63,7 @@ public partial class Character : CharacterBody2D
 	public void ResetSprite() {
 		icon.Show();
 		eyes.Show();
+		
+		// TODO: Reset color here
 	}
 }
