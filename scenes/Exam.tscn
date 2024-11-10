@@ -95,7 +95,7 @@ theme_override_font_sizes/font_size = 30
 text = "What is the function of the centromere in a chromosome?"
 autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Picture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 4
@@ -125,19 +125,19 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 100
 
-[node name="OptionA" type="Button" parent="OptionContainer"]
+[node name="Option1" type="Button" parent="OptionContainer"]
 layout_mode = 2
 text = "A) It divides DNA molecules."
 
-[node name="OptionB" type="Button" parent="OptionContainer"]
+[node name="Option2" type="Button" parent="OptionContainer"]
 layout_mode = 2
 text = "B) It links sister chromatids and is essential for their separation during cell division."
 
-[node name="OptionC" type="Button" parent="OptionContainer"]
+[node name="Option3" type="Button" parent="OptionContainer"]
 layout_mode = 2
 text = "C) It initiates DNA replication."
 
-[node name="OptionD" type="Button" parent="OptionContainer"]
+[node name="Option4" type="Button" parent="OptionContainer"]
 layout_mode = 2
 text = "D) It serves as the chromosome's primary structural unit."
 
