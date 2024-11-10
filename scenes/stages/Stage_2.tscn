@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bwiq24jss2f7v"]
+[gd_scene load_steps=20 format=4 uid="uid://bwiq24jss2f7v"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_1s1r3"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_j5pkl"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="6_ffskd"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="7_a2fhh"]
 [ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="8_0sqc1"]
+[ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="9_sl8ce"]
+[ext_resource type="Texture2D" uid="uid://dfdr3e0hyuncq" path="res://assets/Tilemaps/FloatingCells.png" id="10_k4arf"]
 [ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="11_yqwv8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
@@ -69,6 +71,14 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "BG"
 terrain_set_0/terrain_0/color = Color(0.3422, 0.58, 0.476953, 1)
 sources/0 = SubResource("TileSetAtlasSource_l6ag7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j3ub"]
+atlas = ExtResource("10_k4arf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42j56"]
+atlas = ExtResource("10_k4arf")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8w8lw"]
 texture = ExtResource("4_feywe")
@@ -200,7 +210,7 @@ tile_set = SubResource("TileSet_juijn")
 
 [node name="PlatformTilemap" type="TileMapLayer" parent="."]
 position = Vector2(1, 0)
-tile_map_data = PackedByteArray("AAAAAA0AAQAHAAEAAAAAAAwAAQAEAAIAAAAAAAsAAQAEAAIAAAAAAAoAAQACAAQAAAAAAAkAAQACAAEAAAAAAAgAAQACAAEAAAAAAAcAAQACAAEAAAAAAAYAAQACAAEAAAAAAAUAAQACAAEAAAAAAAQAAQACAAEAAAAAAAMAAQACAAEAAAAAAAIAAQACAAEAAAAAAAEAAQACAAEAAAAAAAAAAQAAAAAAAAAXAAAAAQACAAAAAAAWAAAAAQACAAAAAAAVAAAAAQACAAAAAAAUAAAAAQACAAAAAAATAAAAAQACAAAAAAASAAAAAQACAAAAAAARAAAAAQACAAAAAAAQAAAAAQACAAAAAAAPAAAAAQACAAAAAAAOAAAAAQACAAAAAAANAAAAAQACAAAAAAAMAAAAAQACAAAAAAALAAAAAQACAAAAAAAKAAAAAQACAAAAAAAJAAAAAQACAAAAAAAIAAAAAQACAAAAAAAHAAAAAQACAAAAAAAGAAAAAQACAAAAAAACAAAAAQADAAAAAAABAAAAAQACAAAAAAAXAA0AAQAFAAMAAAASAA0AAQAFAAMAAAARAA0AAQAFAAMAAAAQAA0AAQAFAAMAAAAPAA0AAQAFAAMAAAAOAA0AAQAFAAMAAAAHAA0AAQAFAAMAAAADAA0AAQAFAAMAAAAYAAAAAQACAAAAAAAZAAAAAQACAAAAAAAaAAAAAQACAAAAAAAZAA0AAQAFAAMAAAAYAA0AAQAFAAMAAAAbAAAAAQACAAAAAAAcAAAAAQACAAAAAAAdAAAAAQACAAAAAAAeAAAAAQACAAAAAAAfAAAAAQABAAAAAAAfAAEAAQACAAEAAAAfAAIAAQADAAQAAAAfAAMAAQAFAAIAAAAfAAQAAQAFAAIAAAAfAAUAAQAFAAIAAAAfAAYAAQADAAUAAAAfAAgAAQACAAEAAAAfAAkAAQADAAQAAAAfAAoAAQAFAAIAAAAfAAsAAQAFAAIAAAAfAA0AAQAIAAEAAAAeAA0AAQAFAAMAAAADAAAAAQACAAAAAAAEAAAAAQACAAAAAAAFAAAAAQACAAAAAAAfAAcAAQACAAEAAAAHAAwAAQAGAAIAAAAPAAwAAQAGAAIAAAAQAAwAAQAGAAIAAAARAAwAAQAGAAIAAAASAAwAAQAGAAIAAAAZAAwAAQAGAAIAAAAYAAwAAQAGAAIAAAAXAAwAAQAGAAIAAAADAAwAAQAGAAIAAAAfAAwAAQAFAAIAAAANAA0AAQAFAAMAAAAIAA0AAQAFAAMAAAAGAA0AAQAFAAMAAAAFAA0AAQAFAAMAAAAEAA0AAQAFAAMAAAACAA0AAQAFAAMAAAABAA0AAQAFAAMAAAAMAA0AAQAFAAMAAAALAA0AAQAFAAMAAAAKAA0AAQAFAAMAAAAJAA0AAQAFAAMAAAAdAA0AAQAFAAMAAAAcAA0AAQAFAAMAAAAbAA0AAQAFAAMAAAAaAA0AAQAFAAMAAAAWAA0AAQAFAAMAAAAVAA0AAQAFAAMAAAAUAA0AAQAFAAMAAAATAA0AAQAFAAMAAAAeAAoAAQABAAMAAAAeAAsAAQAGAAIAAAAeAAwAAQAGAAIAAAALAAoAAQAGAAIAAAAMAAoAAQAGAAIAAAANAAoAAQAGAAIAAAAOAAoAAQAGAAIAAAAPAAoAAQAGAAIAAAAQAAoAAQAGAAIAAAARAAoAAQAGAAIAAAASAAoAAQAFAAIAAAAVAAoAAQACAAQAAAAWAAoAAQAEAAMAAAAXAAoAAQAEAAMAAAAYAAoAAQADAAIAAAAZAAoAAQAEAAMAAAAaAAoAAQAEAAMAAAAbAAoAAQADAAIAAAAcAAoAAQAEAAMAAAAdAAoAAQAEAAMAAAAKAAoAAQABAAMAAAAJAAoAAQAEAAMAAAAIAAoAAQAEAAMAAAAHAAoAAQAEAAMAAAAGAAoAAQAEAAMAAAAFAAoAAQAEAAMAAAAEAAoAAQAEAAMAAAADAAoAAQAEAAMAAAACAAoAAQAEAAMAAAABAAoAAQAEAAMAAAABAAwAAQAGAAIAAAABAAsAAQAGAAIAAAAPAAsAAQAGAAIAAAAOAAsAAQAGAAIAAAANAAsAAQAGAAIAAAAMAAsAAQAGAAIAAAALAAsAAQAGAAIAAAAKAAsAAQAGAAIAAAAJAAsAAQAGAAIAAAAIAAsAAQAGAAIAAAAHAAsAAQAGAAIAAAAGAAsAAQAGAAIAAAAFAAsAAQAGAAIAAAAEAAsAAQAGAAIAAAADAAsAAQAGAAIAAAACAAsAAQAGAAIAAAAdAAwAAQAGAAIAAAAdAAsAAQAGAAIAAAAcAAwAAQAGAAIAAAAcAAsAAQAGAAIAAAAbAAwAAQAGAAIAAAAbAAsAAQAGAAIAAAAaAAwAAQAGAAIAAAAaAAsAAQAGAAIAAAAZAAsAAQAGAAIAAAAYAAsAAQAGAAIAAAAXAAsAAQAGAAIAAAAWAAwAAQAGAAIAAAAWAAsAAQAGAAIAAAAVAAwAAQAGAAIAAAAVAAsAAQABAAMAAAAUAAwAAQAGAAIAAAAUAAsAAQAEAAMAAAATAAwAAQAGAAIAAAATAAsAAQAEAAMAAAASAAsAAQAAAAMAAAARAAsAAQAGAAIAAAAQAAsAAQAGAAIAAAAOAAwAAQAGAAIAAAANAAwAAQAGAAIAAAAMAAwAAQAGAAIAAAALAAwAAQAGAAIAAAAKAAwAAQAGAAIAAAAJAAwAAQAGAAIAAAAIAAwAAQAGAAIAAAAGAAwAAQAGAAIAAAAFAAwAAQAGAAIAAAAEAAwAAQAGAAIAAAACAAwAAQAGAAIAAAACAAEAAQACAAEAAAACAAIAAQACAAEAAAACAAMAAQACAAEAAAACAAQAAQADAAEAAAACAAUAAQACAAEAAAACAAYAAQACAAEAAAACAAcAAQACAAEAAAALAAkAAQAGAAIAAAAMAAkAAQAGAAIAAAANAAkAAQAGAAIAAAARAAkAAQAAAAMAAAAQAAkAAQAGAAIAAAAPAAkAAQAGAAIAAAAKAAkAAQAEAAIAAAAEAAgAAQACAAAAAAACAAgAAQAAAAEAAAAGAAgAAQACAAAAAAAIAAgAAQAFAAAAAAATAAYAAQAGAAEAAAAVAAYAAQACAAAAAAAWAAYAAQACAAAAAAAXAAYAAQACAAAAAAAYAAYAAQACAAAAAAAGAAQAAQABAAAAAAAFAAQAAQACAAAAAAAEAAQAAQACAAAAAAADAAQAAQACAAAAAAAHAAIAAQAGAAEAAAAIAAIAAQACAAAAAAAJAAIAAQACAAAAAAAKAAIAAQACAAAAAAALAAIAAQACAAAAAAAMAAIAAQACAAAAAAANAAIAAQACAAAAAAAOAAIAAQACAAAAAAAPAAIAAQACAAAAAAAQAAIAAQACAAAAAAARAAIAAQACAAAAAAASAAIAAQACAAAAAAATAAIAAQACAAAAAAAUAAIAAQABAAAAAAAVAAMAAQAIAAAAAAAUAAYAAQAEAAAAAAAZAAYAAQAEAAUAAAAaAAYAAQAFAAUAAAAbAAYAAQACAAAAAAAcAAYAAQAEAAAAAAAdAAYAAQACAAAAAAAeAAYAAQAEAAUAAAAaAAUAAQAIAAAAAAAcAAUAAQACAAEAAAAcAAQAAQACAAEAAAAcAAMAAQAFAAEAAAAeAAUAAQAEAAIAAAAeAAQAAQAEAAIAAAAeAAMAAQAEAAIAAAAeAAIAAQAHAAAAAAAVAAkAAQAFAAEAAAAYAAkAAQAFAAEAAAAbAAkAAQAFAAEAAAAHAAUAAQAFAAAAAAAGAAUAAQAAAAEAAAAZAAUAAQAHAAAAAAAUAAUAAQACAAEAAAAUAAMAAQACAAQAAAAUAAQAAQACAAUAAAAVAAQAAQAFAAUAAAAWAAQAAQAFAAAAAAAeAAkAAQAHAAAAAAANAAgAAQAEAAMAAAAQAAgAAQAEAAMAAAAKAAgAAQAHAAAAAAARAAgAAQAIAAAAAAAOAAkAAQAGAAIAAAADAAgAAQALAAIAAAAFAAgAAQALAAIAAAAHAAgAAQALAAIAAAALAAgAAQAKAAMAAAAMAAgAAQALAAMAAAAOAAgAAQAKAAMAAAAPAAgAAQALAAMAAAASAAkAAQAIAAAAAAAQAAUAAQAGAAMAAAANAAUAAQAGAAMAAAAKAAUAAQAGAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAA0AAQAHAAEAAAAAAAwAAQAEAAIAAAAAAAsAAQAEAAIAAAAAAAoAAQACAAQAAAAAAAkAAQACAAEAAAAAAAgAAQACAAEAAAAAAAcAAQACAAEAAAAAAAYAAQACAAEAAAAAAAUAAQACAAEAAAAAAAQAAQACAAEAAAAAAAMAAQACAAEAAAAAAAIAAQACAAEAAAAAAAEAAQACAAEAAAAAAAAAAQAAAAAAAAAXAAAAAQACAAAAAAAWAAAAAQACAAAAAAAVAAAAAQACAAAAAAAUAAAAAQACAAAAAAATAAAAAQACAAAAAAASAAAAAQACAAAAAAARAAAAAQACAAAAAAAQAAAAAQACAAAAAAAPAAAAAQACAAAAAAAOAAAAAQACAAAAAAANAAAAAQACAAAAAAAMAAAAAQACAAAAAAALAAAAAQACAAAAAAAKAAAAAQACAAAAAAAJAAAAAQACAAAAAAAIAAAAAQACAAAAAAAHAAAAAQACAAAAAAAGAAAAAQACAAAAAAACAAAAAQADAAAAAAABAAAAAQACAAAAAAAXAA0AAQAFAAMAAAASAA0AAQAFAAMAAAARAA0AAQAFAAMAAAAQAA0AAQAFAAMAAAAPAA0AAQAFAAMAAAAOAA0AAQAFAAMAAAAHAA0AAQAFAAMAAAADAA0AAQAFAAMAAAAYAAAAAQACAAAAAAAZAAAAAQACAAAAAAAaAAAAAQACAAAAAAAZAA0AAQAFAAMAAAAYAA0AAQAFAAMAAAAbAAAAAQACAAAAAAAcAAAAAQACAAAAAAAdAAAAAQACAAAAAAAeAAAAAQACAAAAAAAfAAAAAQABAAAAAAAfAAEAAQACAAEAAAAfAAIAAQADAAQAAAAfAAMAAQAFAAIAAAAfAAQAAQAFAAIAAAAfAAUAAQAFAAIAAAAfAAYAAQADAAUAAAAfAAgAAQACAAEAAAAfAAkAAQADAAQAAAAfAAoAAQAFAAIAAAAfAAsAAQAFAAIAAAAfAA0AAQAIAAEAAAAeAA0AAQAFAAMAAAADAAAAAQACAAAAAAAEAAAAAQACAAAAAAAFAAAAAQACAAAAAAAfAAcAAQACAAEAAAAHAAwAAQAGAAIAAAAPAAwAAQAGAAIAAAAQAAwAAQAGAAIAAAARAAwAAQAGAAIAAAASAAwAAQAGAAIAAAAZAAwAAQAGAAIAAAAYAAwAAQAGAAIAAAAXAAwAAQAGAAIAAAADAAwAAQAGAAIAAAAfAAwAAQAFAAIAAAANAA0AAQAFAAMAAAAIAA0AAQAFAAMAAAAGAA0AAQAFAAMAAAAFAA0AAQAFAAMAAAAEAA0AAQAFAAMAAAACAA0AAQAFAAMAAAABAA0AAQAFAAMAAAAMAA0AAQAFAAMAAAALAA0AAQAFAAMAAAAKAA0AAQAFAAMAAAAJAA0AAQAFAAMAAAAdAA0AAQAFAAMAAAAcAA0AAQAFAAMAAAAbAA0AAQAFAAMAAAAaAA0AAQAFAAMAAAAWAA0AAQAFAAMAAAAVAA0AAQAFAAMAAAAUAA0AAQAFAAMAAAATAA0AAQAFAAMAAAAeAAoAAQABAAMAAAAeAAsAAQAGAAIAAAAeAAwAAQAGAAIAAAALAAoAAQAGAAIAAAAMAAoAAQAGAAIAAAANAAoAAQAGAAIAAAAOAAoAAQAGAAIAAAAPAAoAAQAGAAIAAAAQAAoAAQAGAAIAAAARAAoAAQAGAAIAAAASAAoAAQAFAAIAAAAVAAoAAQACAAEAAAAYAAoAAQACAAQAAAAbAAoAAQADAAIAAAAKAAoAAQABAAMAAAAJAAoAAQAEAAMAAAAIAAoAAQAEAAMAAAAHAAoAAQAEAAMAAAAGAAoAAQAEAAMAAAAFAAoAAQAEAAMAAAAEAAoAAQAEAAMAAAADAAoAAQAEAAMAAAACAAoAAQAEAAMAAAABAAoAAQAEAAMAAAABAAwAAQAGAAIAAAABAAsAAQAGAAIAAAAPAAsAAQAGAAIAAAAOAAsAAQAGAAIAAAANAAsAAQAGAAIAAAAMAAsAAQAGAAIAAAALAAsAAQAGAAIAAAAKAAsAAQAGAAIAAAAJAAsAAQAGAAIAAAAIAAsAAQAGAAIAAAAHAAsAAQAGAAIAAAAGAAsAAQAGAAIAAAAFAAsAAQAGAAIAAAAEAAsAAQAGAAIAAAADAAsAAQAGAAIAAAACAAsAAQAGAAIAAAAdAAwAAQAGAAIAAAAdAAsAAQAGAAIAAAAcAAwAAQAGAAIAAAAcAAsAAQAGAAIAAAAbAAwAAQAGAAIAAAAbAAsAAQAGAAIAAAAaAAwAAQAGAAIAAAAaAAsAAQAGAAIAAAAZAAsAAQAGAAIAAAAYAAsAAQABAAMAAAAWAAwAAQAGAAIAAAAVAAwAAQAGAAIAAAAVAAsAAQADAAIAAAAUAAwAAQAGAAIAAAATAAwAAQAGAAIAAAASAAsAAQAAAAMAAAARAAsAAQAGAAIAAAAQAAsAAQAGAAIAAAAOAAwAAQAGAAIAAAANAAwAAQAGAAIAAAAMAAwAAQAGAAIAAAALAAwAAQAGAAIAAAAKAAwAAQAGAAIAAAAJAAwAAQAGAAIAAAAIAAwAAQAGAAIAAAAGAAwAAQAGAAIAAAAFAAwAAQAGAAIAAAAEAAwAAQAGAAIAAAACAAwAAQAGAAIAAAACAAEAAQACAAEAAAACAAIAAQACAAEAAAACAAMAAQACAAEAAAACAAQAAQADAAEAAAACAAUAAQACAAEAAAACAAYAAQACAAEAAAACAAcAAQACAAEAAAALAAkAAQAGAAIAAAAMAAkAAQAGAAIAAAANAAkAAQAGAAIAAAARAAkAAQAAAAMAAAAQAAkAAQAGAAIAAAAPAAkAAQAGAAIAAAAKAAkAAQAEAAIAAAAEAAgAAQACAAAAAAACAAgAAQAAAAEAAAAGAAgAAQACAAAAAAAIAAgAAQAFAAAAAAATAAYAAQAGAAEAAAAVAAYAAQACAAAAAAAWAAYAAQACAAAAAAAXAAYAAQACAAAAAAAYAAYAAQAFAAMAAAAEAAQAAQACAAAAAAADAAQAAQACAAAAAAAHAAIAAQAGAAEAAAAIAAIAAQACAAAAAAAJAAIAAQACAAAAAAAKAAIAAQACAAAAAAALAAIAAQACAAAAAAAMAAIAAQACAAAAAAANAAIAAQACAAAAAAAOAAIAAQACAAAAAAAPAAIAAQACAAAAAAAQAAIAAQACAAAAAAARAAIAAQACAAAAAAAVAAMAAQAIAAAAAAAUAAYAAQAEAAAAAAAZAAYAAQAFAAMAAAAcAAYAAQAEAAAAAAAeAAYAAQAEAAUAAAAcAAUAAQACAAEAAAAcAAQAAQACAAEAAAAeAAUAAQAEAAIAAAAeAAQAAQAEAAIAAAAeAAMAAQAEAAIAAAAeAAIAAQAHAAAAAAAVAAkAAQAFAAEAAAAYAAkAAQAFAAEAAAAbAAkAAQAFAAEAAAAHAAUAAQAFAAAAAAAGAAUAAQAHAAEAAAAUAAUAAQACAAEAAAAUAAMAAQAEAAQAAAAUAAQAAQACAAUAAAAVAAQAAQAFAAUAAAAeAAkAAQAHAAAAAAANAAgAAQAEAAMAAAAQAAgAAQAEAAMAAAAKAAgAAQAHAAAAAAARAAgAAQAIAAAAAAAOAAkAAQAGAAIAAAADAAgAAQALAAIAAAAFAAgAAQALAAIAAAAHAAgAAQALAAIAAAALAAgAAQAKAAMAAAAMAAgAAQALAAMAAAAOAAgAAQAKAAMAAAAPAAgAAQALAAMAAAASAAkAAQAIAAAAAAAQAAUAAQAGAAMAAAANAAUAAQAGAAMAAAAKAAUAAQAGAAMAAAATAAsAAQAKAAMAAAAUAAsAAQALAAMAAAAWAAsAAQAKAAMAAAAXAAsAAQALAAMAAAAZAAoAAQAKAAMAAAAaAAoAAQALAAMAAAAdAAoAAQALAAMAAAAcAAoAAQAKAAMAAAASAAIAAQACAAAAAAATAAMAAQAAAAEAAAATAAIAAQABAAAAAAAcAAMAAQAFAAEAAAAYAAUAAQAKAAMAAAAZAAUAAQAKAAAAAAAaAAUAAQALAAMAAAAaAAYAAQAFAAUAAAAbAAYAAQAKAAEAAAAdAAYAAQAKAAEAAAAWAAQAAQALAAIAAAAGAAQAAQALAAQAAAAFAAQAAQAJAAIAAAA=")
 tile_set = ExtResource("4_6vxur")
 
 [node name="Character" parent="." instance=ExtResource("5_midpa")]
@@ -208,14 +218,451 @@ position = Vector2(65, 64)
 
 [node name="Controller" parent="." instance=ExtResource("6_ffskd")]
 
+[node name="PurpleButton" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(217, 381)
+buttonType = 1
+
+[node name="PurpleButton2" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(1033, 285)
+buttonType = 1
+
+[node name="PurpleButton3" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(937, 525)
+buttonType = 1
+
+[node name="PurpleButton4" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(985, 525)
+buttonType = 1
+
+[node name="PurpleButton5" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(1321, 429)
+buttonType = 1
+
+[node name="PurpleButton6" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(1177, 429)
+buttonType = 1
+
+[node name="YellowButton" parent="." instance=ExtResource("8_0sqc1")]
+position = Vector2(1465, 429)
+
+[node name="YellowWater" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(291, 193)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater2" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(164, 385)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater2"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-19.821, -1, -19.821, 5.29999, 14.3044, 4.60001, 23.3376, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater2"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 3
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater3" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(258, 386)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater3"]
+position = Vector2(5.00001, -1.99999)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-23.0849, -0.700012, -22.0812, 5.59998, 11.0406, 4.89999, 22.0812, -0.700012)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater3"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater4" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(356, 385)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater4"]
+position = Vector2(0.999992, -0.999991)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-21.0775, -0.700012, -21.0775, 5.59998, 13.048, 5.59998, 23.0849, -0.700012)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater4"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater5" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(963, 529)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater5"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater5"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater6" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1105, 529)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater6"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater6"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater7" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1250, 481)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater7"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater7"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater8" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1397, 480)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater8"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater8"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater9" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1321, 289)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater9"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater9"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="YellowWater10" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1416, 289)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater10"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater10"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, 1)
+amount = 4
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_8j3ub")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PurpleWater" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(578, 385)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PurpleWater"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PurpleWater"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_42j56")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PurpleWater2" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(722, 385)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PurpleWater2"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PurpleWater2"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_42j56")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PurpleWater3" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1074, 193)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PurpleWater3"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-17.8137, -1, -17.8137, 5.3, 17.3154, 5.3, 26.3486, -1)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PurpleWater3"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_42j56")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PurpleWater4" parent="." instance=ExtResource("9_sl8ce")]
+position = Vector2(1229, 241)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PurpleWater4"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-70.0055, -1, -56.9575, 5.3, 54.452, 5.3, 64.4889, -1)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PurpleWater4"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_42j56")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
 [node name="DoorArea" parent="." instance=ExtResource("7_a2fhh")]
 position = Vector2(1467, 73)
 
-[node name="ButtonArea" parent="." instance=ExtResource("8_0sqc1")]
-
 [node name="Interactables" type="TileMapLayer" parent="."]
 position = Vector2(0, -1)
-tile_map_data = PackedByteArray("AAAHAAgAAAAJAAQAAAAFAAgAAAAJAAQAAAADAAgAAAAJAAQAAAALAAgAAAAHAAUAAAAMAAgAAAAJAAUAAAAOAAgAAAAHAAUAAAAPAAgAAAAJAAUAAAAEAAcAAQABAAEAAAAeAAgAAQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAAgAAAAJAAQAAAAFAAgAAAAJAAQAAAADAAgAAAAJAAQAAAALAAgAAAAHAAUAAAAMAAgAAAAJAAUAAAAOAAgAAAAHAAUAAAAPAAgAAAAJAAUAAAAEAAcAAQABAAEAAAAeAAgAAQABAAAAAAATAAsAAAAHAAQAAAAUAAsAAAAJAAQAAAAXAAsAAAAJAAQAAAAaAAoAAAAJAAQAAAAdAAoAAAAJAAQAAAAZAAoAAAAHAAQAAAAcAAoAAAAHAAQAAAAWAAsAAAAHAAQAAAATAAoAAQABAAEAAAAbAAgAAQABAAEAAAAYAAgAAQABAAEAAAAUAAoAAQABAAEAAAAVAAUAAQABAAEAAAAYAAUAAAAHAAUAAAAaAAUAAAAJAAUAAAAZAAUAAAAIAAUAAAAbAAYAAAAIAAQAAAAdAAYAAAAIAAQAAAAWAAQAAAAJAAUAAAAFAAQAAAAHAAQAAAAGAAQAAAAJAAQAAAA=")
 tile_set = SubResource("TileSet_ls32l")
 
 [editable path="Character"]
