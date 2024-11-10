@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="3_p1ble"]
 [ext_resource type="Texture2D" uid="uid://dfdr3e0hyuncq" path="res://assets/Tilemaps/FloatingCells.png" id="4_pyvkg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5l0rp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jb10e"]
 texture = ExtResource("1_8gbh1")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
@@ -62,7 +62,7 @@ tile_size = Vector2i(48, 48)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "BG"
 terrain_set_0/terrain_0/color = Color(0.3422, 0.58, 0.476953, 1)
-sources/0 = SubResource("TileSetAtlasSource_5l0rp")
+sources/0 = SubResource("TileSetAtlasSource_jb10e")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_007mx"]
 atlas = ExtResource("4_pyvkg")
