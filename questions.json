@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "question": "What is the function of the centromere in a chromosome?",
+      "options": ["It divides DNA molecules.", "It links sister chromatids and is essential for their separation during cell division.", "It initiates DNA replication.", "It serves as the chromosome's primary structural unit."],
+      "answer": "It links sister chromatids and is essential for their separation during cell division.",
+      "imgPath": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\chromo_game\\assets\\Exam\\centromere.png"
+    },
+    {
+      "question": "Which part of a chromosome is known as the 'p arm'?",
+      "options": ["The shorter arm of the chromosome, located above the centromere", "The long arm of the chromosome, below the centromere", "The central region of the chromosome", "A region containing repetitive DNA sequences"],
+      "answer": "The shorter arm of the chromosome, located above the centromere",
+      "imgPath": ""
+    },
+    {
+      "question": "What role do chromatids play during cell division?",
+      "options": ["They form the p arm and q arm.", "They duplicate DNA independently of the chromosome.", "They are copies of a chromosome joined together until they separate during mitosis or meiosis.", "They act as binding sites for the centromere."],
+      "answer": "They are copies of a chromosome joined together until they separate during mitosis or meiosis.",
+      "imgPath": ""
+    },
+    {
+      "question": "What distinguishes the q arm of a chromosome from the p arm?",
+      "options": ["It is the shorter arm located above the centromere.", "It is the longer arm, typically below the centromere.", "It has a higher concentration of centromeric DNA.", "It is responsible for initiating DNA synthesis."],
+      "answer": "It is the longer arm, typically below the centromere.",
+      "imgPath": ""
+    },
+    {
+      "question": "Which statement is true regarding the DNA molecule in chromosomes?",
+      "options": ["It is only present in the centromere.", "It forms the double-helix structure within both chromatids.", "It is only found in the q arm.", "It is a single strand found in the chromosome's nucleus."],
+      "answer": "It forms the double-helix structure within both chromatids.",
+      "imgPath": ""
+    },
+    {
+      "question": "During which phase of mitosis do chromatids separate at the centromere?",
+      "options": ["Prophase", "Metaphase", "Anaphase", "Telophase"],
+      "answer": "Anaphase",
+      "imgPath": ""
+    },
+    {
+      "question": "What type of molecule is DNA?",
+      "options": ["Protein", "Nucleic acid", "Carbohydrate", "Lipid"],
+      "answer": "Nucleic acid",
+      "imgPath": ""
+    },
+    {
+      "question": "How many chromatids are present in a chromosome after DNA replication but before cell division?",
+      "options": ["1", "2", "4", "8"],
+      "answer": "2",
+      "imgPath": ""
+    },
+    {
+      "question": "What is the role of the q arm in a chromosome?",
+      "options": ["It attaches to the cell membrane.", "It contains genes that may code for proteins.", "It initiates centromere formation.", "It prevents chromosome replication."],
+      "answer": "It contains genes that may code for proteins.",
+      "imgPath": ""
+    },
+    {
+      "question": "Where is DNA located within a chromosome?",
+      "options": ["Only in the p arm", "Only in the q arm", "In both chromatids", "Only in the centromere"],
+      "answer": "In both chromatids",
+      "imgPath": ""
+    }
+  ]
+}

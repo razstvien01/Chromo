@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://riegklyq8kwd"]
+[gd_scene load_steps=7 format=4 uid="uid://riegklyq8kwd"]
 
 [ext_resource type="Script" path="res://scripts/Exam.cs" id="1_37850"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_cn1lp"]
 [ext_resource type="Texture2D" uid="uid://d002pwmt4xevl" path="res://assets/Exam/centromere.png" id="3_erkbh"]
+[ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="4_6qw5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dagu5"]
 texture = ExtResource("1_cn1lp")
@@ -139,3 +140,5 @@ text = "C) It initiates DNA replication."
 [node name="OptionD" type="Button" parent="OptionContainer"]
 layout_mode = 2
 text = "D) It serves as the chromosome's primary structural unit."
+
+[node name="CellParticles" parent="." instance=ExtResource("4_6qw5h")]
