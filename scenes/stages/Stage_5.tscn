@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cumggjb21ucdl"]
+[gd_scene load_steps=22 format=4 uid="uid://cumggjb21ucdl"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_gylkd"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_tunyg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="7_wxmno"]
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="8_0m3kx"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="9_bpqxr"]
+[ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="10_axdqe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("2_tunyg")
@@ -477,5 +478,20 @@ linear_accel_max = 1.0
 scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="ButtonP" parent="." instance=ExtResource("10_axdqe")]
+position = Vector2(265, 478)
+buttonType = 1
+
+[node name="ButtonP2" parent="." instance=ExtResource("10_axdqe")]
+position = Vector2(1033, 190)
+buttonType = 1
+
+[node name="ButtonP3" parent="." instance=ExtResource("10_axdqe")]
+position = Vector2(1273, 430)
+buttonType = 1
+
+[node name="ButtonY" parent="." instance=ExtResource("10_axdqe")]
+position = Vector2(169, 478)
 
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
