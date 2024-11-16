@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7sbd1at1mgs0"]
+[gd_scene load_steps=17 format=4 uid="uid://d4ihvgxy64i2r"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_2xc0u"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_uwvyw"]

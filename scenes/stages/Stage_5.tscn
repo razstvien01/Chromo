@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://624v07o6sa5m"]
+[gd_scene load_steps=21 format=4 uid="uid://cumggjb21ucdl"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_gylkd"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_tunyg"]
@@ -194,6 +194,22 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8w8lw")
 sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q53ti"]
+atlas = ExtResource("3_lemir")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdw6t"]
+atlas = ExtResource("3_lemir")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6ym0"]
+atlas = ExtResource("3_lemir")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyty5"]
+atlas = ExtResource("3_lemir")
+region = Rect2(0, 0, 48, 48)
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_gylkd")
 
@@ -239,5 +255,227 @@ tile_set = SubResource("TileSet_ls32l")
 [node name="DoorArea" parent="." instance=ExtResource("9_bpqxr")]
 visible = false
 position = Vector2(792, 70)
+
+[node name="BubbleY" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(483, 243)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleY2" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(885, 197)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleY3" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(867, 341)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleY4" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1130, 197)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleY5" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1129, 342)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleY6" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1107, 532)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleY7" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(699, 533)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_q53ti")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="BubbleV" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(863, 629)
+amount = 11
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_sdw6t")
+emission_shape = 3
+emission_rect_extents = Vector2(140, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="BuubleV2" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1155, 437)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_y6ym0")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="BubbleV3" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1277, 101)
+amount = 11
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_sdw6t")
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="BubbleV4" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(385, 484)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_fyty5")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
 
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
