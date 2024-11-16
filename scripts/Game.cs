@@ -22,7 +22,10 @@ public partial class Game : Node2D
 	{
 		"res://scenes/stages/Tutorial.tscn",
 		"res://scenes/stages/Stage_1.tscn",
-		"res://scenes/stages/Stage_2.tscn"
+		"res://scenes/stages/Stage_2.tscn",
+		"res://scenes/stages/Stage_3.tscn",
+		"res://scenes/stages/Stage_4.tscn",
+		"res://scenes/stages/Stage_5.tscn"
 	};
 
 	private List<string> audio = new List<string>
