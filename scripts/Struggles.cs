@@ -16,7 +16,7 @@ public partial class Struggles : Node2D
 	{
 		foreach (Node child in GetChildren())
 		{
-			if (child.Name.ToString().Contains("Water") && child.HasSignal("ShowGameOver"))
+			if ((child.Name.ToString().Contains("Water") || child.Name.ToString().Contains("Puddle")) && child.HasSignal("ShowGameOver"))
         {
             child?.Connect("ShowGameOver", Callable.From(_ShowGameOver));
         }
