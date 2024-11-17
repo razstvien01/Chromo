@@ -85,9 +85,9 @@ public partial class Exam : Control
 
 	private void OnOptionSelected(int selectedOptionIndex)
 	{
-		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 
-		if (currentQuestion.Options[selectedOptionIndex] == currentQuestion.Answer)
+		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
+		if (currentQuestion.Options[selectedOptionIndex - 1] == currentQuestion.Answer)
 		{
 			GD.Print("Correct answer!");
 		}
