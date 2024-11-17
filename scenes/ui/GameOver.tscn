@@ -37,13 +37,13 @@ theme_override_colors/font_outline_color = Color(0.553822, 0.23574, 0.419137, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 120
 text = "GAME OVER"
 
 [node name="Question" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 35
 text = "Play Again?"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -52,11 +52,13 @@ layout_mode = 2
 [node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
 text = "YES?"
 
 [node name="No" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
 text = "NO?"
 
 [node name="LoseSfxPlayer" type="AudioStreamPlayer" parent="."]
