@@ -20,10 +20,10 @@ public partial class Game : Node2D
 
 	private List<string> scenePaths = new List<string>
 	{
-		// "res://scenes/stages/Tutorial.tscn",
-		// "res://scenes/stages/Stage_1.tscn",
-		// "res://scenes/stages/Stage_2.tscn",
-		// "res://scenes/stages/Stage_3.tscn",
+		"res://scenes/stages/Tutorial.tscn",
+		"res://scenes/stages/Stage_1.tscn",
+		"res://scenes/stages/Stage_2.tscn",
+		"res://scenes/stages/Stage_3.tscn",
 		"res://scenes/stages/Stage_4.tscn",
 		"res://scenes/stages/Stage_5.tscn"
 	};
@@ -33,9 +33,7 @@ public partial class Game : Node2D
 		"res://assets/Audio/BG/731713__antenalosmusic__sinister-instrumental-music.wav",
 		"res://assets/Audio/BG/670039__seth_makes_sounds__chill-background-music.wav"
 	};
-
-	private const string DOOR_AREA_PATH = "scenes\\area\\DoorArea.tscn";
-
+	
 	public override void _Ready()
 	{
 		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
