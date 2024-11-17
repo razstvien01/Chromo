@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d4ihvgxy64i2r"]
+[gd_scene load_steps=20 format=4 uid="uid://d4ihvgxy64i2r"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_2xc0u"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_uwvyw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://doodglfv7jpah" path="res://assets/Tilemaps/Platform.png" id="7_jfvvq"]
 [ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="8_h50ya"]
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="9_25d3k"]
+[ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="10_axaxj"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="12_xl63u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
@@ -194,6 +195,14 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8w8lw")
 sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq45b"]
+atlas = ExtResource("3_ita5y")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y37sa"]
+atlas = ExtResource("3_ita5y")
+region = Rect2(0, 0, 48, 48)
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_2xc0u")
 
@@ -239,5 +248,348 @@ tile_set = SubResource("TileSet_ls32l")
 [node name="DoorArea" parent="." instance=ExtResource("12_xl63u")]
 visible = false
 position = Vector2(792, 70)
+
+[node name="PuddleY" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(290, 98)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleY2" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(650, 338)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY2"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9982, -0.999985, -53.9465, 4.60002, 56.4594, 5.30002, 66.4963, -0.999985)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY2"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleY3" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(889, 434)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY3"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9982, -0.999985, -53.9465, 4.60002, 56.4594, 5.30002, 66.4963, -0.999985)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY3"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleY4" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(889, 434)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY4"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9982, -0.999985, -53.9465, 4.60002, 56.4594, 5.30002, 66.4963, -0.999985)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY4"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleY5" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(1130, 386)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY5"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9982, -0.999985, -53.9465, 4.60002, 56.4594, 5.30002, 66.4963, -0.999985)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY5"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleY6" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(1178, 242)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY6"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9982, -0.999985, -53.9465, 4.60002, 56.4594, 5.30002, 66.4963, -0.999985)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY6"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleY7" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(1178, 242)
+waterType = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleY7"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9982, -0.999985, -53.9465, 4.60002, 56.4594, 5.30002, 66.4963, -0.999985)
+
+[node name="BubbleY" type="CPUParticles2D" parent="PuddleY7"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 1)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_bq45b")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.776471, 0.752941, 0.262745, 1)
+
+[node name="PuddleV" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(386, 481)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleV"]
+position = Vector2(-0.251839, 0.428574)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-43, -1, -31, 5, 31, 6, 42, -1)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PuddleV"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_y37sa")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PuddleV2" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(651, 434)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleV2"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-67.9981, -1, -56.9575, 6.70001, 55.4557, 5.30002, 66.4963, -1)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PuddleV2"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_y37sa")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PuddleV3" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(891, 338)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleV3"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-69.0018, -0.999985, -55.9539, 5.30002, 57.4631, 4.60002, 65.4926, -0.999985)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PuddleV3"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_y37sa")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PuddleV4" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(1320, 243)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleV4"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-65.9907, -1.7, -50.9354, 3.90001, 59.4705, 3.90001, 68.5037, -1.7)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PuddleV4"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_y37sa")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
+
+[node name="PuddleV5" parent="." instance=ExtResource("10_axaxj")]
+position = Vector2(1416, 339)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleV5"]
+position = Vector2(-0.251839, -0.571433)
+scale = Vector2(0.996324, 1.42857)
+polygon = PackedVector2Array(-65.9907, -1.7, -50.9354, 3.90001, 59.4705, 3.90001, 68.5037, -1.7)
+
+[node name="PurpleBubble" type="CPUParticles2D" parent="PuddleV5"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1, 2)
+lifetime = 2.0
+explosiveness = 0.2
+randomness = 0.03
+lifetime_randomness = 0.3
+texture = SubResource("AtlasTexture_y37sa")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0.751258, 0.5015, 0.85, 1)
 
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
