@@ -13,6 +13,8 @@ public partial class Exam : Control
 	private List<Button> options = new List<Button>();
 	private ExamModel exam;
 	private int currentQuestionIndex = 0;
+	private int _totalScore = 0;
+	private int _totalMistakes = 0;
 
 	public override void _Ready()
 	{
@@ -25,11 +27,11 @@ public partial class Exam : Control
 			Button optionButton = GetNode<Button>("OptionContainer/Option" + (i + 1));
 			options.Add(optionButton);
 
-			// TODO Connect the button's pressed signal to a function to handle answers
 			optionButton.Connect("pressed", Callable.From(
 				() =>
 				{
-					this.OnOptionSelected(i);
+
+					this.OnOptionSelected(optionButton);
 				}
 				)
 			);
@@ -59,6 +61,8 @@ public partial class Exam : Control
 		if (currentQuestionIndex >= exam.Questions.Count)
 		{
 			GD.Print("Exam completed!");
+			GD.Print("Total Score: " + _totalScore);
+			GD.Print("Total Mistakes: " + _totalMistakes);
 			return;
 		}
 
@@ -83,17 +87,21 @@ public partial class Exam : Control
 		}
 	}
 
-	private void OnOptionSelected(int selectedOptionIndex)
+	private void OnOptionSelected(Button button)
 	{
 
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
-		if (currentQuestion.Options[selectedOptionIndex - 1] == currentQuestion.Answer)
+		string selectedOption = button.Text;
+
+		if (selectedOption.Equals(currentQuestion.Answer))
 		{
 			GD.Print("Correct answer!");
+			++_totalScore;
 		}
 		else
 		{
 			GD.Print("Incorrect answer!");
+			++_totalMistakes;
 		}
 
 		currentQuestionIndex++;
