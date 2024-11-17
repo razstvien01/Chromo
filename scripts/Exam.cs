@@ -60,26 +60,25 @@ public partial class Exam : Control
 	{
 		if (currentQuestionIndex >= exam.Questions.Count)
 		{
-			GD.Print("Exam completed!");
-			GD.Print("Total Score: " + _totalScore);
-			GD.Print("Total Mistakes: " + _totalMistakes);
+			GameState gameState = GameState.GetInstance();
+			gameState.TotalScore = _totalScore;
+			gameState.TotalMistakes = _totalMistakes;
+			
+			var scoreScene = (PackedScene)GD.Load("res://scenes/Score.tscn");
+
+			GetTree().ChangeSceneToPacked(scoreScene);
 			return;
 		}
 
-		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 
+		// Load the current question
+		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 		questionNumber.Text = $"Question {currentQuestionIndex + 1}";
 		question.Text = currentQuestion.Question;
 
-		if (!string.IsNullOrEmpty(currentQuestion.ImgPath))
-		{
-			var imageTexture = GD.Load<Texture2D>(currentQuestion.ImgPath);
-			picture.Texture = imageTexture;
-		}
-		else
-		{
-			picture.Texture = null;
-		}
+		picture.Texture = string.IsNullOrEmpty(currentQuestion.ImgPath)
+				? null
+				: GD.Load<Texture2D>(currentQuestion.ImgPath);
 
 		for (int i = 0; i < options.Count; i++)
 		{

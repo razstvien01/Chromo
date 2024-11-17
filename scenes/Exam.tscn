@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d002pwmt4xevl" path="res://assets/Exam/centromere.png" id="3_erkbh"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="4_6qw5h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dagu5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe62o"]
 texture = ExtResource("1_cn1lp")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
@@ -62,7 +62,7 @@ tile_size = Vector2i(48, 48)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "BG"
 terrain_set_0/terrain_0/color = Color(0.3422, 0.58, 0.476953, 1)
-sources/0 = SubResource("TileSetAtlasSource_dagu5")
+sources/0 = SubResource("TileSetAtlasSource_qe62o")
 
 [node name="Exam" type="Control"]
 layout_mode = 3
