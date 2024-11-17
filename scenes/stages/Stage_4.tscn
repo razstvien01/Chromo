@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://d4ihvgxy64i2r"]
+[gd_scene load_steps=21 format=4 uid="uid://d4ihvgxy64i2r"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_2xc0u"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_uwvyw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b8koorsclk7rl" path="res://assets/Tilemaps/Interactables.png" id="8_h50ya"]
 [ext_resource type="PackedScene" uid="uid://tyb4sddahgx3" path="res://scenes/Controller.tscn" id="9_25d3k"]
 [ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="10_axaxj"]
+[ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="11_ydlin"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="12_xl63u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
@@ -77,6 +78,14 @@ region = Rect2(48, 0, 48, 48)
 [sub_resource type="Gradient" id="Gradient_q2ywb"]
 offsets = PackedFloat32Array(0, 0.996296, 1)
 colors = PackedColorArray(0.5166, 0.63, 0.5544, 1, 0.4256, 0.56, 0.46592, 0.341176, 0.4256, 0.56, 0.46592, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq45b"]
+atlas = ExtResource("3_ita5y")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y37sa"]
+atlas = ExtResource("3_ita5y")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8w8lw"]
 texture = ExtResource("7_jfvvq")
@@ -195,14 +204,6 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8w8lw")
 sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bq45b"]
-atlas = ExtResource("3_ita5y")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y37sa"]
-atlas = ExtResource("3_ita5y")
-region = Rect2(0, 0, 48, 48)
-
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_2xc0u")
 
@@ -239,15 +240,7 @@ tile_set = ExtResource("5_aptxl")
 [node name="Character" parent="." instance=ExtResource("6_lfcds")]
 position = Vector2(765, 190)
 
-[node name="Interactables" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAOAAQAAQABAAEAAAARAAQAAQABAAAAAAAPAAEAAQAAAAAAAAAOAAwAAQABAAEAAAARAAwAAQABAAEAAAAOAAcAAAAJAAQAAAAMAAcAAAAHAAQAAAASAAcAAAAIAAUAAAARAAcAAAAHAAUAAAATAAcAAAAJAAUAAAANAAcAAAAIAAQAAAAOAAkAAAAJAAUAAAAMAAkAAAAHAAUAAAANAAkAAAAIAAUAAAASAAkAAAAIAAQAAAARAAkAAAAHAAQAAAATAAkAAAAJAAQAAAAMAAwAAQABAAAAAAATAAwAAQABAAAAAAAIAAoAAAAJAAUAAAAHAAoAAAAHAAUAAAAGAAIAAAAJAAQAAAAFAAIAAAAHAAQAAAAWAAgAAAAHAAQAAAAYAAgAAAAJAAQAAAAXAAgAAAAIAAQAAAAYAAUAAAAIAAQAAAAXAAUAAAAHAAQAAAAZAAUAAAAJAAQAAAAaAAUAAAAHAAUAAAAbAAUAAAAIAAUAAAAcAAUAAAAJAAUAAAAeAAcAAAAJAAUAAAAcAAcAAAAHAAUAAAAdAAcAAAAIAAUAAAA=")
-tile_set = SubResource("TileSet_ls32l")
-
 [node name="Controller" parent="." instance=ExtResource("9_25d3k")]
-
-[node name="DoorArea" parent="." instance=ExtResource("12_xl63u")]
-visible = false
-position = Vector2(792, 70)
 
 [node name="PuddleY" parent="." instance=ExtResource("10_axaxj")]
 position = Vector2(290, 98)
@@ -592,4 +585,30 @@ scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.751258, 0.5015, 0.85, 1)
 
-[connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
+[node name="ButtonP" parent="." instance=ExtResource("11_ydlin")]
+position = Vector2(697, 238)
+buttonType = 1
+
+[node name="ButtonP2" parent="." instance=ExtResource("11_ydlin")]
+position = Vector2(697, 622)
+buttonType = 1
+
+[node name="ButtonP3" parent="." instance=ExtResource("11_ydlin")]
+position = Vector2(841, 622)
+buttonType = 1
+
+[node name="ButtonY" parent="." instance=ExtResource("11_ydlin")]
+position = Vector2(937, 622)
+
+[node name="ButtonY2" parent="." instance=ExtResource("11_ydlin")]
+position = Vector2(601, 622)
+
+[node name="ButtonY3" parent="." instance=ExtResource("11_ydlin")]
+position = Vector2(841, 238)
+
+[node name="DoorArea" parent="." instance=ExtResource("12_xl63u")]
+position = Vector2(742, 74)
+
+[node name="Interactables" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAOAAQAAQABAAEAAAARAAQAAQABAAAAAAAPAAEAAQAAAAAAAAAOAAwAAQABAAEAAAARAAwAAQABAAEAAAAOAAcAAAAJAAQAAAAMAAcAAAAHAAQAAAASAAcAAAAIAAUAAAARAAcAAAAHAAUAAAATAAcAAAAJAAUAAAANAAcAAAAIAAQAAAAOAAkAAAAJAAUAAAAMAAkAAAAHAAUAAAANAAkAAAAIAAUAAAASAAkAAAAIAAQAAAARAAkAAAAHAAQAAAATAAkAAAAJAAQAAAAMAAwAAQABAAAAAAATAAwAAQABAAAAAAAIAAoAAAAJAAUAAAAHAAoAAAAHAAUAAAAGAAIAAAAJAAQAAAAFAAIAAAAHAAQAAAAWAAgAAAAHAAQAAAAYAAgAAAAJAAQAAAAXAAgAAAAIAAQAAAAYAAUAAAAIAAQAAAAXAAUAAAAHAAQAAAAZAAUAAAAJAAQAAAAaAAUAAAAHAAUAAAAbAAUAAAAIAAUAAAAcAAUAAAAJAAUAAAAeAAcAAAAJAAUAAAAcAAcAAAAHAAUAAAAdAAcAAAAIAAUAAAA=")
+tile_set = SubResource("TileSet_ls32l")

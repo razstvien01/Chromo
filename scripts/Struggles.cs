@@ -3,7 +3,7 @@ using System;
 
 public partial class Struggles : Node2D
 {
-	private const int START_XY_POS = 60;
+	private Vector2 START_XY_POS;
 
 	[Signal]
 	public delegate void NextSceneEventHandler();
@@ -23,6 +23,7 @@ public partial class Struggles : Node2D
 		}
 		
 		character = GetNode<Character>("Character");
+		START_XY_POS = character.Position;
 		character.ResetSprite();
 	}
 
@@ -46,7 +47,7 @@ public partial class Struggles : Node2D
 		character = GetNode<Character>("Character");
 		Node2D uiControls = GetNode<Node2D>("Controller");
 		
-		character.Position = new Vector2(START_XY_POS, START_XY_POS); //* will reset the position of the character
+		character.Position = START_XY_POS;
 		uiControls.Visible = true;  //* will show again the UI Controls
 
 		character.ResetSprite();
