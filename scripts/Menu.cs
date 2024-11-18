@@ -19,10 +19,12 @@ public partial class Menu : Control
 	}
 	// _on_option_button_pressed
 	public void _OnOptionButtonPressed(){
-		GD.Print("Pressed Option");
+		var menuScene = (PackedScene)GD.Load("res://scenes/Option.tscn");
+		GetTree().ChangeSceneToPacked(menuScene);
 	}
 	
 	public void _OnViewScoresPressed(){
-		GD.Print("Pressed View Scores");
+		var menuScene = (PackedScene)GD.Load("res://scenes/ViewScores.tscn");
+		GetTree().ChangeSceneToPacked(menuScene);
 	}
 }
