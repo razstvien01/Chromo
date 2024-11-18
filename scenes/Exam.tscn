@@ -126,18 +126,23 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 
 [node name="Option1" type="Button" parent="OptionContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "A) It divides DNA molecules."
+autowrap_mode = 3
 
 [node name="Option2" type="Button" parent="OptionContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "B) It links sister chromatids and is essential for their separation during cell division."
 
 [node name="Option3" type="Button" parent="OptionContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "C) It initiates DNA replication."
 
 [node name="Option4" type="Button" parent="OptionContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "D) It serves as the chromosome's primary structural unit."
 
