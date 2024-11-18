@@ -22,4 +22,9 @@ public partial class Score : Control
 	public override void _Process(double delta)
 	{
 	}
+	
+	public void _OnBackMenuButtonPressed(){
+		var menuScene = (PackedScene)GD.Load("res://scenes/Menu.tscn");
+		GetTree().ChangeSceneToPacked(menuScene);
+	}
 }

@@ -145,3 +145,5 @@ theme_override_font_sizes/font_size = 30
 text = "Back to Menu
 "
 autowrap_mode = 3
+
+[connection signal="pressed" from="BackMenuButton" to="." method="_OnBackMenuButtonPressed"]
