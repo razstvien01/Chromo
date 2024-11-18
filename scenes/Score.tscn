@@ -128,7 +128,7 @@ text = "Exam Completed!"
 horizontal_alignment = 1
 
 [node name="BackMenuButton" type="Button" parent="."]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
