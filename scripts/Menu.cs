@@ -14,10 +14,15 @@ public partial class Menu : Control
 	}	
 	
 	public void _OnStartButtonPressed(){
-		GD.Print("Pressed Start Button");
+		var gameScene = (PackedScene)GD.Load("res://scenes/stages/Game.tscn");
+		GetTree().ChangeSceneToPacked(gameScene);
 	}
 	// _on_option_button_pressed
 	public void _OnOptionButtonPressed(){
 		GD.Print("Pressed Option");
+	}
+	
+	public void _OnViewScoresPressed(){
+		GD.Print("Pressed View Scores");
 	}
 }

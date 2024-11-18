@@ -10,6 +10,7 @@ position = Vector2(255, 649)
 rotation = 3.14159
 scale = Vector2(0.104508, 0.1)
 texture_normal = ExtResource("1_g3r0k")
+passby_press = true
 action = "ui_left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
@@ -17,6 +18,7 @@ modulate = Color(1, 1, 1, 0.196078)
 position = Vector2(255, 448)
 scale = Vector2(0.104508, 0.1)
 texture_normal = ExtResource("1_g3r0k")
+passby_press = true
 action = "ui_right"
 
 [node name="Jump" type="TouchScreenButton" parent="."]
