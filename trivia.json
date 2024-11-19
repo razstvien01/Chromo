@@ -1,0 +1,29 @@
+{
+  "trivias": [
+    {
+      "titla": "THE BASIS OF HEREDITY",
+      "trivia": "Heredity is the process by which physical and mental traits are passed from parents to offspring through genes. These genes are sections of DNA, the molecule that carries the genetic instructions for life. DNA is organized into chromosomes, which are tightly packed structures located in the cell's nucleus. Each chromosome has a specific point called the centromere that divides it into a short arm, labeled \"p,\" and a long arm, labeled \"q.\" Together, these structures carry the blueprint of who we are.",
+      "imgPath": ""
+    },
+    {
+      "titla": "CHROMOSOMES AND THEIR ROLE",
+      "trivia": "Chromosomes are fascinating! Each one is supported by proteins called histones, which help them fit neatly inside the nucleus. Humans have 23 pairs of chromosomes, one set inherited from each parent. During meiosis, homologous chromosomes separate just like Gregor Mendel's law of segregation predicts. This process ensures genetic diversity and explains how traits are passed down from one generation to the next.",
+      "imgPath": ""
+    },
+    {
+      "titla": "DNA - THE CODE OF LIFE",
+      "trivia": "At the heart of heredity is DNA, or deoxyribonucleic acid, which contains all the information needed to build and maintain life. DNA is made of nucleotides, each composed of a sugar, a phosphate group, and one of four nitrogenous bases: adenine (A), thymine (T), cytosine (C), and guanine (G). These bases pair in a specific way—A with T and C with G—forming the rungs of DNA's iconic double helix structure. This code is what makes each individual unique!",
+      "imgPath": ""
+    },
+    {
+      "titla": "",
+      "trivia": "Congratulations on completing Level 1! As a reward, here’s what you need to know about chromosome structure. Ever wonder why we inherit unique traits like curly hair or a bright smile? It’s all thanks to DNA, the genetic blueprint stored in the nucleus of our cells. DNA is made of nucleotides, each built from a phosphate group, a deoxyribose sugar, and nitrogenous bases that pair up to form a double helix. These strands pack tightly into chromosomes, which carry genes—the units of heredity responsible for traits passed from one generation to the next. From how we look to how we laugh, it’s all encoded in this remarkable molecule!",
+      "imgPath": ""
+    },
+    {
+      "titla": "",
+      "trivia": "Did you know that the foundation of modern genetics traces back to Sutton and Boveri, who proposed the chromosomal theory of inheritance? At the core of it all is DNA, the genetic material, built from nucleotides. These include bases like guanine, which always pairs with cytosine. Genes, the functional units of heredity, are located at specific spots on chromosomes called loci. And let’s not forget the q arm, the long section of a chromosome where many genes are housed. Together, these elements unlock the mysteries of inheritance!",
+      "imgPath": ""
+    }
+  ]
+}
