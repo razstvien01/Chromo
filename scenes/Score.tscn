@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bqqkxpkkrdl18"]
+[gd_scene load_steps=7 format=4 uid="uid://bqqkxpkkrdl18"]
 
 [ext_resource type="Script" path="res://scripts/Score.cs" id="1_ufjxn"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_usp65"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="2_oedfc"]
+[ext_resource type="AudioStream" uid="uid://j7ucpv628w6h" path="res://assets/Audio/BG/629170__holizna__chill-lofi-epiano-loop-80-bpm.wav" id="4_os4ok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1j8b1"]
 texture = ExtResource("1_usp65")
@@ -145,5 +146,9 @@ theme_override_font_sizes/font_size = 30
 text = "Back to Menu
 "
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_os4ok")
+autoplay = true
 
 [connection signal="pressed" from="BackMenuButton" to="." method="_OnBackMenuButtonPressed"]

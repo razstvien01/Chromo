@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bnisel0tjmw5g"]
+[gd_scene load_steps=7 format=4 uid="uid://bnisel0tjmw5g"]
 
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_6thab"]
 [ext_resource type="Script" path="res://scripts/Menu.cs" id="1_ci18e"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="2_1xhea"]
+[ext_resource type="AudioStream" uid="uid://djb0avfnwtwl4" path="res://assets/Audio/BG/722392__vrymaa__adventura.wav" id="4_ylm1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28aeb"]
 texture = ExtResource("1_6thab")
@@ -126,6 +127,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "View Scores"
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ylm1f")
+volume_db = -13.705
+autoplay = true
 
 [connection signal="pressed" from="ScoreContainer/StartButton" to="." method="_OnStartButtonPressed"]
 [connection signal="pressed" from="ScoreContainer/OptionButton" to="." method="_OnOptionButtonPressed"]
