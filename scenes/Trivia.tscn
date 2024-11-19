@@ -75,3 +75,19 @@ tile_map_data = PackedByteArray("AAAXAAAAAAADAAMAAAAAAAAAAAADAAEAAAABAAAAAAACAAI
 tile_set = SubResource("TileSet_uq06s")
 
 [node name="CellParticles" parent="." instance=ExtResource("2_hysgj")]
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 64.0
+offset_right = 316.0
+offset_bottom = 87.0
+text = "THE BASIS OF HEREDITY"
+
+[node name="Trivia" type="Label" parent="."]
+offset_left = 126.0
+offset_top = 173.0
+offset_right = 667.0
+offset_bottom = 541.0
+text = "Heredity is the process by which physical and mental traits are passed from parents to offspring through genes. These genes are sections of DNA, the molecule that carries the genetic instructions for life. DNA is organized into chromosomes, which are tightly packed structures located in the cell's nucleus. Each chromosome has a specific point called the centromere that divides it into a short arm, labeled \\\"p,\\\" and a long arm, labeled \\\"q.\\\" Together, these structures carry the blueprint of who we are."
+autowrap_mode = 2
