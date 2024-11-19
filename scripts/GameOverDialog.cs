@@ -33,8 +33,6 @@ public partial class GameOverDialog : Control
 
 	public void _OnNoPressed()
 	{
-		// TODO - Go back to the Main Menu
-		GD.Print("No Hello World");
 		sfxPlayer.Play();
 		EmitSignal(SignalName.ButtonPressed, false);
 	}

@@ -50,6 +50,9 @@ public partial class Game : Node2D
 		{
 			ChangeBgm(AudioEnum.Level);
 			currentInstance.ResetLevel();
+		} else {
+			var menuScene = (PackedScene)GD.Load("res://scenes/Menu.tscn");
+			GetTree().ChangeSceneToPacked(menuScene);
 		}
 
 		_gameOverDialog.Position = new Vector2(0, GAME_OVER_DIALOG_INIT_POS_Y);  //* hide the button UI

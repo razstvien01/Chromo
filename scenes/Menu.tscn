@@ -114,25 +114,9 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 autowrap_mode = 3
 
-[node name="OptionButton" type="Button" parent="ScoreContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Option"
-autowrap_mode = 3
-
-[node name="ViewScores" type="Button" parent="ScoreContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "View Scores"
-autowrap_mode = 3
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ylm1f")
 volume_db = -13.705
 autoplay = true
 
 [connection signal="pressed" from="ScoreContainer/StartButton" to="." method="_OnStartButtonPressed"]
-[connection signal="pressed" from="ScoreContainer/OptionButton" to="." method="_OnOptionButtonPressed"]
-[connection signal="pressed" from="ScoreContainer/ViewScores" to="." method="_OnViewScoresPressed"]

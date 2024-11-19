@@ -17,14 +17,4 @@ public partial class Menu : Control
 		var gameScene = (PackedScene)GD.Load("res://scenes/stages/Game.tscn");
 		GetTree().ChangeSceneToPacked(gameScene);
 	}
-	// _on_option_button_pressed
-	public void _OnOptionButtonPressed(){
-		var menuScene = (PackedScene)GD.Load("res://scenes/Option.tscn");
-		GetTree().ChangeSceneToPacked(menuScene);
-	}
-	
-	public void _OnViewScoresPressed(){
-		var menuScene = (PackedScene)GD.Load("res://scenes/ViewScores.tscn");
-		GetTree().ChangeSceneToPacked(menuScene);
-	}
 }
