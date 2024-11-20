@@ -85,6 +85,7 @@ offset_bottom = 87.0
 text = "THE BASIS OF HEREDITY"
 
 [node name="Trivia" type="Label" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 173.0
 offset_right = 667.0
