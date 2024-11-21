@@ -17,6 +17,7 @@ public partial class Game : Node2D
 	private int currentIndex = 0;
 	private AudioStreamPlayer bgAudioPlayer;
 	private GameOverDialog _gameOverDialog;
+	private string triviaScenePath = "res://scenes/Trivia.tscn";
 
 	private List<string> scenePaths = new List<string>
 	{
@@ -112,13 +113,6 @@ public partial class Game : Node2D
 	private void PlaceCurrentInstance()
 	{
 		MoveChild(currentInstance, 0);
-	}
-
-
-	public void _OnNewSceneReady()
-	{
-		// * Connect door area signal
-		GD.Print("_OnNewSceneReady called");
 	}
 
 	public void _NextScene()
