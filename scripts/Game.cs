@@ -17,6 +17,7 @@ public partial class Game : Node2D
 	private int currentIndex = 0;
 	private AudioStreamPlayer bgAudioPlayer;
 	private GameOverDialog _gameOverDialog;
+	private bool isTriviaActive = false;
 	private string triviaScenePath = "res://scenes/Trivia.tscn";
 
 	private List<string> scenePaths = new List<string>
@@ -34,7 +35,7 @@ public partial class Game : Node2D
 		"res://assets/Audio/BG/731713__antenalosmusic__sinister-instrumental-music.wav",
 		"res://assets/Audio/BG/670039__seth_makes_sounds__chill-background-music.wav"
 	};
-	
+
 	public override void _Ready()
 	{
 		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
@@ -51,7 +52,9 @@ public partial class Game : Node2D
 		{
 			ChangeBgm(AudioEnum.Level);
 			currentInstance.ResetLevel();
-		} else {
+		}
+		else
+		{
 			var menuScene = (PackedScene)GD.Load("res://scenes/Menu.tscn");
 			GetTree().ChangeSceneToPacked(menuScene);
 		}
@@ -86,7 +89,7 @@ public partial class Game : Node2D
 		{
 			currentInstance = currentScene.Instantiate<Struggles>();
 			AddChild(currentInstance);
-			
+
 			// * Make Sure the Scene is behind all of Game's Scenes
 			MoveChild(currentInstance, 0);
 
@@ -106,32 +109,81 @@ public partial class Game : Node2D
 
 	private void RemoveOldScene()
 	{
-		RemoveChild(currentInstance);
-		currentInstance.QueueFree();
+		if (currentInstance != null)
+		{
+			RemoveChild(currentInstance);
+			currentInstance.QueueFree();
+			currentInstance = null; // Prevent accessing a disposed object
+		}
 	}
+
 
 	private void PlaceCurrentInstance()
 	{
 		MoveChild(currentInstance, 0);
 	}
 
+	// public void _NextScene()
+	// {
+	// 	// * Extract the character's values
+	// 	CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+	// 	Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+
+	// 	currentIndex = (currentIndex + 1) % scenePaths.Count;
+	// 	LoadScene(currentIndex);
+
+	// 	// * Evolve the character
+	// 	CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+	// 	Sprite2D newIcon = newCharacter.GetNodeOrNull<Sprite2D>("Icon");
+
+	// 	if (newIcon != null && icon != null)
+	// 	{
+	// 		newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, 0) : new Vector2I(icon.FrameCoords.X, 0);
+
+	// 	}
+	// }
 	public void _NextScene()
 	{
-		// * Extract the character's values
-		CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
-
-		currentIndex = (currentIndex + 1) % scenePaths.Count;
-		LoadScene(currentIndex);
-
-		// * Evolve the character
-		CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-		Sprite2D newIcon = newCharacter.GetNodeOrNull<Sprite2D>("Icon");
-
-		if (newIcon != null && icon != null)
+		if (isTriviaActive)
 		{
-			newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, 0) : new Vector2I(icon.FrameCoords.X, 0);
-			
+			isTriviaActive = false;
+			currentIndex = (currentIndex + 1) % scenePaths.Count; // Proceed to the next stage
+			LoadScene(currentIndex);
+		}
+		else
+		{
+			LoadTriviaScene();
 		}
 	}
+
+	private void LoadTriviaScene()
+	{
+		if (currentInstance != null)
+		{
+			RemoveOldScene();
+		}
+
+		var triviaScene = GD.Load<PackedScene>(triviaScenePath);
+		if (triviaScene != null)
+		{
+			Control triviaInstance = triviaScene.Instantiate<Control>();
+			AddChild(triviaInstance);
+			isTriviaActive = true;
+
+			// Connect Trivia button signal to proceed
+			triviaInstance.GetNode<Button>("PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ProceedButton").Connect("pressed", Callable.From(OnTriviaCompleted));
+		}
+		else
+		{
+			GD.PrintErr($"Failed to load Trivia scene at path: {triviaScenePath}");
+		}
+	}
+
+	private void OnTriviaCompleted()
+	{
+		GD.Print("Trivia completed!");
+		RemoveOldScene(); // Properly clean up Trivia scene
+		_NextScene();     // Proceed to the next stage
+	}
+
 }

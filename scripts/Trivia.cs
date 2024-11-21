@@ -14,5 +14,6 @@ public partial class Trivia : Control
 	}
 	public void _OnProceedButtonPressed(){
 		GD.Print("Proceed Button Pressed.");
+    QueueFree(); 
 	}
 }
