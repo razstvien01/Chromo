@@ -17,4 +17,8 @@ public partial class Menu : Control
 		var gameScene = (PackedScene)GD.Load("res://scenes/stages/Game.tscn");
 		GetTree().ChangeSceneToPacked(gameScene);
 	}
+	
+	public void _OnExitButtonPressed(){
+		GetTree().Quit();
+	}	
 }
