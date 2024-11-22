@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bbk5dlven3h8o"]
+
+[ext_resource type="Texture2D" uid="uid://dpxavsqtdqb3f" path="res://assets/Trivias/trivia4.png" id="1_vi0rm"]
+[ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="2_dak4g"]
+[ext_resource type="Script" path="res://scripts/resources/TriviaResource.cs" id="3_whyn7"]
+
+[resource]
+script = ExtResource("3_whyn7")
+Trivia = "Congratulations on completing Level 1! As a reward, here’s what you need to know about chromosome structure. Ever wonder why we inherit unique traits like curly hair or a bright smile? It’s all thanks to DNA, the genetic blueprint stored in the nucleus of our cells. DNA is made of nucleotides, each built from a phosphate group, a deoxyribose sugar, and nitrogenous bases that pair up to form a double helix. These strands pack tightly into chromosomes, which carry genes—the units of heredity responsible for traits passed from one generation to the next. From how we look to how we laugh, it’s all encoded in this remarkable molecule!"
+Image = ExtResource("1_vi0rm")
+Narration = ExtResource("2_dak4g")

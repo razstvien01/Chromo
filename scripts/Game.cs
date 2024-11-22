@@ -96,8 +96,11 @@ public partial class Game : Node2D
 			// Connect signals
 			currentInstance.Connect(nameof(Struggles.GameOver), Callable.From(OnGameOver));
 
-			Area2D doorArea = currentInstance.GetNode<DoorArea>("DoorArea");
-			doorArea?.Connect("NextScene", Callable.From(_NextScene));
+			if(currentInstance is Struggles struggles)
+			{
+				struggles.Connect(nameof(Struggles.NextScene), Callable.From(_NextScene));
+				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
+			}
 
 			ChangeBgm(AudioEnum.Level);
 		}
@@ -144,19 +147,12 @@ public partial class Game : Node2D
 	// }
 	public void _NextScene()
 	{
-		if (isTriviaActive)
-		{
-			isTriviaActive = false;
-			currentIndex = (currentIndex + 1) % scenePaths.Count; // Proceed to the next stage
-			LoadScene(currentIndex);
-		}
-		else
-		{
-			LoadTriviaScene();
-		}
+		currentIndex = (currentIndex + 1) % scenePaths.Count; // Proceed to the next stage
+		LoadScene(currentIndex);
 	}
 
-	private void LoadTriviaScene()
+
+	private void LoadTriviaScene(TriviaResource triviaResource)
 	{
 		if (currentInstance != null)
 		{
@@ -166,9 +162,10 @@ public partial class Game : Node2D
 		var triviaScene = GD.Load<PackedScene>(triviaScenePath);
 		if (triviaScene != null)
 		{
-			Control triviaInstance = triviaScene.Instantiate<Control>();
+			Trivia triviaInstance = triviaScene.Instantiate<Trivia>();
 			AddChild(triviaInstance);
-			isTriviaActive = true;
+
+			triviaInstance.TriviaResource = triviaResource;
 
 			// Connect Trivia button signal to proceed
 			triviaInstance.GetNode<Button>("PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ProceedButton").Connect("pressed", Callable.From(OnTriviaCompleted));

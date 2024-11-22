@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://bdkvdpo5bne1a"]
+[gd_scene load_steps=22 format=4 uid="uid://bdkvdpo5bne1a"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_gcmyl"]
+[ext_resource type="Resource" uid="uid://bbk5dlven3h8o" path="res://resources/trivia/Trivia1.tres" id="2_jadjg"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_mxq3e"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="3_2pyi8"]
 [ext_resource type="Texture2D" uid="uid://doodglfv7jpah" path="res://assets/Tilemaps/Platform.png" id="3_36tgq"]
@@ -715,6 +716,7 @@ sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 [node name="Stage_1" type="Node2D"]
 position = Vector2(-18, -4)
 script = ExtResource("1_gcmyl")
+Trivia = ExtResource("2_jadjg")
 metadata/_edit_vertical_guides_ = [885.0]
 
 [node name="BackgroundTilemap" type="TileMapLayer" parent="."]
@@ -952,5 +954,7 @@ color = Color(0.751258, 0.5015, 0.85, 1)
 position = Vector2(-1, -1)
 tile_map_data = PackedByteArray("AAAEAAYAAAAHAAQAAAAIAAYAAAAJAAQAAAAFAAYAAAAIAAQAAAAGAAYAAAAIAAQAAAAHAAYAAAAIAAQAAAAFAAEAAQABAAAAAAAGAAUAAQABAAEAAAAIAAEAAQABAAEAAAAYAAcAAQABAAAAAAAQAAcAAQABAAEAAAAKAAQAAAAHAAUAAAAMAAQAAAAJAAUAAAALAAQAAAAIAAUAAAAUAAQAAAAHAAUAAAAYAAQAAAAJAAUAAAAVAAQAAAAIAAUAAAAWAAQAAAAIAAUAAAAXAAQAAAAIAAUAAAAcAAQAAAAJAAQAAAAZAAcAAAAHAAQAAAAXAAcAAAAJAAQAAAAWAAcAAAAHAAQAAAANAAcAAAAIAAUAAAAMAAcAAAAHAAUAAAAOAAcAAAAIAAUAAAAPAAcAAAAJAAUAAAABAAcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ls32l")
+
+[connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
 
 [editable path="Character"]

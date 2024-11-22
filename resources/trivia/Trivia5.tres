@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://v5ddr642yc8b"]
+
+[ext_resource type="AudioStream" uid="uid://dotimbuc3vbs4" path="res://assets/Audio/Narration/3.wav" id="1_h2nva"]
+[ext_resource type="Script" path="res://scripts/resources/TriviaResource.cs" id="2_nb1we"]
+
+[resource]
+script = ExtResource("2_nb1we")
+Trivia = "At the heart of heredity is DNA, or deoxyribonucleic acid, which contains all the information needed to build and maintain life. DNA is made of nucleotides, each composed of a sugar, a phosphate group, and one of four nitrogenous bases: adenine (A), thymine (T), cytosine (C), and guanine (G). These bases pair in a specific way—A with T and C with G—forming the rungs of DNA's iconic double helix structure. This code is what makes each individual unique!"
+Title = "DNA - THE CODE OF LIFE"
+Narration = ExtResource("1_h2nva")

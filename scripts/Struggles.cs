@@ -5,10 +5,15 @@ public partial class Struggles : Node2D
 {
 	private Vector2 START_XY_POS;
 
+	[Export]
+	public TriviaResource Trivia { get; set; }
+
 	[Signal]
 	public delegate void NextSceneEventHandler();
 	[Signal]
 	public delegate void GameOverEventHandler();
+	[Signal]
+	public delegate void LoadTriviaEventHandler(TriviaResource triviaResource);
 	
 	Character character;
 	
@@ -39,7 +44,13 @@ public partial class Struggles : Node2D
 
 	public void _NextScene()
 	{
-		EmitSignal(SignalName.NextScene);
+		if(Trivia is null)
+		{
+			EmitSignal(SignalName.NextScene);
+		} else 
+		{
+			EmitSignal(SignalName.LoadTrivia, Trivia);
+		}
 	}
 
 	public void ResetLevel()
