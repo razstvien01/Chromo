@@ -13,7 +13,8 @@ config_version=5
 config/name="Chromo Game"
 run/main_scene="res://scenes/Menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/BG/Splash.png"
+config/icon="res://icon.png"
 
 [autoload]
 

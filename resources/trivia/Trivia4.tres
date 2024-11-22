@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5sv8smrpgh6u"]
+
+[ext_resource type="AudioStream" uid="uid://cqhgjskcxg5kp" path="res://assets/Audio/Narration/2.wav" id="1_4vwgn"]
+[ext_resource type="Script" path="res://scripts/resources/TriviaResource.cs" id="2_lp0jn"]
+
+[resource]
+script = ExtResource("2_lp0jn")
+Trivia = "Chromosomes are fascinating! Each one is supported by proteins called histones, which help them fit neatly inside the nucleus. Humans have 23 pairs of chromosomes, one set inherited from each parent. During meiosis, homologous chromosomes separate just like Gregor Mendel's law of segregation predicts. This process ensures genetic diversity and explains how traits are passed down from one generation to the next."
+Title = "CHROMOSOMES AND THEIR ROLE"
+Narration = ExtResource("1_4vwgn")

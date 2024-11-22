@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://14xm08aofeqm"]
+
+[ext_resource type="Texture2D" uid="uid://c0jvavadhce2" path="res://assets/Trivias/trivia5.png" id="1_he1cr"]
+[ext_resource type="AudioStream" uid="uid://do6ukl2d886nt" path="res://assets/Audio/Narration/5.wav" id="2_3pgyd"]
+[ext_resource type="Script" path="res://scripts/resources/TriviaResource.cs" id="3_u3r2w"]
+
+[resource]
+script = ExtResource("3_u3r2w")
+Trivia = "Did you know that the foundation of modern genetics traces back to Sutton and Boveri, who proposed the chromosomal theory of inheritance? At the core of it all is DNA, the genetic material, built from nucleotides. These include bases like guanine, which always pairs with cytosine. Genes, the functional units of heredity, are located at specific spots on chromosomes called loci. And let’s not forget the q arm, the long section of a chromosome where many genes are housed. Together, these elements unlock the mysteries of inheritance!"
+Image = ExtResource("1_he1cr")
+Narration = ExtResource("2_3pgyd")
