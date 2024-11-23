@@ -66,12 +66,11 @@ terrain_set_0/terrain_0/color = Color(0.3422, 0.58, 0.476953, 1)
 sources/0 = SubResource("TileSetAtlasSource_qe62o")
 
 [node name="Exam" type="Control"]
+custom_minimum_size = Vector2(1500, 648)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1500.0
+offset_bottom = 648.0
 script = ExtResource("1_37850")
 
 [node name="BackgroundTilemap" type="TileMapLayer" parent="."]
