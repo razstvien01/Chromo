@@ -8,6 +8,7 @@ script = ExtResource("1_bnnmf")
 
 [node name="BGAudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+volume_db = -9.674
 
 [node name="GameOverDialog" parent="." instance=ExtResource("2_33uog")]
 unique_name_in_owner = true
