@@ -19,14 +19,15 @@ public partial class Game : Node2D
 	private GameOverDialog _gameOverDialog;
 	private bool isTriviaActive = false;
 	private string triviaScenePath = "res://scenes/Trivia.tscn";
+	private string questionScenePath = "res://scenes/Exam.tscn";
 
 	private List<string> scenePaths = new List<string>
 	{
-		"res://scenes/stages/Tutorial.tscn",
-		"res://scenes/stages/Stage_1.tscn",
-		"res://scenes/stages/Stage_2.tscn",
-		"res://scenes/stages/Stage_3.tscn",
-		"res://scenes/stages/Stage_4.tscn",
+		// "res://scenes/stages/Tutorial.tscn",
+		// "res://scenes/stages/Stage_1.tscn",
+		// "res://scenes/stages/Stage_2.tscn",
+		// "res://scenes/stages/Stage_3.tscn",
+		// "res://scenes/stages/Stage_4.tscn",
 		"res://scenes/stages/Stage_5.tscn"
 	};
 
@@ -96,7 +97,7 @@ public partial class Game : Node2D
 			// Connect signals
 			currentInstance.Connect(nameof(Struggles.GameOver), Callable.From(OnGameOver));
 
-			if(currentInstance is Struggles struggles)
+			if (currentInstance is Struggles struggles)
 			{
 				struggles.Connect(nameof(Struggles.NextScene), Callable.From(_NextScene));
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
@@ -116,7 +117,7 @@ public partial class Game : Node2D
 		{
 			RemoveChild(currentInstance);
 			currentInstance.QueueFree();
-			currentInstance = null; // Prevent accessing a disposed object
+			currentInstance = null; 
 		}
 	}
 
@@ -125,12 +126,37 @@ public partial class Game : Node2D
 	{
 		MoveChild(currentInstance, 0);
 	}
-	
+
 	public void _NextScene()
 	{
-		currentIndex = (currentIndex + 1) % scenePaths.Count; // Proceed to the next stage
-		LoadScene(currentIndex);
+		if (currentIndex < scenePaths.Count - 1)
+		{
+			// Load the next scene
+			currentIndex++;
+			LoadScene(currentIndex);
+		}
+		else
+		{
+			// All scenes completed, load a summary or question scene
+			var questionScene = GD.Load<PackedScene>(questionScenePath);
+
+			if (questionScene != null)
+			{
+				GD.Print("All stages completed! Proceeding to the question scene.");
+				RemoveOldScene();
+
+				Node questionInstance = questionScene.Instantiate();
+				AddChild(questionInstance);
+				
+				ChangeBgm(AudioEnum.Level);
+			}
+			else
+			{
+				GD.PrintErr($"Failed to load the question scene at path: {questionScenePath}");
+			}
+		}
 	}
+
 
 
 	private void LoadTriviaScene(TriviaResource triviaResource)
