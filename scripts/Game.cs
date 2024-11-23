@@ -125,26 +125,7 @@ public partial class Game : Node2D
 	{
 		MoveChild(currentInstance, 0);
 	}
-
-	// public void _NextScene()
-	// {
-	// 	// * Extract the character's values
-	// 	CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-	// 	Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
-
-	// 	currentIndex = (currentIndex + 1) % scenePaths.Count;
-	// 	LoadScene(currentIndex);
-
-	// 	// * Evolve the character
-	// 	CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-	// 	Sprite2D newIcon = newCharacter.GetNodeOrNull<Sprite2D>("Icon");
-
-	// 	if (newIcon != null && icon != null)
-	// 	{
-	// 		newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, 0) : new Vector2I(icon.FrameCoords.X, 0);
-
-	// 	}
-	// }
+	
 	public void _NextScene()
 	{
 		currentIndex = (currentIndex + 1) % scenePaths.Count; // Proceed to the next stage
