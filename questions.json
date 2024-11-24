@@ -4,49 +4,49 @@
       "question": "What molecule carries the genetic instructions for life?",
       "options": ["RNA", "DNA", "Protein", "Lipids"],
       "answer": "DNA",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "imgPath": "res://assets/Exam/q1.jpg"
     },
     {
       "question": "What structure helps chromosomes fit inside the nucleus?",
       "options": ["Ribosomes", "Histones", "Mitochondria", "Centromeres"],
       "answer": "Histones",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q2.jpg"
     },
     {
       "question": "How many chromosome pairs do humans have?",
       "options": ["22", "23", "24", "46"],
       "answer": "23",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q3.jpg"
     },
     {
       "question": "What process ensures genetic diversity in offspring?",
       "options": ["Mitosis", "Meiosis", "DNA Replication", "Transcription"],
       "answer": "Meiosis",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q4.jpg"
     },
     {
       "question": "Which base pairs with Adenine (A) in DNA?",
       "options": ["Cytosine", "Guanine", "Thymine", "Uracil"],
       "answer": "Thymine",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q5.png"
     },
     {
       "question": "What is the short arm of a chromosome called?",
       "options": ["p arm", "q arm", "l arm", "k arm"],
       "answer": "p arm",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q6.jpg"
     },
     {
       "question": "Where are genes located on chromosomes?",
       "options": ["Centromeres", "Histones", "Loci", "Spindles"],
       "answer": "Loci",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q7.jpeg"
     },
     {
       "question": "Who proposed the chromosomal theory of inheritance?",
       "options": ["Watson and Crick", "Mendel", "Sutton and Boveri", "Darwin"],
       "answer": "Sutton and Boveri",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q8.png"
     },
     {
       "question": "What is a nucleotide made up of?",
@@ -57,13 +57,13 @@
         "Enzyme, lipid, DNA"
       ],
       "answer": "Sugar, phosphate group, nitrogenous base",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q9.png"
     },
     {
       "question": "What is the long arm of a chromosome called?",
       "options": ["p arm", "m arm", "q arm", "t arm"],
       "answer": "q arm",
-      "imgPath": ""
+      "imgPath": "res://assets/Exam/q10.png"
     }
   ]
 }
