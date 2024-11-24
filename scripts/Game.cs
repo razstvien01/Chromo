@@ -19,7 +19,7 @@ public partial class Game : Node2D
 	private GameOverDialog _gameOverDialog;
 	private bool isTriviaActive = false;
 	private string triviaScenePath = "res://scenes/Trivia.tscn";
-	private string questionScenePath = "res://scenes/Exam.tscn";
+	private string completeScenePath = "res://scenes/LevelCompleted.tscn";
 
 	private List<string> scenePaths = new List<string>
 	{
@@ -133,25 +133,38 @@ public partial class Game : Node2D
 		{
 			// Load the next scene
 			currentIndex++;
+
+			// * Extract the character's values
+			// CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+			// Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+		
+			// // * Evolve the character
+			// CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+			// Sprite2D newIcon = newCharacter.GetNodeOrNull<Sprite2D>("Icon");
+
+			// if (newIcon != null && icon != null && currentIndex > 1)
+			// {
+			// 	newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, 0) : new Vector2I(icon.FrameCoords.X, 0);
+
+			// }
 			LoadScene(currentIndex);
 		}
 		else
 		{
 			// All scenes completed, load a summary or question scene
-			var questionScene = GD.Load<PackedScene>(questionScenePath);
+			var completeScene = GD.Load<PackedScene>(completeScenePath);
 
-			if (questionScene != null)
+			if (completeScene != null)
 			{
 				GD.Print("All stages completed! Proceeding to the question scene.");
 				RemoveOldScene();
-
-				var examScene = (PackedScene)GD.Load(questionScenePath);
-				GetTree().ChangeSceneToPacked(examScene);
+				
+				GetTree().ChangeSceneToPacked(completeScene);
 
 			}
 			else
 			{
-				GD.PrintErr($"Failed to load the question scene at path: {questionScenePath}");
+				GD.PrintErr($"Failed to load the question scene at path: {completeScenePath}");
 			}
 		}
 	}
