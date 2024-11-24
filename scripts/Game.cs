@@ -117,7 +117,7 @@ public partial class Game : Node2D
 		{
 			RemoveChild(currentInstance);
 			currentInstance.QueueFree();
-			currentInstance = null; 
+			currentInstance = null;
 		}
 	}
 
@@ -145,10 +145,9 @@ public partial class Game : Node2D
 				GD.Print("All stages completed! Proceeding to the question scene.");
 				RemoveOldScene();
 
-				Node questionInstance = questionScene.Instantiate();
-				AddChild(questionInstance);
-				
-				ChangeBgm(AudioEnum.Level);
+				var examScene = (PackedScene)GD.Load(questionScenePath);
+				GetTree().ChangeSceneToPacked(examScene);
+
 			}
 			else
 			{

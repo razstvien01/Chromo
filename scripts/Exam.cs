@@ -18,6 +18,9 @@ public partial class Exam : Control
 
 	public override void _Ready()
 	{
+		_totalScore = 0;
+		_totalMistakes = 0;
+		
 		questionNumber = GetNode<Label>("QuestionContainer/Number");
 		question = GetNode<Label>("QuestionContainer/Question");
 		picture = GetNode<TextureRect>("Picture");

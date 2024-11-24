@@ -1,64 +1,69 @@
 {
   "questions": [
     {
-      "question": "What is the function of the centromere in a chromosome?",
-      "options": ["It divides DNA molecules.", "It links sister chromatids and is essential for their separation during cell division.", "It initiates DNA replication.", "It serves as the chromosome's primary structural unit."],
-      "answer": "It links sister chromatids and is essential for their separation during cell division.",
+      "question": "What molecule carries the genetic instructions for life?",
+      "options": ["RNA", "DNA", "Protein", "Lipids"],
+      "answer": "DNA",
       "imgPath": "res://assets/Exam/centromere.png"
     },
     {
-      "question": "Which part of a chromosome is known as the 'p arm'?",
-      "options": ["The shorter arm of the chromosome, located above the centromere", "The long arm of the chromosome, below the centromere", "The central region of the chromosome", "A region containing repetitive DNA sequences"],
-      "answer": "The shorter arm of the chromosome, located above the centromere",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "What structure helps chromosomes fit inside the nucleus?",
+      "options": ["Ribosomes", "Histones", "Mitochondria", "Centromeres"],
+      "answer": "Histones",
+      "imgPath": ""
     },
     {
-      "question": "What role do chromatids play during cell division?",
-      "options": ["They form the p arm and q arm.", "They duplicate DNA independently of the chromosome.", "They are copies of a chromosome joined together until they separate during mitosis or meiosis.", "They act as binding sites for the centromere."],
-      "answer": "They are copies of a chromosome joined together until they separate during mitosis or meiosis.",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "How many chromosome pairs do humans have?",
+      "options": ["22", "23", "24", "46"],
+      "answer": "23",
+      "imgPath": ""
     },
     {
-      "question": "What distinguishes the q arm of a chromosome from the p arm?",
-      "options": ["It is the shorter arm located above the centromere.", "It is the longer arm, typically below the centromere.", "It has a higher concentration of centromeric DNA.", "It is responsible for initiating DNA synthesis."],
-      "answer": "It is the longer arm, typically below the centromere.",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "What process ensures genetic diversity in offspring?",
+      "options": ["Mitosis", "Meiosis", "DNA Replication", "Transcription"],
+      "answer": "Meiosis",
+      "imgPath": ""
     },
     {
-      "question": "Which statement is true regarding the DNA molecule in chromosomes?",
-      "options": ["It is only present in the centromere.", "It forms the double-helix structure within both chromatids.", "It is only found in the q arm.", "It is a single strand found in the chromosome's nucleus."],
-      "answer": "It forms the double-helix structure within both chromatids.",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "Which base pairs with Adenine (A) in DNA?",
+      "options": ["Cytosine", "Guanine", "Thymine", "Uracil"],
+      "answer": "Thymine",
+      "imgPath": ""
     },
     {
-      "question": "During which phase of mitosis do chromatids separate at the centromere?",
-      "options": ["Prophase", "Metaphase", "Anaphase", "Telophase"],
-      "answer": "Anaphase",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "What is the short arm of a chromosome called?",
+      "options": ["p arm", "q arm", "l arm", "k arm"],
+      "answer": "p arm",
+      "imgPath": ""
     },
     {
-      "question": "What type of molecule is DNA?",
-      "options": ["Protein", "Nucleic acid", "Carbohydrate", "Lipid"],
-      "answer": "Nucleic acid",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "Where are genes located on chromosomes?",
+      "options": ["Centromeres", "Histones", "Loci", "Spindles"],
+      "answer": "Loci",
+      "imgPath": ""
     },
     {
-      "question": "How many chromatids are present in a chromosome after DNA replication but before cell division?",
-      "options": ["1", "2", "4", "8"],
-      "answer": "2",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "Who proposed the chromosomal theory of inheritance?",
+      "options": ["Watson and Crick", "Mendel", "Sutton and Boveri", "Darwin"],
+      "answer": "Sutton and Boveri",
+      "imgPath": ""
     },
     {
-      "question": "What is the role of the q arm in a chromosome?",
-      "options": ["It attaches to the cell membrane.", "It contains genes that may code for proteins.", "It initiates centromere formation.", "It prevents chromosome replication."],
-      "answer": "It contains genes that may code for proteins.",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "What is a nucleotide made up of?",
+      "options": [
+        "Protein, lipid, base",
+        "Sugar, phosphate group, nitrogenous base",
+        "RNA, sugar, phosphate group",
+        "Enzyme, lipid, DNA"
+      ],
+      "answer": "Sugar, phosphate group, nitrogenous base",
+      "imgPath": ""
     },
     {
-      "question": "Where is DNA located within a chromosome?",
-      "options": ["Only in the p arm", "Only in the q arm", "In both chromatids", "Only in the centromere"],
-      "answer": "In both chromatids",
-      "imgPath": "res://assets/Exam/centromere.png"
+      "question": "What is the long arm of a chromosome called?",
+      "options": ["p arm", "m arm", "q arm", "t arm"],
+      "answer": "q arm",
+      "imgPath": ""
     }
   ]
 }

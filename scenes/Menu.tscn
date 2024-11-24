@@ -110,6 +110,7 @@ volume_db = -13.705
 autoplay = true
 
 [node name="GameTitle" type="Label" parent="."]
+layout_mode = 0
 offset_left = 174.0
 offset_top = 91.0
 offset_right = 639.0
