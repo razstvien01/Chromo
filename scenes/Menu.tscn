@@ -88,6 +88,10 @@ script = null
 [node name="Icon" parent="CharacterA" index="2"]
 frame = 4
 
+[node name="Eyes" parent="CharacterA" index="3"]
+frame = 3
+frame_progress = 0.0
+
 [node name="CharacterA2" parent="." instance=ExtResource("4_hinlt")]
 position = Vector2(838, 482)
 scale = Vector2(6, 6)
@@ -103,6 +107,10 @@ script = null
 
 [node name="Icon" parent="CharacterA3" index="2"]
 frame = 9
+
+[node name="Eyes" parent="CharacterA3" index="3"]
+frame = 2
+frame_progress = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ylm1f")
