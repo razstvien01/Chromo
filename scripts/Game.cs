@@ -23,11 +23,11 @@ public partial class Game : Node2D
 
 	private List<string> scenePaths = new List<string>
 	{
-		// "res://scenes/stages/Tutorial.tscn",
-		// "res://scenes/stages/Stage_1.tscn",
-		// "res://scenes/stages/Stage_2.tscn",
-		// "res://scenes/stages/Stage_3.tscn",
-		// "res://scenes/stages/Stage_4.tscn",
+		"res://scenes/stages/Tutorial.tscn",
+		"res://scenes/stages/Stage_1.tscn",
+		"res://scenes/stages/Stage_2.tscn",
+		"res://scenes/stages/Stage_3.tscn",
+		"res://scenes/stages/Stage_4.tscn",
 		"res://scenes/stages/Stage_5.tscn"
 	};
 
@@ -85,7 +85,8 @@ public partial class Game : Node2D
 			currentInstance.QueueFree();
 		}
 
-		currentScene = (PackedScene)ResourceLoader.Load(scenePaths[index]);
+		string currScenePath = scenePaths[index];
+		currentScene = (PackedScene)ResourceLoader.Load(currScenePath);
 		if (currentScene != null)
 		{
 			currentInstance = currentScene.Instantiate<Struggles>();
@@ -102,6 +103,15 @@ public partial class Game : Node2D
 				struggles.Connect(nameof(Struggles.NextScene), Callable.From(_NextScene));
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
 			}
+			
+			for (int i = 1; i <= 5; i++)
+			{
+				if (currScenePath.Contains(i.ToString()))
+				{
+					EvolveCharacter(i);
+					break;
+				}
+			}
 
 			ChangeBgm(AudioEnum.Level);
 		}
@@ -110,6 +120,28 @@ public partial class Game : Node2D
 			GD.PrintErr($"Failed to load scene at path: {scenePaths[index]}");
 		}
 	}
+
+
+	private void EvolveCharacter(int level)
+	{
+		GD.Print("Evolved Level called");
+		// Retrieve the current character and its icon
+		CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+		Sprite2D icon = character?.GetNodeOrNull<Sprite2D>("Icon");
+
+		// Evolve the character
+		CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
+		Sprite2D newIcon = newCharacter?.GetNodeOrNull<Sprite2D>("Icon");
+
+		// Update the new icon's frame based on the level
+		if (newIcon != null && icon != null && level > 1)
+		{
+			newIcon.FrameCoords = (level < 4)
+					? new Vector2I(level, 0)
+					: new Vector2I(3, 0);
+		}
+	}
+
 
 	private void RemoveOldScene()
 	{
@@ -131,22 +163,9 @@ public partial class Game : Node2D
 	{
 		if (currentIndex < scenePaths.Count - 1)
 		{
-			// Load the next scene
 			currentIndex++;
 
 			// * Extract the character's values
-			// CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-			// Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
-		
-			// // * Evolve the character
-			// CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-			// Sprite2D newIcon = newCharacter.GetNodeOrNull<Sprite2D>("Icon");
-
-			// if (newIcon != null && icon != null && currentIndex > 1)
-			// {
-			// 	newIcon.FrameCoords = (icon.FrameCoords.X < 4) ? new Vector2I(icon.FrameCoords.X + 1, 0) : new Vector2I(icon.FrameCoords.X, 0);
-
-			// }
 			LoadScene(currentIndex);
 		}
 		else
@@ -158,7 +177,7 @@ public partial class Game : Node2D
 			{
 				GD.Print("All stages completed! Proceeding to the question scene.");
 				RemoveOldScene();
-				
+
 				GetTree().ChangeSceneToPacked(completeScene);
 
 			}
