@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://wxuqyqtqfm4g"]
+
+[ext_resource type="Script" path="res://scripts/PauseMenu.cs" id="1_w1lvd"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_w1lvd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.373)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -136.0
+offset_right = 344.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.26, 0.26, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.553822, 0.23574, 0.419137, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 120
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Question" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "Play Again?"
+
+[node name="Return" type="Button" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Return"
+
+[node name="ReturnToMainMenu" type="Button" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Return" to="." method="_OnNoPressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ReturnToMainMenu" to="." method="_OnYesPressed"]

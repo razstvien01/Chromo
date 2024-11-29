@@ -246,7 +246,7 @@ tile_map_data = PackedByteArray("AAABAA0AAQAFAAMAAAAAAA0AAQAHAAEAAAAAAAwAAQAEAAI
 tile_set = ExtResource("7_707ro")
 
 [node name="Character" parent="." instance=ExtResource("3_bu8ox")]
-position = Vector2(60, 60)
+position = Vector2(77, 172)
 
 [node name="Interactables" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAOAAgAAAAHAAQAAAAPAAgAAAAIAAQAAAAQAAgAAAAJAAQAAAAPAAMAAQABAAAAAAAQAAIAAAAIAAQAAAARAAIAAAAIAAQAAAASAAIAAAAIAAQAAAATAAIAAAAIAAQAAAAUAAIAAAAIAAQAAAAVAAIAAAAJAAQAAAAPAAIAAAAHAAQAAAAeAAEAAQAAAAAAAAA=")
