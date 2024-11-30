@@ -11,7 +11,7 @@ public partial class Game : Node2D
 		GameOver = 0,
 		Level = 1
 	}
-
+	private PauseMenu pauseMenu;
 	private PackedScene currentScene;
 	private Struggles currentInstance;
 	private int currentIndex = 0;
@@ -41,10 +41,17 @@ public partial class Game : Node2D
 	{
 		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
 		_gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
+		pauseMenu = GetNode<PauseMenu>("%PauseMenu");
 
+		pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
 		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
 		LoadScene(currentIndex);
+	}
+
+	private void Unpause()
+	{
+		currentInstance.UiControlsVisible = true;
 	}
 
 	private void OnGameOverDialogPressed(bool yesClicked)
@@ -102,6 +109,7 @@ public partial class Game : Node2D
 			{
 				struggles.Connect(nameof(Struggles.NextScene), Callable.From(_NextScene));
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
+				struggles.Connect(nameof(Struggles.Pause), Callable.From(() => pauseMenu.Show()));
 			}
 			
 			for (int i = 1; i <= 5; i++)
