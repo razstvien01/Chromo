@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d1ork7mrb6tou"]
+
+[ext_resource type="StyleBox" uid="uid://thj1jqhy2ftb" path="res://resources/theme/rounded_corners.tres" id="1_fsbp2"]
+[ext_resource type="StyleBox" uid="uid://cx3m8ptj0dk4c" path="res://resources/theme/rounded_corners_panel.tres" id="2_ffjym"]
+
+[resource]
+Button/styles/normal = ExtResource("1_fsbp2")
+PanelContainer/styles/panel = ExtResource("2_ffjym")

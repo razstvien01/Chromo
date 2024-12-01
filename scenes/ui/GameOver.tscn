@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gmmrhjhr3prg"]
+[gd_scene load_steps=5 format=3 uid="uid://gmmrhjhr3prg"]
 
 [ext_resource type="Script" path="res://scripts/GameOverDialog.cs" id="1_sj3av"]
 [ext_resource type="AudioStream" uid="uid://dxu6re7hqclx2" path="res://assets/Audio/SFX/159408__noirenex__life-lost-game-over.wav" id="2_0r4av"]
 [ext_resource type="AudioStream" uid="uid://b6d66qg3d4f5m" path="res://assets/Audio/SFX/342200__christopherderp__videogame-menu-button-click.wav" id="2_awfhs"]
+[ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="2_gmtrl"]
 
 [node name="GameOverDialog" type="Control"]
 layout_mode = 3
@@ -52,12 +53,14 @@ layout_mode = 2
 [node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_gmtrl")
 theme_override_font_sizes/font_size = 30
 text = "YES?"
 
 [node name="No" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_gmtrl")
 theme_override_font_sizes/font_size = 30
 text = "NO?"
 

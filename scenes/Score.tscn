@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bqqkxpkkrdl18"]
+[gd_scene load_steps=8 format=4 uid="uid://bqqkxpkkrdl18"]
 
 [ext_resource type="Script" path="res://scripts/Score.cs" id="1_ufjxn"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_usp65"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="2_oedfc"]
 [ext_resource type="AudioStream" uid="uid://j7ucpv628w6h" path="res://assets/Audio/BG/629170__holizna__chill-lofi-epiano-loop-80-bpm.wav" id="4_os4ok"]
+[ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="4_v45he"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke4sw"]
 texture = ExtResource("1_usp65")
@@ -139,6 +140,7 @@ theme_override_constants/separation = 20
 [node name="ReplayButton" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme = ExtResource("4_v45he")
 theme_override_font_sizes/font_size = 30
 text = "Replay Exam"
 autowrap_mode = 3
@@ -146,6 +148,7 @@ autowrap_mode = 3
 [node name="BackMenuButton" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme = ExtResource("4_v45he")
 theme_override_font_sizes/font_size = 30
 text = "Back to Menu
 "

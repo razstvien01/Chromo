@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://riegklyq8kwd"]
+[gd_scene load_steps=9 format=4 uid="uid://riegklyq8kwd"]
 
 [ext_resource type="Script" path="res://scripts/Exam.cs" id="1_37850"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_cn1lp"]
 [ext_resource type="Texture2D" uid="uid://c3l0cir4w1qvi" path="res://assets/Exam/q1.jpg" id="3_0glbg"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="4_6qw5h"]
+[ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="4_xlhq0"]
 [ext_resource type="AudioStream" uid="uid://48sr3jkfphm8" path="res://assets/Audio/BG/220060__portwain__quiz-game-music-loop-bpm-90.wav" id="5_ccg1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe62o"]
@@ -128,22 +129,26 @@ theme_override_constants/separation = 100
 [node name="Option1" type="Button" parent="OptionContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("4_xlhq0")
 text = "A) It divides DNA molecules."
 autowrap_mode = 3
 
 [node name="Option2" type="Button" parent="OptionContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("4_xlhq0")
 text = "B) It links sister chromatids and is essential for their separation during cell division."
 
 [node name="Option3" type="Button" parent="OptionContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("4_xlhq0")
 text = "C) It initiates DNA replication."
 
 [node name="Option4" type="Button" parent="OptionContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("4_xlhq0")
 text = "D) It serves as the chromosome's primary structural unit."
 
 [node name="CellParticles" parent="." instance=ExtResource("4_6qw5h")]

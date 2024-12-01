@@ -204,6 +204,7 @@ sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_8fewj")
+LevelName = "Stage 3"
 Trivia = ExtResource("2_pivuc")
 
 [node name="BackgroundTilemap" type="TileMapLayer" parent="."]

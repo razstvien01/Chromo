@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bnisel0tjmw5g"]
+[gd_scene load_steps=9 format=4 uid="uid://bnisel0tjmw5g"]
 
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_6thab"]
 [ext_resource type="Script" path="res://scripts/Menu.cs" id="1_ci18e"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="2_1xhea"]
 [ext_resource type="PackedScene" uid="uid://ppy7dfy55u5m" path="res://scenes/Character.tscn" id="4_hinlt"]
 [ext_resource type="AudioStream" uid="uid://djb0avfnwtwl4" path="res://assets/Audio/BG/722392__vrymaa__adventura.wav" id="4_ylm1f"]
+[ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="6_q42tg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28aeb"]
 texture = ExtResource("1_6thab")
@@ -150,6 +151,7 @@ alignment = 1
 [node name="StartButton" type="Button" parent="ScoreContainer"]
 custom_minimum_size = Vector2(500, 75)
 layout_mode = 2
+theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
 autowrap_mode = 3
@@ -157,6 +159,7 @@ autowrap_mode = 3
 [node name="ExitButton" type="Button" parent="ScoreContainer"]
 custom_minimum_size = Vector2(500, 75)
 layout_mode = 2
+theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Exit
 "

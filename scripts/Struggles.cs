@@ -6,6 +6,8 @@ public partial class Struggles : Node2D
 	private Vector2 START_XY_POS;
 
 	[Export]
+	public string LevelName { get; set; }
+	[Export]
 	public TriviaResource Trivia { get; set; }
 
 	[Signal]
@@ -14,17 +16,19 @@ public partial class Struggles : Node2D
 	public delegate void GameOverEventHandler();
 	[Signal]
 	public delegate void LoadTriviaEventHandler(TriviaResource triviaResource);
-	
+	[Signal]
+	public delegate void PauseEventHandler();
+
 	Character character;
-	
+
 	public override void _Ready()
 	{
 		foreach (Node child in GetChildren())
 		{
 			if ((child.Name.ToString().Contains("Water") || child.Name.ToString().Contains("Puddle")) && child.HasSignal("ShowGameOver"))
-        {
-            child?.Connect("ShowGameOver", Callable.From(_ShowGameOver));
-        }
+			{
+				child?.Connect("ShowGameOver", Callable.From(_ShowGameOver));
+			}
 		}
 		
 		character = GetNode<Character>("Character");
@@ -34,6 +38,18 @@ public partial class Struggles : Node2D
 
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionPressed("ui_cancel"))
+		{
+			EmitSignal(SignalName.Pause);
+			UiControlsVisible = false;
+		}
+	}
+
+	public bool UiControlsVisible {
+		set {
+			Node2D uiControls = GetNode<Node2D>("Controller");
+			uiControls.Visible = value;
+		}
 	}
 
 	public void _ShowGameOver()
@@ -56,10 +72,9 @@ public partial class Struggles : Node2D
 	public void ResetLevel()
 	{
 		character = GetNode<Character>("Character");
-		Node2D uiControls = GetNode<Node2D>("Controller");
 		
 		character.Position = START_XY_POS;
-		uiControls.Visible = true;  //* will show again the UI Controls
+		UiControlsVisible = true; //* will show again the UI Controls
 
 		character.ResetSprite();
 	}
