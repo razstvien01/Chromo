@@ -119,34 +119,34 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -772.0
-offset_top = -234.5
+offset_top = -282.0
 offset_right = -32.0
-offset_bottom = 234.5
+offset_bottom = 292.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 
 [node name="Option1" type="Button" parent="OptionContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("4_xlhq0")
 text = "A) It divides DNA molecules."
 autowrap_mode = 3
 
 [node name="Option2" type="Button" parent="OptionContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("4_xlhq0")
 text = "B) It links sister chromatids and is essential for their separation during cell division."
 
 [node name="Option3" type="Button" parent="OptionContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("4_xlhq0")
 text = "C) It initiates DNA replication."
 
 [node name="Option4" type="Button" parent="OptionContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("4_xlhq0")
 text = "D) It serves as the chromosome's primary structural unit."

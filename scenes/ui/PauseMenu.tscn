@@ -36,6 +36,7 @@ offset_right = 344.0
 offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="GameOverLabel" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -58,6 +59,7 @@ text = "Tutorial"
 
 [node name="Return" type="Button" parent="ColorRect/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_erx4g")
@@ -66,6 +68,7 @@ text = "Return"
 
 [node name="ReturnToMainMenu" type="Button" parent="ColorRect/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_erx4g")

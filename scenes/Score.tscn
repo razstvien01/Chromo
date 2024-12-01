@@ -131,14 +131,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -280.0
-offset_top = -231.0
+offset_top = -236.0
 offset_right = 280.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 
 [node name="ReplayButton" type="Button" parent="ButtonContainer"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("4_v45he")
 theme_override_font_sizes/font_size = 30
@@ -146,7 +147,7 @@ text = "Replay Exam"
 autowrap_mode = 3
 
 [node name="BackMenuButton" type="Button" parent="ButtonContainer"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("4_v45he")
 theme_override_font_sizes/font_size = 30
