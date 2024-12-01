@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Chromo Game"
+config/name="Chromo"
 run/main_scene="res://scenes/Menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 boot_splash/image="res://assets/BG/Splash.png"
