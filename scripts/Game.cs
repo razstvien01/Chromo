@@ -110,6 +110,7 @@ public partial class Game : Node2D
 				struggles.Connect(nameof(Struggles.NextScene), Callable.From(_NextScene));
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
 				struggles.Connect(nameof(Struggles.Pause), Callable.From(() => pauseMenu.Show()));
+				pauseMenu.CurrentLevelName = struggles.LevelName;
 			}
 			
 			for (int i = 1; i <= 5; i++)

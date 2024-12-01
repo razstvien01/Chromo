@@ -6,6 +6,8 @@ public partial class Struggles : Node2D
 	private Vector2 START_XY_POS;
 
 	[Export]
+	public string LevelName { get; set; }
+	[Export]
 	public TriviaResource Trivia { get; set; }
 
 	[Signal]

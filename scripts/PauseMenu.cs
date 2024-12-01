@@ -5,6 +5,13 @@ public partial class PauseMenu : Control
 	[Signal]
 	public delegate void UnpauseEventHandler();
 
+	public string CurrentLevelName {
+		set {
+			Label currentLabel = GetNode<Label>("%CurrentLevel");
+			currentLabel.Text = value;
+		}
+	}
+
 	public override void _Ready()
 	{
 		Button returnBtn = GetNode<Button>("%Return");

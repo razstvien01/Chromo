@@ -716,6 +716,7 @@ sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 [node name="Stage_1" type="Node2D"]
 position = Vector2(-18, -4)
 script = ExtResource("1_gcmyl")
+LevelName = "Stage 1"
 Trivia = ExtResource("2_jadjg")
 metadata/_edit_vertical_guides_ = [885.0]
 
