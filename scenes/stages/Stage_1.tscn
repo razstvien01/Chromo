@@ -736,15 +736,8 @@ position = Vector2(65, 64)
 
 [node name="Controller" parent="." instance=ExtResource("6_edten")]
 
-[node name="DoorArea" parent="." instance=ExtResource("9_i72y7")]
-position = Vector2(68, 361)
-
 [node name="YellowButton" parent="." instance=ExtResource("8_bejqd")]
 position = Vector2(264, 93)
-
-[node name="PurpleButton" parent="." instance=ExtResource("8_bejqd")]
-position = Vector2(313, 285)
-buttonType = 1
 
 [node name="PurpleButton2" parent="." instance=ExtResource("8_bejqd")]
 position = Vector2(408, 93)
@@ -803,36 +796,6 @@ lifetime_randomness = 0.3
 texture = SubResource("AtlasTexture_bg8r5")
 emission_shape = 3
 emission_rect_extents = Vector2(30, 1)
-direction = Vector2(0, -1)
-gravity = Vector2(0, -20)
-initial_velocity_min = 1.0
-initial_velocity_max = 2.0
-linear_accel_min = 0.5
-linear_accel_max = 1.0
-scale_amount_min = 0.2
-scale_amount_max = 0.4
-color = Color(0.776471, 0.752941, 0.262745, 1)
-
-[node name="YellowWater3" parent="." instance=ExtResource("9_w346k")]
-position = Vector2(1231, 338)
-waterType = 1
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YellowWater3"]
-position = Vector2(-22.3539, -2)
-scale = Vector2(0.355369, 1)
-polygon = PackedVector2Array(-7.44629, -1, 107.927, -1, 107.927, 7, 23.5076, 6)
-
-[node name="YellowBubble" type="CPUParticles2D" parent="YellowWater3"]
-modulate = Color(1, 1, 1, 0.54902)
-position = Vector2(-1, 1)
-amount = 4
-lifetime = 2.0
-explosiveness = 0.2
-randomness = 0.03
-lifetime_randomness = 0.3
-texture = SubResource("AtlasTexture_bg8r5")
-emission_shape = 3
-emission_rect_extents = Vector2(20, 1)
 direction = Vector2(0, -1)
 gravity = Vector2(0, -20)
 initial_velocity_min = 1.0
@@ -951,9 +914,12 @@ scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.751258, 0.5015, 0.85, 1)
 
+[node name="DoorArea" parent="." instance=ExtResource("9_i72y7")]
+position = Vector2(68, 361)
+
 [node name="Interactables" type="TileMapLayer" parent="."]
 position = Vector2(-1, -1)
-tile_map_data = PackedByteArray("AAAEAAYAAAAHAAQAAAAIAAYAAAAJAAQAAAAFAAYAAAAIAAQAAAAGAAYAAAAIAAQAAAAHAAYAAAAIAAQAAAAFAAEAAQABAAAAAAAGAAUAAQABAAEAAAAIAAEAAQABAAEAAAAYAAcAAQABAAAAAAAQAAcAAQABAAEAAAAKAAQAAAAHAAUAAAAMAAQAAAAJAAUAAAALAAQAAAAIAAUAAAAUAAQAAAAHAAUAAAAYAAQAAAAJAAUAAAAVAAQAAAAIAAUAAAAWAAQAAAAIAAUAAAAXAAQAAAAIAAUAAAAcAAQAAAAJAAQAAAAZAAcAAAAHAAQAAAAXAAcAAAAJAAQAAAAWAAcAAAAHAAQAAAANAAcAAAAIAAUAAAAMAAcAAAAHAAUAAAAOAAcAAAAIAAUAAAAPAAcAAAAJAAUAAAABAAcAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAAYAAAAHAAQAAAAIAAYAAAAJAAQAAAAFAAYAAAAIAAQAAAAGAAYAAAAIAAQAAAAHAAYAAAAIAAQAAAAFAAEAAQABAAAAAAAIAAEAAQABAAEAAAAYAAcAAQABAAAAAAAQAAcAAQABAAEAAAAKAAQAAAAHAAUAAAAMAAQAAAAJAAUAAAALAAQAAAAIAAUAAAAUAAQAAAAHAAUAAAAYAAQAAAAJAAUAAAAVAAQAAAAIAAUAAAAWAAQAAAAIAAUAAAAXAAQAAAAIAAUAAAAcAAQAAAAJAAQAAAAXAAcAAAAJAAQAAAAWAAcAAAAHAAQAAAANAAcAAAAIAAUAAAAMAAcAAAAHAAUAAAAOAAcAAAAIAAUAAAAPAAcAAAAJAAUAAAABAAcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ls32l")
 
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
