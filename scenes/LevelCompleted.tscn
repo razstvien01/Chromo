@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dh2r63tmy0d5m"]
+[gd_scene load_steps=11 format=4 uid="uid://dh2r63tmy0d5m"]
 
 [ext_resource type="Script" path="res://scripts/LevelCompleted.cs" id="1_cb00e"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_hhata"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dnbeigqu4juo8" path="res://assets/Icons/arrow.png" id="4_685qh"]
 [ext_resource type="AudioStream" uid="uid://trwo6kedv28g" path="res://assets/Audio/Narration/6.wav" id="6_5iut7"]
 [ext_resource type="AudioStream" uid="uid://j7ucpv628w6h" path="res://assets/Audio/BG/629170__holizna__chill-lofi-epiano-loop-80-bpm.wav" id="6_5o7o0"]
+[ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="6_45mng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_atwqc"]
 texture = ExtResource("1_hhata")
@@ -142,6 +143,7 @@ frame_progress = 0.0
 [node name="BackMenuButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme = ExtResource("6_45mng")
 theme_override_font_sizes/font_size = 30
 text = "Proceed to Exam"
 autowrap_mode = 3

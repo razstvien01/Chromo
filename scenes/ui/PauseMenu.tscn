@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wxuqyqtqfm4g"]
+[gd_scene load_steps=3 format=3 uid="uid://wxuqyqtqfm4g"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.cs" id="1_w1lvd"]
+[ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="2_erx4g"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -58,6 +59,7 @@ text = "Tutorial"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_erx4g")
 theme_override_font_sizes/font_size = 30
 text = "Return"
 
@@ -65,6 +67,7 @@ text = "Return"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_erx4g")
 theme_override_font_sizes/font_size = 30
 text = "Return to Main Menu"
 
