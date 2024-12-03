@@ -20,7 +20,7 @@ public partial class Exam : Control
 	{
 		_totalScore = 0;
 		_totalMistakes = 0;
-		
+
 		questionNumber = GetNode<Label>("QuestionContainer/Number");
 		question = GetNode<Label>("QuestionContainer/Question");
 		picture = GetNode<TextureRect>("Picture");
@@ -66,7 +66,7 @@ public partial class Exam : Control
 			GameState gameState = GameState.GetInstance();
 			gameState.TotalScore = _totalScore;
 			gameState.TotalMistakes = _totalMistakes;
-			
+
 			var scoreScene = (PackedScene)GD.Load("res://scenes/Score.tscn");
 
 			GetTree().ChangeSceneToPacked(scoreScene);
@@ -108,7 +108,29 @@ public partial class Exam : Control
 			++_totalMistakes;
 		}
 
-		currentQuestionIndex++;
-		LoadExam();
+		foreach (Button optButton in options)
+		{
+			optButton.Disabled = true;
+		}
+		
+		// Use a small delay before loading the next question
+		Timer optDelayTimer = new Timer();
+		optDelayTimer.WaitTime = 1.0f;
+		optDelayTimer.OneShot = true;
+		AddChild(optDelayTimer);
+		optDelayTimer.Connect("timeout", Callable.From(() =>
+		{
+			button.Modulate = new Color(1, 1, 1);
+			foreach(Button optButton in options){
+				optButton.Disabled = false;
+			}
+			
+			optDelayTimer.QueueFree();
+			++currentQuestionIndex;
+			LoadExam();
+		}));
+		
+		optDelayTimer.Start();
 	}
+
 }
