@@ -72,8 +72,12 @@ public partial class Exam : Control
 			GetTree().ChangeSceneToPacked(scoreScene);
 			return;
 		}
-
-
+		
+		//* Reset countdown timer
+		Timer countdownTimer = GetNode<Timer>("CountdownTimer");
+		countdownTimer.Stop();
+		countdownTimer.Start();
+		
 		// Load the current question
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 		questionNumber.Text = $"Question {currentQuestionIndex + 1}";
@@ -86,11 +90,15 @@ public partial class Exam : Control
 		for (int i = 0; i < options.Count; i++)
 		{
 			options[i].Text = currentQuestion.Options[i];
+			options[i].Disabled = false;
+			options[i].Modulate = new Color(1, 1, 1);
 		}
 	}
 
 	private void OnOptionSelected(Button button)
 	{
+		Timer countdownTimer = GetNode<Timer>("CountdownTimer");
+		countdownTimer.Stop();
 
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 		string selectedOption = button.Text;
@@ -131,6 +139,13 @@ public partial class Exam : Control
 		}));
 		
 		optDelayTimer.Start();
+	}
+	
+	private void _OnCountdownTimeout(){
+		GD.Print("Time's up! Proceeding to the next question.");
+		++_totalMistakes;
+		++currentQuestionIndex;
+		LoadExam();
 	}
 
 }
