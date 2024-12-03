@@ -98,11 +98,13 @@ public partial class Exam : Control
 		if (selectedOption.Equals(currentQuestion.Answer))
 		{
 			GD.Print("Correct answer!");
+			button.Modulate = new Color(0, 1, 0);
 			++_totalScore;
 		}
 		else
 		{
 			GD.Print("Incorrect answer!");
+			button.Modulate = new Color(1, 0, 0);
 			++_totalMistakes;
 		}
 
