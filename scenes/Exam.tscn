@@ -79,8 +79,7 @@ tile_map_data = PackedByteArray("AAAXAAAAAAADAAMAAAAAAAAAAAADAAEAAAABAAAAAAACAAI
 tile_set = SubResource("TileSet_2pijy")
 
 [node name="CountdownTimer" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
+autostart = true
 
 [node name="QuestionContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -115,7 +114,8 @@ texture = ExtResource("3_0glbg")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Feedback" type="Label" parent="."]
+[node name="FeedbackLabel" type="Label" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 7
@@ -123,14 +123,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -521.0
+offset_left = -683.0
 offset_top = -83.0
-offset_right = -273.0
+offset_right = -84.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Correct Answer!"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="TimerLabel" type="Label" parent="."]

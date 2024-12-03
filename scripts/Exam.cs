@@ -15,6 +15,7 @@ public partial class Exam : Control
 	private int currentQuestionIndex = 0;
 	private int _totalScore = 0;
 	private int _totalMistakes = 0;
+	private Label timerLabel;
 
 	public override void _Ready()
 	{
@@ -24,6 +25,9 @@ public partial class Exam : Control
 		questionNumber = GetNode<Label>("QuestionContainer/Number");
 		question = GetNode<Label>("QuestionContainer/Question");
 		picture = GetNode<TextureRect>("Picture");
+		timerLabel = GetNode<Label>("TimerLabel");
+
+		timerLabel.Text = "60 s";
 
 		for (int i = 0; i < 4; ++i)
 		{
@@ -61,6 +65,8 @@ public partial class Exam : Control
 
 	private void LoadExam()
 	{
+		timerLabel.Text = "60 s";
+
 		if (currentQuestionIndex >= exam.Questions.Count)
 		{
 			GameState gameState = GameState.GetInstance();
@@ -72,12 +78,12 @@ public partial class Exam : Control
 			GetTree().ChangeSceneToPacked(scoreScene);
 			return;
 		}
-		
+
 		//* Reset countdown timer
 		Timer countdownTimer = GetNode<Timer>("CountdownTimer");
 		countdownTimer.Stop();
 		countdownTimer.Start();
-		
+
 		// Load the current question
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 		questionNumber.Text = $"Question {currentQuestionIndex + 1}";
@@ -103,49 +109,88 @@ public partial class Exam : Control
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
 		string selectedOption = button.Text;
 
+		Label feedbackLabel = GetNode<Label>("FeedbackLabel");
+
+
 		if (selectedOption.Equals(currentQuestion.Answer))
 		{
-			GD.Print("Correct answer!");
+			feedbackLabel.Text = "Correct answer!";
 			button.Modulate = new Color(0, 1, 0);
 			++_totalScore;
 		}
 		else
 		{
-			GD.Print("Incorrect answer!");
+			feedbackLabel.Text = "Incorrect answer!";
 			button.Modulate = new Color(1, 0, 0);
 			++_totalMistakes;
 		}
+		feedbackLabel.Visible = true;
 
 		foreach (Button optButton in options)
 		{
 			optButton.Disabled = true;
 		}
-		
+
 		// Use a small delay before loading the next question
 		Timer optDelayTimer = new Timer();
-		optDelayTimer.WaitTime = 1.0f;
+		optDelayTimer.WaitTime = 2.0f;
 		optDelayTimer.OneShot = true;
 		AddChild(optDelayTimer);
 		optDelayTimer.Connect("timeout", Callable.From(() =>
 		{
+			feedbackLabel.Visible = false;
 			button.Modulate = new Color(1, 1, 1);
-			foreach(Button optButton in options){
+			foreach (Button optButton in options)
+			{
 				optButton.Disabled = false;
 			}
-			
+
 			optDelayTimer.QueueFree();
 			++currentQuestionIndex;
 			LoadExam();
 		}));
-		
+
 		optDelayTimer.Start();
 	}
-	
-	private void _OnCountdownTimeout(){
-		GD.Print("Time's up! Proceeding to the next question.");
-		++_totalMistakes;
-		++currentQuestionIndex;
-		LoadExam();
+
+	private void _OnCountdownTimeout()
+	{
+		// Get the current time from the label, stripping " s"
+		int remainingTime = int.Parse(timerLabel.Text.Replace(" s", ""));
+		remainingTime--;
+
+		// Update the label
+		timerLabel.Text = $"{remainingTime} s";
+
+		// If time runs out, trigger timeout manually
+		if (remainingTime <= 0)
+		{
+			foreach (Button optButton in options)
+			{
+				optButton.Disabled = true;
+			}
+
+			Label feedbackLabel = GetNode<Label>("FeedbackLabel");
+			feedbackLabel.Text = "Time's up! Moving to the next question...";
+			feedbackLabel.Visible = true;
+
+			GetNode<Timer>("CountdownTimer").Stop();
+			++_totalMistakes;
+
+			Timer delayTimer = new Timer();
+			delayTimer.WaitTime = 2.0f; // 2 seconds delay
+			delayTimer.OneShot = true;
+			AddChild(delayTimer);
+			delayTimer.Connect("timeout", Callable.From(() =>
+			{
+				feedbackLabel.Visible = false;
+				++currentQuestionIndex;
+				LoadExam();
+				delayTimer.QueueFree();
+			}));
+
+			delayTimer.Start();
+		}
 	}
 
 }
