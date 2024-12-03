@@ -139,14 +139,24 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 157.0
-offset_top = 35.0
+offset_top = -57.0
 offset_right = 657.0
-offset_bottom = 263.0
+offset_bottom = 293.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 alignment = 1
+
+[node name="ContinueButton" type="Button" parent="ScoreContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme = ExtResource("6_q42tg")
+theme_override_font_sizes/font_size = 30
+text = "Continue
+"
+autowrap_mode = 3
 
 [node name="StartButton" type="Button" parent="ScoreContainer"]
 custom_minimum_size = Vector2(500, 100)
@@ -165,6 +175,7 @@ text = "Exit
 "
 autowrap_mode = 3
 
+[connection signal="pressed" from="ScoreContainer/ContinueButton" to="." method="_OnContinueButtonPressed"]
 [connection signal="pressed" from="ScoreContainer/StartButton" to="." method="_OnStartButtonPressed"]
 [connection signal="pressed" from="ScoreContainer/ExitButton" to="." method="_OnExitButtonPressed"]
 

@@ -21,5 +21,8 @@ public partial class Menu : Control
 	
 	public void _OnExitButtonPressed(){
 		GetTree().Quit();
-	}	
+	}
+	public void _OnContinueButtonPressed(){
+		
+	}
 }
