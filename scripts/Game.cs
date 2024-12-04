@@ -20,6 +20,7 @@ public partial class Game : Node2D
 	private bool isTriviaActive = false;
 	private string triviaScenePath = "res://scenes/Trivia.tscn";
 	private string completeScenePath = "res://scenes/LevelCompleted.tscn";
+	private string savePath = "user://save_game.json";
 
 	private List<string> scenePaths = new List<string>
 	{
@@ -46,6 +47,8 @@ public partial class Game : Node2D
 		pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
 		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
+		// Load saved progress
+		currentIndex = LoadProgress();
 		LoadScene(currentIndex);
 	}
 
@@ -60,6 +63,9 @@ public partial class Game : Node2D
 		{
 			ChangeBgm(AudioEnum.Level);
 			currentInstance.ResetLevel();
+
+			// Save progress for the current level
+			SaveProgress(currentIndex);
 		}
 		else
 		{
@@ -69,6 +75,7 @@ public partial class Game : Node2D
 
 		_gameOverDialog.Position = new Vector2(0, GAME_OVER_DIALOG_INIT_POS_Y);  //* hide the button UI
 	}
+
 
 	private void OnGameOver()
 	{
@@ -112,7 +119,7 @@ public partial class Game : Node2D
 				struggles.Connect(nameof(Struggles.Pause), Callable.From(() => pauseMenu.Show()));
 				pauseMenu.CurrentLevelName = struggles.LevelName;
 			}
-			
+
 			for (int i = 1; i <= 5; i++)
 			{
 				if (currScenePath.Contains(i.ToString()))
@@ -174,7 +181,9 @@ public partial class Game : Node2D
 		{
 			currentIndex++;
 
-			// * Extract the character's values
+			// Save progress before loading the next scene
+			SaveProgress(currentIndex);
+
 			LoadScene(currentIndex);
 		}
 		else
@@ -188,7 +197,6 @@ public partial class Game : Node2D
 				RemoveOldScene();
 
 				GetTree().ChangeSceneToPacked(completeScene);
-
 			}
 			else
 			{
@@ -196,6 +204,7 @@ public partial class Game : Node2D
 			}
 		}
 	}
+
 
 
 
@@ -229,5 +238,62 @@ public partial class Game : Node2D
 		RemoveOldScene(); // Properly clean up Trivia scene
 		_NextScene();     // Proceed to the next stage
 	}
+
+	private void SaveProgress(int stageIndex)
+	{
+		var saveData = new Godot.Collections.Dictionary<string, int>
+		{
+				{ "stageIndex", stageIndex }
+		};
+
+		// Convert the dictionary to a JSON string
+		string jsonString = Json.Stringify(saveData);
+
+		using (var file = FileAccess.Open("user://save_game.json", FileAccess.ModeFlags.Write))
+		{
+			file.StoreString(jsonString);
+		}
+	}
+
+	private int LoadProgress()
+	{
+		string savePath = "user://save_game.json";  // Ensure you set the save path if not already defined
+
+		if (!FileAccess.FileExists(savePath))
+		{
+			GD.Print("No save file found. Starting a new game.");
+			return 0; // Start from the beginning
+		}
+
+		using var file = FileAccess.Open(savePath, FileAccess.ModeFlags.Read);
+		string content = file.GetAsText();
+		var saveData = Json.ParseString(content);
+
+		GD.Print(saveData);  // To print the entire data object, e.g., { "stageIndex": 2 }
+		GD.Print("Type of saveData: " + saveData.GetType().Name);  // Type of saveData: Variant
+
+		// Safely cast saveData to a Dictionary<string, Variant>
+		var saveDict = saveData.As<Godot.Collections.Dictionary<string, Variant>>();
+
+		// Check if saveDict is valid and contains "stageIndex"
+		if (saveDict != null && saveDict.ContainsKey("stageIndex"))
+		{
+			// Safely convert the value associated with "stageIndex" to an int
+			int stageIndex = saveDict["stageIndex"].As<int>();
+			GD.Print("Loaded stage index: " + stageIndex);
+			return stageIndex;
+		}
+		else
+		{
+			GD.Print("No stageIndex found or invalid save data. Starting from the beginning.");
+			return 0;
+		}
+	}
+
+
+
+
+
+
 
 }

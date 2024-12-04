@@ -121,9 +121,9 @@ autoplay = true
 [node name="GameTitle" type="Label" parent="."]
 layout_mode = 0
 offset_left = 174.0
-offset_top = 91.0
+offset_top = 78.0
 offset_right = 639.0
-offset_bottom = 256.0
+offset_bottom = 243.0
 theme_override_colors/font_color = Color(1, 0.26, 0.26, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.553822, 0.23574, 0.419137, 1)
