@@ -1,16 +1,17 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 public partial class Game : Node2D
 {
 	private const int GAME_OVER_DIALOG_INIT_POS_Y = -500;
+
 	public enum AudioEnum
 	{
 		GameOver = 0,
 		Level = 1
 	}
+
 	private PauseMenu pauseMenu;
 	private PackedScene currentScene;
 	private Struggles currentInstance;
@@ -38,20 +39,20 @@ public partial class Game : Node2D
 		"res://assets/Audio/BG/670039__seth_makes_sounds__chill-background-music.wav"
 	};
 
+	//* This will be set from the Menu scene when transitioning
 	public override void _Ready()
-	{
-		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
-		_gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
-		pauseMenu = GetNode<PauseMenu>("%PauseMenu");
+    {
+        bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
+        _gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
+        pauseMenu = GetNode<PauseMenu>("%PauseMenu");
 
-		pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
-		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
+        pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
+        _gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
-		// Load saved progress
-		currentIndex = LoadProgress();
-		LoadScene(currentIndex);
-	}
-
+        // Use GameState to determine progress
+        currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
+        LoadScene(currentIndex);
+    }
 	private void Unpause()
 	{
 		currentInstance.UiControlsVisible = true;
@@ -64,18 +65,15 @@ public partial class Game : Node2D
 			ChangeBgm(AudioEnum.Level);
 			currentInstance.ResetLevel();
 
-			// Save progress for the current level
-			SaveProgress(currentIndex);
+			SaveProgress(currentIndex); // Save progress for the current level
 		}
 		else
 		{
-			var menuScene = (PackedScene)GD.Load("res://scenes/Menu.tscn");
-			GetTree().ChangeSceneToPacked(menuScene);
+			GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/Menu.tscn"));
 		}
 
-		_gameOverDialog.Position = new Vector2(0, GAME_OVER_DIALOG_INIT_POS_Y);  //* hide the button UI
+		_gameOverDialog.Position = new Vector2(0, GAME_OVER_DIALOG_INIT_POS_Y); //* Hide the button UI
 	}
-
 
 	private void OnGameOver()
 	{
@@ -93,23 +91,22 @@ public partial class Game : Node2D
 
 	private void LoadScene(int index)
 	{
-		if (currentInstance != null)
+		if (index < 0 || index >= scenePaths.Count)
 		{
-			RemoveChild(currentInstance);
-			currentInstance.QueueFree();
+			GD.PrintErr($"Invalid scene index: {index}");
+			return;
 		}
 
+		RemoveOldScene();
+
 		string currScenePath = scenePaths[index];
-		currentScene = (PackedScene)ResourceLoader.Load(currScenePath);
+		currentScene = GD.Load<PackedScene>(currScenePath);
 		if (currentScene != null)
 		{
 			currentInstance = currentScene.Instantiate<Struggles>();
 			AddChild(currentInstance);
+			MoveChild(currentInstance, 0); //* Ensure scene is behind UI
 
-			// * Make Sure the Scene is behind all of Game's Scenes
-			MoveChild(currentInstance, 0);
-
-			// Connect signals
 			currentInstance.Connect(nameof(Struggles.GameOver), Callable.From(OnGameOver));
 
 			if (currentInstance is Struggles struggles)
@@ -120,44 +117,13 @@ public partial class Game : Node2D
 				pauseMenu.CurrentLevelName = struggles.LevelName;
 			}
 
-			for (int i = 1; i <= 5; i++)
-			{
-				if (currScenePath.Contains(i.ToString()))
-				{
-					EvolveCharacter(i);
-					break;
-				}
-			}
-
 			ChangeBgm(AudioEnum.Level);
 		}
 		else
 		{
-			GD.PrintErr($"Failed to load scene at path: {scenePaths[index]}");
+			GD.PrintErr($"Failed to load scene at path: {currScenePath}");
 		}
 	}
-
-
-	private void EvolveCharacter(int level)
-	{
-		GD.Print("Evolved Level called");
-		// Retrieve the current character and its icon
-		CharacterBody2D character = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-		Sprite2D icon = character?.GetNodeOrNull<Sprite2D>("Icon");
-
-		// Evolve the character
-		CharacterBody2D newCharacter = currentInstance.GetNodeOrNull<CharacterBody2D>("Character");
-		Sprite2D newIcon = newCharacter?.GetNodeOrNull<Sprite2D>("Icon");
-
-		// Update the new icon's frame based on the level
-		if (newIcon != null && icon != null && level > 1)
-		{
-			newIcon.FrameCoords = (level < 4)
-					? new Vector2I(level, 0)
-					: new Vector2I(3, 0);
-		}
-	}
-
 
 	private void RemoveOldScene()
 	{
@@ -169,52 +135,31 @@ public partial class Game : Node2D
 		}
 	}
 
-
-	private void PlaceCurrentInstance()
-	{
-		MoveChild(currentInstance, 0);
-	}
-
 	public void _NextScene()
 	{
 		if (currentIndex < scenePaths.Count - 1)
 		{
 			currentIndex++;
-
-			// Save progress before loading the next scene
 			SaveProgress(currentIndex);
-
 			LoadScene(currentIndex);
 		}
 		else
 		{
-			// All scenes completed, load a summary or question scene
 			var completeScene = GD.Load<PackedScene>(completeScenePath);
-
 			if (completeScene != null)
 			{
-				GD.Print("All stages completed! Proceeding to the question scene.");
-				RemoveOldScene();
-
 				GetTree().ChangeSceneToPacked(completeScene);
 			}
 			else
 			{
-				GD.PrintErr($"Failed to load the question scene at path: {completeScenePath}");
+				GD.PrintErr($"Failed to load completion scene: {completeScenePath}");
 			}
 		}
 	}
 
-
-
-
 	private void LoadTriviaScene(TriviaResource triviaResource)
 	{
-		if (currentInstance != null)
-		{
-			RemoveOldScene();
-		}
-
+		RemoveOldScene();
 		var triviaScene = GD.Load<PackedScene>(triviaScenePath);
 		if (triviaScene != null)
 		{
@@ -222,21 +167,19 @@ public partial class Game : Node2D
 			AddChild(triviaInstance);
 
 			triviaInstance.TriviaResource = triviaResource;
-
-			// Connect Trivia button signal to proceed
-			triviaInstance.GetNode<Button>("PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ProceedButton").Connect("pressed", Callable.From(OnTriviaCompleted));
+			triviaInstance.GetNode<Button>("PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ProceedButton")
+				.Connect("pressed", Callable.From(OnTriviaCompleted));
 		}
 		else
 		{
-			GD.PrintErr($"Failed to load Trivia scene at path: {triviaScenePath}");
+			GD.PrintErr($"Failed to load Trivia scene: {triviaScenePath}");
 		}
 	}
 
 	private void OnTriviaCompleted()
 	{
-		GD.Print("Trivia completed!");
-		RemoveOldScene(); // Properly clean up Trivia scene
-		_NextScene();     // Proceed to the next stage
+		RemoveOldScene();
+		_NextScene();
 	}
 
 	private void SaveProgress(int stageIndex)
@@ -257,8 +200,6 @@ public partial class Game : Node2D
 
 	private int LoadProgress()
 	{
-		string savePath = "user://save_game.json";  // Ensure you set the save path if not already defined
-
 		if (!FileAccess.FileExists(savePath))
 		{
 			GD.Print("No save file found. Starting a new game.");
@@ -289,11 +230,4 @@ public partial class Game : Node2D
 			return 0;
 		}
 	}
-
-
-
-
-
-
-
 }
