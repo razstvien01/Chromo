@@ -148,6 +148,9 @@ public partial class Game : Node2D
 			var completeScene = GD.Load<PackedScene>(completeScenePath);
 			if (completeScene != null)
 			{
+				if(FileAccess.FileExists(savePath)){
+					FileAccess.FileExists(savePath);
+				}
 				GetTree().ChangeSceneToPacked(completeScene);
 			}
 			else
