@@ -52,10 +52,38 @@ public partial class Game : Node2D
 		// Use GameState to determine progress
 		currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
 
-		// TODO: Evolve character init
-
 		LoadScene(currentIndex);
 	}
+	private void EvolveCharacterIcon(CharacterBody2D character, int level)
+	{
+		if (character == null)
+		{
+			GD.PrintErr("Character is null. Cannot evolve the icon.");
+			return;
+		}
+
+		Sprite2D icon = character.GetNodeOrNull<Sprite2D>("Icon");
+
+		if (icon != null)
+		{
+			// Calculate new frame coordinate based on level
+			int newX = icon.FrameCoords.X + level;
+
+			// Ensure the value doesn't exceed 4
+			newX = Mathf.Min(newX, 4);
+
+			// Update the icon's FrameCoords
+			icon.FrameCoords = new Vector2I(newX, 0);
+
+			GD.Print($"Icon evolved to frame X: {icon.FrameCoords.X}");
+		}
+		else
+		{
+			GD.PrintErr("Icon node not found in character.");
+		}
+	}
+
+
 	private void Unpause()
 	{
 		currentInstance.UiControlsVisible = true;
@@ -118,6 +146,16 @@ public partial class Game : Node2D
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
 				struggles.Connect(nameof(Struggles.Pause), Callable.From(() => pauseMenu.Show()));
 				pauseMenu.CurrentLevelName = struggles.LevelName;
+
+				CharacterBody2D character = struggles.GetNodeOrNull<CharacterBody2D>("Character");
+				if (character != null)
+				{
+					EvolveCharacterIcon(character, index);
+				}
+				else
+				{
+					GD.PrintErr("Character node not found in the current scene.");
+				}
 			}
 
 			ChangeBgm(AudioEnum.Level);
