@@ -61,6 +61,8 @@ public partial class Exam : Control
 		file.Close();
 
 		exam = JsonConvert.DeserializeObject<ExamModel>(jsonContent);
+
+		exam.Questions.Shuffle();
 	}
 
 	private void LoadExam()
@@ -83,15 +85,15 @@ public partial class Exam : Control
 		Timer countdownTimer = GetNode<Timer>("CountdownTimer");
 		countdownTimer.Stop();
 		countdownTimer.Start();
-		
-		
-		// TODO: Randomzie question and options
 
 		// Load the current question
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
+		
+		var randomizedOptions = new List<string>(currentQuestion.Options);
+		randomizedOptions.Shuffle();
+		
 		questionNumber.Text = $"Question {currentQuestionIndex + 1}";
 		question.Text = currentQuestion.Question;
-
 		picture.Texture = string.IsNullOrEmpty(currentQuestion.ImgPath)
 				? null
 				: GD.Load<Texture2D>(currentQuestion.ImgPath);

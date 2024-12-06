@@ -36,8 +36,6 @@ public partial class Menu : Control
 	}
 	public void _OnContinueButtonPressed()
 	{
-		// TODO Add a confirmation dialog when the player starts a new game, warning them that existing progress will be overwritten.
-		// TODO Provide visual feedback when loading save data fails.
 		GameState.GetInstance().IsLoadProgress = true; // Set load progress
 		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
