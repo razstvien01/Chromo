@@ -7,7 +7,7 @@
 
 [node name="Left" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.633)
-position = Vector2(301, 643)
+position = Vector2(299, 648)
 rotation = 3.14159
 scale = Vector2(0.104508, 0.1)
 texture_normal = ExtResource("1_g3r0k")
@@ -16,7 +16,7 @@ action = "ui_left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.633)
-position = Vector2(311, 443)
+position = Vector2(307, 448)
 scale = Vector2(0.104508, 0.1)
 texture_normal = ExtResource("1_g3r0k")
 passby_press = true

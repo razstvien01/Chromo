@@ -153,8 +153,7 @@ public partial class Game : Node2D
 			{
 				if (FileAccess.FileExists(savePath))
 				{
-					OS.MoveToTrash(savePath);
-					GD.Print("Save game file deleted successfully.");
+					DeleteSaveProgress();
 				}
 				GetTree().ChangeSceneToPacked(completeScene);
 			}
@@ -233,4 +232,19 @@ public partial class Game : Node2D
 			return 0;
 		}
 	}
+	private void DeleteSaveProgress()
+	{
+		// Check if the save file exists
+		if (FileAccess.FileExists(savePath))
+		{
+			// Use FileAccess to remove the file
+			DirAccess.RemoveAbsolute(savePath);
+			GD.Print($"Save file at {savePath} has been deleted.");
+		}
+		else
+		{
+			GD.Print($"Save file at {savePath} does not exist.");
+		}
+	}
+
 }
