@@ -41,18 +41,21 @@ public partial class Game : Node2D
 
 	//* This will be set from the Menu scene when transitioning
 	public override void _Ready()
-    {
-        bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
-        _gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
-        pauseMenu = GetNode<PauseMenu>("%PauseMenu");
+	{
+		bgAudioPlayer = GetNode<AudioStreamPlayer>("%BGAudioPlayer");
+		_gameOverDialog = GetNode<GameOverDialog>("%GameOverDialog");
+		pauseMenu = GetNode<PauseMenu>("%PauseMenu");
 
-        pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
-        _gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
+		pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
+		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
-        // Use GameState to determine progress
-        currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
-        LoadScene(currentIndex);
-    }
+		// Use GameState to determine progress
+		currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
+
+		// TODO: Evolve character init
+
+		LoadScene(currentIndex);
+	}
 	private void Unpause()
 	{
 		currentInstance.UiControlsVisible = true;
@@ -148,8 +151,10 @@ public partial class Game : Node2D
 			var completeScene = GD.Load<PackedScene>(completeScenePath);
 			if (completeScene != null)
 			{
-				if(FileAccess.FileExists(savePath)){
-					FileAccess.FileExists(savePath);
+				if (FileAccess.FileExists(savePath))
+				{
+					OS.MoveToTrash(savePath);
+					GD.Print("Save game file deleted successfully.");
 				}
 				GetTree().ChangeSceneToPacked(completeScene);
 			}
@@ -213,16 +218,11 @@ public partial class Game : Node2D
 		string content = file.GetAsText();
 		var saveData = Json.ParseString(content);
 
-		GD.Print(saveData);  // To print the entire data object, e.g., { "stageIndex": 2 }
-		GD.Print("Type of saveData: " + saveData.GetType().Name);  // Type of saveData: Variant
-
 		// Safely cast saveData to a Dictionary<string, Variant>
 		var saveDict = saveData.As<Godot.Collections.Dictionary<string, Variant>>();
 
-		// Check if saveDict is valid and contains "stageIndex"
 		if (saveDict != null && saveDict.ContainsKey("stageIndex"))
 		{
-			// Safely convert the value associated with "stageIndex" to an int
 			int stageIndex = saveDict["stageIndex"].As<int>();
 			GD.Print("Loaded stage index: " + stageIndex);
 			return stageIndex;

@@ -83,6 +83,9 @@ public partial class Exam : Control
 		Timer countdownTimer = GetNode<Timer>("CountdownTimer");
 		countdownTimer.Stop();
 		countdownTimer.Start();
+		
+		
+		// TODO: Randomzie question and options
 
 		// Load the current question
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
