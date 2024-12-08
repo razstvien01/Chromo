@@ -120,9 +120,9 @@ autoplay = true
 
 [node name="GameTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 174.0
+offset_left = 61.0
 offset_top = 35.0
-offset_right = 639.0
+offset_right = 852.0
 offset_bottom = 200.0
 theme_override_colors/font_color = Color(1, 0.26, 0.26, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -131,7 +131,7 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 120
-text = "Chromo"
+text = "Gene Quest"
 
 [node name="ScoreContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

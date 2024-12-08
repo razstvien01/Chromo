@@ -4,6 +4,9 @@ public partial class PauseMenu : Control
 {
 	[Signal]
 	public delegate void UnpauseEventHandler();
+	[Signal]
+	public delegate void RestartEventHandler();
+
 
 	public string CurrentLevelName {
 		set {
@@ -26,6 +29,13 @@ public partial class PauseMenu : Control
 		{
 			var menuScene = (PackedScene)GD.Load("res://scenes/Menu.tscn");
 			GetTree().ChangeSceneToPacked(menuScene);
+		};
+
+		Button restartBtn = GetNode<Button>("%Restart");
+		restartBtn.Pressed += () =>
+		{
+			EmitSignal(SignalName.Restart);
+			Hide();
 		};
 	}
 }
