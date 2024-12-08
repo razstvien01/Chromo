@@ -9,6 +9,8 @@ public partial class ButtonArea : Area2D
 	public ButtonType buttonType { get; set; }
 
 	private AudioStreamPlayer sfxPlayer;
+	private CpuParticles2D yellowTornadoEffect;
+	private CpuParticles2D purpleTornadoEffect;
 
 	public enum ButtonType
 	{
@@ -18,6 +20,8 @@ public partial class ButtonArea : Area2D
 	public override void _Ready()
 	{
 		sfxPlayer = GetNode<AudioStreamPlayer>("%SfxPlayer");
+		yellowTornadoEffect = GetNode<CpuParticles2D>("%YellowTornado");
+		purpleTornadoEffect = GetNode<CpuParticles2D>("%PurpleTornado");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,11 +31,12 @@ public partial class ButtonArea : Area2D
 
 	public void _OnButtonBodyEntered(Node2D body)
 	{
-		if (body is CharacterBody2D character)
+		if (body is Character character)
 		{
 			sfxPlayer.Play();
 
 			Sprite2D icon = character.GetNode<Sprite2D>("Icon");
+			int lastFrame = icon.FrameCoords.Y;
 
 			if (icon != null)
 			{
@@ -41,10 +46,18 @@ public partial class ButtonArea : Area2D
 				{
 					case ButtonType.YELLOW:{
 						targetFrame = 1;
+						if(lastFrame != targetFrame) 
+						{
+							yellowTornadoEffect.Emitting = true;
+						}
 						break;
 					}
 					case ButtonType.PURPLE:{
 						targetFrame = 2;
+						if(lastFrame != targetFrame) 
+						{
+							purpleTornadoEffect.Emitting = true;
+						}
 						break;
 					}
 				}

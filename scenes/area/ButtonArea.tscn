@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjuwsjv2auyde"]
+[gd_scene load_steps=9 format=3 uid="uid://cjuwsjv2auyde"]
 
 [ext_resource type="Script" path="res://scripts/ButtonArea.cs" id="1_lyvcp"]
 [ext_resource type="AudioStream" uid="uid://be68raj7c318h" path="res://assets/Audio/SFX/647631__northernelevatorfan16__button_-click_sound.wav" id="2_qb4wh"]
+[ext_resource type="Texture2D" uid="uid://c00td10wsyv0u" path="res://assets/FX/glow_circle_yellow_flatten.png" id="3_7sqpi"]
+[ext_resource type="Texture2D" uid="uid://bbq50qb5yoqq" path="res://assets/FX/glow_circle_purple_flatten.png" id="4_xgqk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_436qv"]
 size = Vector2(18, 10)
+
+[sub_resource type="Curve" id="Curve_nf5cs"]
+_data = [Vector2(0, 359.89), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.643636, 1), 0.0, 0.0, 0, 0, Vector2(1, 35.6044), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_yhf76"]
+_data = [Vector2(0, 0.128167), 0.0, 0.215049, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_scm31"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.584)
 
 [node name="ButtonArea" type="Area2D"]
 script = ExtResource("1_lyvcp")
@@ -16,5 +29,39 @@ shape = SubResource("RectangleShape2D_436qv")
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_qb4wh")
+
+[node name="YellowTornado" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 15
+lifetime = 0.2
+one_shot = true
+texture = ExtResource("3_7sqpi")
+spread = 30.0
+gravity = Vector2(0, -3480)
+angular_velocity_min = 360.0
+angular_velocity_max = 360.0
+angular_velocity_curve = SubResource("Curve_nf5cs")
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_yhf76")
+color_ramp = SubResource("Gradient_scm31")
+
+[node name="PurpleTornado" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 15
+lifetime = 0.2
+one_shot = true
+texture = ExtResource("4_xgqk4")
+spread = 30.0
+gravity = Vector2(0, -3480)
+angular_velocity_min = 360.0
+angular_velocity_max = 360.0
+angular_velocity_curve = SubResource("Curve_nf5cs")
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_yhf76")
+color_ramp = SubResource("Gradient_scm31")
 
 [connection signal="body_entered" from="." to="." method="_OnButtonBodyEntered"]
