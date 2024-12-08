@@ -47,6 +47,7 @@ public partial class Game : Node2D
 		pauseMenu = GetNode<PauseMenu>("%PauseMenu");
 
 		pauseMenu.Connect(nameof(PauseMenu.Unpause), Callable.From(Unpause));
+		pauseMenu.Connect(nameof(PauseMenu.Restart), Callable.From(OnRestart));
 		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
 		// Use GameState to determine progress
@@ -89,14 +90,18 @@ public partial class Game : Node2D
 		currentInstance.UiControlsVisible = true;
 	}
 
+	private void OnRestart() {
+		ChangeBgm(AudioEnum.Level);
+		currentInstance.ResetLevel();
+
+		SaveProgress(currentIndex); // Save progress for the current level
+	}
+
 	private void OnGameOverDialogPressed(bool yesClicked)
 	{
 		if (yesClicked)
 		{
-			ChangeBgm(AudioEnum.Level);
-			currentInstance.ResetLevel();
-
-			SaveProgress(currentIndex); // Save progress for the current level
+			OnRestart();
 		}
 		else
 		{
