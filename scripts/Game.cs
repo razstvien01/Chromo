@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class Game : Node2D
 {
-	private const int GAME_OVER_DIALOG_INIT_POS_Y = -500;
+	private const int GAME_OVER_DIALOG_INIT_POS_Y = -520;
 
 	public enum AudioEnum
 	{
