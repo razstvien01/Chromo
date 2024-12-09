@@ -217,7 +217,7 @@ public partial class Game : Node2D
 			AddChild(triviaInstance);
 
 			triviaInstance.TriviaResource = triviaResource;
-			triviaInstance.GetNode<Button>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer/ProceedButton")
+			triviaInstance.GetNode<Button>("ProceedButton")
 				.Connect("pressed", Callable.From(OnTriviaCompleted));
 		}
 		else

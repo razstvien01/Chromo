@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("2_nb1we")
 Trivia = "At the heart of heredity is DNA, or deoxyribonucleic acid, which contains all the information needed to build and maintain life. DNA is made of nucleotides, each composed of a sugar, a phosphate group, and one of four nitrogenous bases: adenine (A), thymine (T), cytosine (C), and guanine (G). These bases pair in a specific way—A with T and C with G—forming the rungs of DNA's iconic double helix structure. This code is what makes each individual unique!"
-Title = "DNA - THE CODE OF LIFE"
+Title = "DNA - THE CODE OF LIFE. "
 Narration = ExtResource("1_h2nva")
+TriviaAnimationSpeed = 0.425

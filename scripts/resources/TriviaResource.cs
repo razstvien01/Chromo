@@ -10,4 +10,6 @@ public partial class TriviaResource : Resource
     public Texture2D Image { get; set; }
     [Export]
     public AudioStream Narration { get; set; }
+    [Export]
+    public float TriviaAnimationSpeed { get; set; }
 }

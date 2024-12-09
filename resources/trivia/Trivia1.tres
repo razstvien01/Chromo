@@ -7,5 +7,7 @@
 [resource]
 script = ExtResource("3_whyn7")
 Trivia = "Congratulations on completing Level 1! As a reward, here’s what you need to know about chromosome structure. Ever wonder why we inherit unique traits like curly hair or a bright smile? It’s all thanks to DNA, the genetic blueprint stored in the nucleus of our cells. DNA is made of nucleotides, each built from a phosphate group, a deoxyribose sugar, and nitrogenous bases that pair up to form a double helix. These strands pack tightly into chromosomes, which carry genes—the units of heredity responsible for traits passed from one generation to the next. From how we look to how we laugh, it’s all encoded in this remarkable molecule!"
+Title = ""
 Image = ExtResource("1_vi0rm")
 Narration = ExtResource("2_dak4g")
+TriviaAnimationSpeed = 0.5

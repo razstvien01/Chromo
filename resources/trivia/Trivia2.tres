@@ -7,5 +7,7 @@
 [resource]
 script = ExtResource("3_u3r2w")
 Trivia = "Did you know that the foundation of modern genetics traces back to Sutton and Boveri, who proposed the chromosomal theory of inheritance? At the core of it all is DNA, the genetic material, built from nucleotides. These include bases like guanine, which always pairs with cytosine. Genes, the functional units of heredity, are located at specific spots on chromosomes called loci. And let’s not forget the q arm, the long section of a chromosome where many genes are housed. Together, these elements unlock the mysteries of inheritance!"
+Title = ""
 Image = ExtResource("1_he1cr")
 Narration = ExtResource("2_3pgyd")
+TriviaAnimationSpeed = 0.56
