@@ -24,7 +24,7 @@ public partial class Exam : Control
 
 		questionNumber = GetNode<Label>("QuestionContainer/Number");
 		question = GetNode<Label>("QuestionContainer/Question");
-		picture = GetNode<TextureRect>("Picture");
+		picture = GetNode<TextureRect>("%Picture");
 		timerLabel = GetNode<Label>("TimerLabel");
 
 		timerLabel.Text = "60 s";
@@ -88,10 +88,10 @@ public partial class Exam : Control
 
 		// Load the current question
 		QuestionModel currentQuestion = exam.Questions[currentQuestionIndex];
-		
+
 		var randomizedOptions = new List<string>(currentQuestion.Options);
 		randomizedOptions.Shuffle();
-		
+
 		questionNumber.Text = $"Question {currentQuestionIndex + 1}";
 		question.Text = currentQuestion.Question;
 		picture.Texture = string.IsNullOrEmpty(currentQuestion.ImgPath)
@@ -100,7 +100,7 @@ public partial class Exam : Control
 
 		for (int i = 0; i < options.Count; i++)
 		{
-			options[i].Text = currentQuestion.Options[i];
+			options[i].Text = randomizedOptions[i];
 			options[i].Disabled = false;
 			options[i].Modulate = new Color(1, 1, 1);
 		}
