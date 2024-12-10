@@ -3,40 +3,72 @@ using System;
 
 public partial class Menu : Control
 {
-	// Called when the node enters the scene tree for the first time.
+	private Button _continueButton;
+
 	public override void _Ready()
 	{
-		var continueButton = GetNode<Button>("ScoreContainer/ContinueButton");
-		if (FileAccess.FileExists("user://save_game.json"))
+		_continueButton = GetNode<Button>("%ContinueButton");
+		UpdateContinueButtonState();
+	}
+
+	private void UpdateContinueButtonState()
+	{
+		bool saveExists = FileAccess.FileExists("user://save_game.json");
+		_continueButton.Disabled = !saveExists;
+		_continueButton.Visible = saveExists;
+	}
+
+	private void AddSceneToCurrent(string scenePath)
+	{
+		PackedScene sceneToAdd = GD.Load<PackedScene>(scenePath);
+		if (sceneToAdd != null)
 		{
-			continueButton.Disabled = false;
-			continueButton.Visible = true;
+			Node sceneInstance = sceneToAdd.Instantiate();
+			AddChild(sceneInstance);
 		}
 		else
 		{
-			continueButton.Disabled = true;
-			continueButton.Visible = false;
+			GD.PrintErr($"Failed to load scene at path: {scenePath}");
 		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+
 	}
 
-	public void _OnStartButtonPressed()
+	private void ChangeScene(string scenePath, bool loadProgress)
 	{
-		GameState.GetInstance().IsLoadProgress = false; // Start fresh
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
+		GameState.GetInstance().IsLoadProgress = loadProgress;
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>(scenePath));
 	}
 
-	public void _OnExitButtonPressed()
+	private void _OnStartButtonPressed()
+	{
+		ChangeScene("res://scenes/stages/Game.tscn", true);
+	}
+
+	private void _OnContinueButtonPressed()
+	{
+		ChangeScene("res://scenes/stages/Game.tscn", true);
+	}
+
+	private void _OnChooseLevelButtonPressed()
+	{
+		AddSceneToCurrent("res://scenes/ChooseLevel.tscn");
+	}
+
+	private void _OnTriviaButtonPressed()
+	{
+		AddSceneToCurrent("res://scenes/ChooseTrivia.tscn");
+	}
+	private void _OnExamPressed()
+	{
+		ChangeScene("res://scenes/Exam.tscn", true);
+	}
+
+	private void _OnExitButtonPressed()
 	{
 		GetTree().Quit();
-	}
-	public void _OnContinueButtonPressed()
-	{
-		GameState.GetInstance().IsLoadProgress = true; // Set load progress
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
 }

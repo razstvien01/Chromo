@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://djb0avfnwtwl4" path="res://assets/Audio/BG/722392__vrymaa__adventura.wav" id="4_ylm1f"]
 [ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="6_q42tg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28aeb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kovhs"]
 texture = ExtResource("1_6thab")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
@@ -64,7 +64,7 @@ tile_size = Vector2i(48, 48)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "BG"
 terrain_set_0/terrain_0/color = Color(0.3422, 0.58, 0.476953, 1)
-sources/0 = SubResource("TileSetAtlasSource_28aeb")
+sources/0 = SubResource("TileSetAtlasSource_kovhs")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -82,7 +82,7 @@ tile_set = SubResource("TileSet_m1o8u")
 [node name="CellParticles" parent="." instance=ExtResource("2_1xhea")]
 
 [node name="CharacterA" parent="." instance=ExtResource("4_hinlt")]
-position = Vector2(1069, 297)
+position = Vector2(1069, 320)
 scale = Vector2(6, 6)
 script = null
 
@@ -94,7 +94,7 @@ frame = 3
 frame_progress = 0.0
 
 [node name="CharacterA2" parent="." instance=ExtResource("4_hinlt")]
-position = Vector2(838, 482)
+position = Vector2(838, 473)
 scale = Vector2(6, 6)
 script = null
 
@@ -102,7 +102,7 @@ script = null
 frame = 14
 
 [node name="CharacterA3" parent="." instance=ExtResource("4_hinlt")]
-position = Vector2(1311, 142)
+position = Vector2(1311, 156)
 scale = Vector2(6, 6)
 script = null
 
@@ -131,34 +131,33 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 120
-text = "Gene Quest"
+text = "GeneQuest"
 
-[node name="ScoreContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 157.0
-offset_top = -89.0
-offset_right = 657.0
-offset_bottom = 261.0
-grow_vertical = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 131.0
+offset_top = 246.0
+offset_right = 656.0
+offset_bottom = 612.0
+
+[node name="MenuContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="ContinueButton" type="Button" parent="ScoreContainer"]
+[node name="ContinueButton" type="Button" parent="ScrollContainer/MenuContainer"]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
-text = "Continue
-"
+text = "Continue"
 autowrap_mode = 3
 
-[node name="StartButton" type="Button" parent="ScoreContainer"]
+[node name="StartButton" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme = ExtResource("6_q42tg")
@@ -166,7 +165,31 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 autowrap_mode = 3
 
-[node name="ExitButton" type="Button" parent="ScoreContainer"]
+[node name="ChooseLevelButton" type="Button" parent="ScrollContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme = ExtResource("6_q42tg")
+theme_override_font_sizes/font_size = 30
+text = "Choose Level"
+autowrap_mode = 3
+
+[node name="TriviaButton" type="Button" parent="ScrollContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme = ExtResource("6_q42tg")
+theme_override_font_sizes/font_size = 30
+text = "View Trivias"
+autowrap_mode = 3
+
+[node name="Exam" type="Button" parent="ScrollContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme = ExtResource("6_q42tg")
+theme_override_font_sizes/font_size = 30
+text = "Take Exam"
+autowrap_mode = 3
+
+[node name="ExitButton" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme = ExtResource("6_q42tg")
@@ -175,9 +198,12 @@ text = "Exit
 "
 autowrap_mode = 3
 
-[connection signal="pressed" from="ScoreContainer/ContinueButton" to="." method="_OnContinueButtonPressed"]
-[connection signal="pressed" from="ScoreContainer/StartButton" to="." method="_OnStartButtonPressed"]
-[connection signal="pressed" from="ScoreContainer/ExitButton" to="." method="_OnExitButtonPressed"]
+[connection signal="pressed" from="ScrollContainer/MenuContainer/ContinueButton" to="." method="_OnContinueButtonPressed"]
+[connection signal="pressed" from="ScrollContainer/MenuContainer/StartButton" to="." method="_OnStartButtonPressed"]
+[connection signal="pressed" from="ScrollContainer/MenuContainer/ChooseLevelButton" to="." method="_OnChooseLevelButtonPressed"]
+[connection signal="pressed" from="ScrollContainer/MenuContainer/TriviaButton" to="." method="_OnTriviaButtonPressed"]
+[connection signal="pressed" from="ScrollContainer/MenuContainer/Exam" to="." method="_OnExamPressed"]
+[connection signal="pressed" from="ScrollContainer/MenuContainer/ExitButton" to="." method="_OnExitButtonPressed"]
 
 [editable path="CharacterA"]
 [editable path="CharacterA2"]
