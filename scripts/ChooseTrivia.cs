@@ -12,24 +12,44 @@ public partial class ChooseTrivia : Control
 	public override void _Process(double delta)
 	{
 	}
-	
+
 	public void _OnReturnToMainMenuPressed()
 	{
 		QueueFree();
 	}
-	public void _OnLevel1Pressed(){
-		
+	public void _OnTrivia1Pressed()
+	{
+		GameState.GetInstance().CurrentLoadStage = 1;
+		GameState.GetInstance().IsLoadProgress = false;
+		GameState.GetInstance().IsLoadTrivias = true;
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
-	public void _OnLevel2Pressed(){
-		
+	public void _OnTrivia2Pressed()
+	{
+		GameState.GetInstance().CurrentLoadStage = 2;
+		GameState.GetInstance().IsLoadProgress = false;
+		GameState.GetInstance().IsLoadTrivias = true;
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
-	public void _OnLevel3Pressed(){
-		
+	public void _OnTrivia3Pressed()
+	{
+		GameState.GetInstance().CurrentLoadStage = 3;
+		GameState.GetInstance().IsLoadProgress = false;
+		GameState.GetInstance().IsLoadTrivias = true;
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
-	public void _OnLevel4Pressed(){
-		
+	public void _OnTrivia4Pressed()
+	{
+		GameState.GetInstance().CurrentLoadStage = 4;
+		GameState.GetInstance().IsLoadProgress = false;
+		GameState.GetInstance().IsLoadTrivias = true;
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
-	public void _OnLevel5Pressed(){
-		
+	public void _OnTrivia5Pressed()
+	{
+		GameState.GetInstance().CurrentLoadStage = 5;
+		GameState.GetInstance().IsLoadProgress = false;
+		GameState.GetInstance().IsLoadTrivias = true;
+		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
 	}
 }

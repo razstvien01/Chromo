@@ -216,35 +216,6 @@ public partial class Game : Node2D
 
 	private void LoadTriviaScene(TriviaResource triviaResource)
 	{
-		// if (GameState.GetInstance().CurrentLoadStage != -1)
-		// {
-		// 	GameState.GetInstance().CurrentLoadStage = -1;
-
-		// 	// Change to the main menu scene
-		// 	var mainMenuPackedScene = GD.Load<PackedScene>("res://scenes/Menu.tscn");
-		// 	if (mainMenuPackedScene != null)
-		// 	{
-		// 		var mainMenuInstance = mainMenuPackedScene.Instantiate();
-
-		// 		GetTree().CurrentScene.QueueFree();
-		// 		GetTree().CurrentScene = mainMenuInstance;
-		// 		GetTree().Root.AddChild(mainMenuInstance);
-
-		// 		// Load and add a child scene (e.g., UI overlay) to the main menu
-		// 		var childScenePacked = GD.Load<PackedScene>("res://scenes/ChooseLevel.tscn");
-		// 		if (childScenePacked != null)
-		// 		{
-		// 			var childSceneInstance = childScenePacked.Instantiate();
-		// 			mainMenuInstance.AddChild(childSceneInstance);
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		GD.PrintErr("Failed to load the main menu scene.");
-		// 	}
-
-		// 	return;
-		// }
 		if (GameState.GetInstance().CurrentLoadStage != -1)
 		{
 			GameState.GetInstance().CurrentLoadStage = -1;
@@ -283,8 +254,7 @@ public partial class Game : Node2D
 			return;
 		}
 
-
-
+ 
 		RemoveOldScene();
 		var triviaScene = GD.Load<PackedScene>(triviaScenePath);
 		if (triviaScene != null)

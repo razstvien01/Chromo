@@ -128,7 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="Level 1" type="Button" parent="LevelContainer"]
+[node name="Trivia 1" type="Button" parent="LevelContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -136,34 +136,31 @@ theme = ExtResource("4_y260i")
 theme_override_font_sizes/font_size = 125
 text = "1"
 
-[node name="Level 2" type="Button" parent="LevelContainer"]
+[node name="Trivia 2" type="Button" parent="LevelContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_y260i")
 theme_override_font_sizes/font_size = 125
-text = "2
-"
+text = "2"
 
-[node name="Level 3" type="Button" parent="LevelContainer"]
+[node name="Trivia 3" type="Button" parent="LevelContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_y260i")
 theme_override_font_sizes/font_size = 125
-text = "3
-"
+text = "3"
 
-[node name="Level 4" type="Button" parent="LevelContainer"]
+[node name="Trivia 4" type="Button" parent="LevelContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_y260i")
 theme_override_font_sizes/font_size = 125
-text = "4
-"
+text = "4"
 
-[node name="Level 5" type="Button" parent="LevelContainer"]
+[node name="Trivia 5" type="Button" parent="LevelContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -172,3 +169,8 @@ theme_override_font_sizes/font_size = 125
 text = "5"
 
 [connection signal="pressed" from="ReturnToMainMenu" to="." method="_OnReturnToMainMenuPressed"]
+[connection signal="pressed" from="LevelContainer/Trivia 1" to="." method="_OnTrivia1Pressed"]
+[connection signal="pressed" from="LevelContainer/Trivia 2" to="." method="_OnTrivia2Pressed"]
+[connection signal="pressed" from="LevelContainer/Trivia 3" to="." method="_OnTrivia3Pressed"]
+[connection signal="pressed" from="LevelContainer/Trivia 4" to="." method="_OnTrivia4Pressed"]
+[connection signal="pressed" from="LevelContainer/Trivia 5" to="." method="_OnTrivia5Pressed"]
