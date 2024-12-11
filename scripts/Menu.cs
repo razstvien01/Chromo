@@ -45,7 +45,7 @@ public partial class Menu : Control
 
 	private void _OnStartButtonPressed()
 	{
-		ChangeScene("res://scenes/stages/Game.tscn", true);
+		ChangeScene("res://scenes/stages/Game.tscn", false);
 	}
 
 	private void _OnContinueButtonPressed()
@@ -64,7 +64,7 @@ public partial class Menu : Control
 	}
 	private void _OnExamPressed()
 	{
-		ChangeScene("res://scenes/Exam.tscn", true);
+		ChangeScene("res://scenes/Exam.tscn", false);
 	}
 
 	private void _OnExitButtonPressed()

@@ -50,6 +50,12 @@ public partial class Game : Node2D
 		pauseMenu.Connect(nameof(PauseMenu.Restart), Callable.From(OnRestart));
 		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
+		if (GameState.GetInstance().CurrentLoadStage != -1)
+		{
+			LoadScene(GameState.GetInstance().CurrentLoadStage);
+			return;
+		}
+
 		// Use GameState to determine progress
 		currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
 
@@ -90,7 +96,8 @@ public partial class Game : Node2D
 		currentInstance.UiControlsVisible = true;
 	}
 
-	private void OnRestart() {
+	private void OnRestart()
+	{
 		ChangeBgm(AudioEnum.Level);
 		currentInstance.ResetLevel();
 
@@ -209,6 +216,75 @@ public partial class Game : Node2D
 
 	private void LoadTriviaScene(TriviaResource triviaResource)
 	{
+		// if (GameState.GetInstance().CurrentLoadStage != -1)
+		// {
+		// 	GameState.GetInstance().CurrentLoadStage = -1;
+
+		// 	// Change to the main menu scene
+		// 	var mainMenuPackedScene = GD.Load<PackedScene>("res://scenes/Menu.tscn");
+		// 	if (mainMenuPackedScene != null)
+		// 	{
+		// 		var mainMenuInstance = mainMenuPackedScene.Instantiate();
+
+		// 		GetTree().CurrentScene.QueueFree();
+		// 		GetTree().CurrentScene = mainMenuInstance;
+		// 		GetTree().Root.AddChild(mainMenuInstance);
+
+		// 		// Load and add a child scene (e.g., UI overlay) to the main menu
+		// 		var childScenePacked = GD.Load<PackedScene>("res://scenes/ChooseLevel.tscn");
+		// 		if (childScenePacked != null)
+		// 		{
+		// 			var childSceneInstance = childScenePacked.Instantiate();
+		// 			mainMenuInstance.AddChild(childSceneInstance);
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		GD.PrintErr("Failed to load the main menu scene.");
+		// 	}
+
+		// 	return;
+		// }
+		if (GameState.GetInstance().CurrentLoadStage != -1)
+		{
+			GameState.GetInstance().CurrentLoadStage = -1;
+
+			// Load the new scene
+			var mainMenuPackedScene = GD.Load<PackedScene>("res://scenes/Menu.tscn");
+			if (mainMenuPackedScene != null)
+			{
+				var mainMenuInstance = mainMenuPackedScene.Instantiate();
+
+				// QueueFree the current scene to detach it properly
+				var currentScene = GetTree().CurrentScene;
+				if (currentScene != null)
+				{
+					currentScene.QueueFree();
+				}
+
+				// Set the new scene
+				GetTree().Root.AddChild(mainMenuInstance);
+				GetTree().CurrentScene = mainMenuInstance; // Avoid setting directly if already in tree
+
+				var childScenePacked = GD.Load<PackedScene>("res://scenes/ChooseLevel.tscn");
+				if (childScenePacked != null)
+				{
+					var childSceneInstance = childScenePacked.Instantiate();
+					mainMenuInstance.AddChild(childSceneInstance);
+				}
+				
+				return;
+			}
+			else
+			{
+				GD.PrintErr("Failed to load the main menu scene.");
+			}
+
+			return;
+		}
+
+
+
 		RemoveOldScene();
 		var triviaScene = GD.Load<PackedScene>(triviaScenePath);
 		if (triviaScene != null)
