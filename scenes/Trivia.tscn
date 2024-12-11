@@ -81,9 +81,6 @@ tracks/0/keys = {
 "values": [Vector2(61, 705)]
 }
 
-[sub_resource type="Animation" id="Animation_0axhg"]
-resource_name = "credits_2"
-
 [sub_resource type="Animation" id="Animation_040r0"]
 resource_name = "Trivia_3"
 length = 30.0
@@ -99,6 +96,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(50, 650), Vector2(50, 600), Vector2(50, 500), Vector2(50, 400), Vector2(50, 300), Vector2(50, 200), Vector2(50, 100), Vector2(50, 0), Vector2(50, -100), Vector2(50, -200), Vector2(50, -300), Vector2(50, -400), Vector2(50, -500), Vector2(50, -600), Vector2(50, -700), Vector2(50, -800), Vector2(50, -900), Vector2(50, -1000), Vector2(50, -1100), Vector2(50, -1200), Vector2(50, -1300), Vector2(50, -1400), Vector2(50, -1500), Vector2(50, -1600), Vector2(50, -1700), Vector2(50, -1800), Vector2(50, -1900), Vector2(50, -2000), Vector2(50, -2100), Vector2(50, -2200)]
 }
+
+[sub_resource type="Animation" id="Animation_0axhg"]
+resource_name = "credits_2"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rq8xn"]
 _data = {
@@ -149,12 +149,13 @@ autowrap_mode = 3
 [node name="Image" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 1175.0
-offset_top = 772.0
-offset_right = 2150.0
-offset_bottom = 1323.0
+offset_left = 955.0
+offset_top = 180.0
+offset_right = 1434.0
+offset_bottom = 485.0
 size_flags_vertical = 3
 texture = ExtResource("3_fxa84")
+expand_mode = 1
 
 [node name="ProceedButton" type="Button" parent="."]
 visible = false
