@@ -158,7 +158,7 @@ public partial class Game : Node2D
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
 				struggles.Connect(nameof(Struggles.Pause), Callable.From(() => pauseMenu.Show()));
 				pauseMenu.CurrentLevelName = struggles.LevelName;
-
+				
 				CharacterBody2D character = struggles.GetNodeOrNull<CharacterBody2D>("Character");
 				if (character != null)
 				{
@@ -171,6 +171,8 @@ public partial class Game : Node2D
 			}
 
 			ChangeBgm(AudioEnum.Level);
+
+
 		}
 		else
 		{
@@ -243,7 +245,7 @@ public partial class Game : Node2D
 					var childSceneInstance = childScenePacked.Instantiate();
 					mainMenuInstance.AddChild(childSceneInstance);
 				}
-				
+
 				return;
 			}
 			else
@@ -254,7 +256,7 @@ public partial class Game : Node2D
 			return;
 		}
 
- 
+
 		RemoveOldScene();
 		var triviaScene = GD.Load<PackedScene>(triviaScenePath);
 		if (triviaScene != null)

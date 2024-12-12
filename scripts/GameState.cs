@@ -9,7 +9,7 @@ public partial class GameState : Node
     public bool IsLoadProgress { get; set; } = false;
     public bool IsLoadTrivias { get; set; } = false;
     public int CurrentLoadStage { get; set; } = -1;
-    
+    public string CurrentLoadTrivia { get; set; } = null;
     public override void _Ready()
     {
         _instance = this;

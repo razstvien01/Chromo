@@ -19,37 +19,50 @@ public partial class ChooseTrivia : Control
 	}
 	public void _OnTrivia1Pressed()
 	{
-		GameState.GetInstance().CurrentLoadStage = 1;
-		GameState.GetInstance().IsLoadProgress = false;
-		GameState.GetInstance().IsLoadTrivias = true;
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
+		LoadTrivia(1);
 	}
+
 	public void _OnTrivia2Pressed()
 	{
-		GameState.GetInstance().CurrentLoadStage = 2;
-		GameState.GetInstance().IsLoadProgress = false;
-		GameState.GetInstance().IsLoadTrivias = true;
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
+		LoadTrivia(2);
 	}
+
 	public void _OnTrivia3Pressed()
 	{
-		GameState.GetInstance().CurrentLoadStage = 3;
-		GameState.GetInstance().IsLoadProgress = false;
-		GameState.GetInstance().IsLoadTrivias = true;
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
+		LoadTrivia(3);
 	}
+
 	public void _OnTrivia4Pressed()
 	{
-		GameState.GetInstance().CurrentLoadStage = 4;
-		GameState.GetInstance().IsLoadProgress = false;
-		GameState.GetInstance().IsLoadTrivias = true;
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
+		LoadTrivia(4);
 	}
+
 	public void _OnTrivia5Pressed()
 	{
-		GameState.GetInstance().CurrentLoadStage = 5;
+		LoadTrivia(5);
+	}
+
+	private void LoadTrivia(int stage)
+	{
+		GameState.GetInstance().CurrentLoadStage = stage;
 		GameState.GetInstance().IsLoadProgress = false;
 		GameState.GetInstance().IsLoadTrivias = true;
-		GetTree().ChangeSceneToPacked(GD.Load<PackedScene>("res://scenes/stages/Game.tscn"));
+
+		string resourcePath = $"res://resources/trivia/Trivia{stage}.tres";
+		var triviaResource = ResourceLoader.Load<TriviaResource>(resourcePath);
+
+		var triviaScene = GD.Load<PackedScene>("res://scenes/Trivia.tscn");
+		if (triviaScene != null)
+		{
+			Trivia triviaInstance = triviaScene.Instantiate<Trivia>();
+			AddChild(triviaInstance);
+
+			triviaInstance.TriviaResource = triviaResource;
+		}
+		else
+		{
+			GD.PrintErr($"Failed to load Trivia scene: {"res://scenes/Trivia.tscn"}");
+		}
 	}
+	
 }
