@@ -12,7 +12,7 @@ public partial class Trivia : Control
 
 			triviaText.Text = _triviaResource.Title + _triviaResource.Trivia;
 			triviaTitle.Text = _triviaResource.Title;
-			triviaImage.Texture = _triviaResource.Image;
+			// triviaImage.Texture = _triviaResource.Image;
 			triviaNarration.Stream = _triviaResource.Narration;
 			triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
 			triviaNarration.Play();
@@ -34,7 +34,7 @@ public partial class Trivia : Control
 	{
 		triviaText = GetNode<Label>("%Trivia");
 		triviaTitle = GetNode<Label>("%Title");
-		triviaImage = GetNode<TextureRect>("%Image");
+		// triviaImage = GetNode<TextureRect>("%Image");
 		triviaNarration = GetNode<AudioStreamPlayer>("%Narration");
 		proceedButton = GetNode<Button>("ProceedButton");
 		triviaAnimation = GetNode<AnimationPlayer>("TriviaAnimation");
