@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://wljaekgjmo34"]
+[gd_scene load_steps=19 format=4 uid="uid://wljaekgjmo34"]
 
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_hqdaq"]
 [ext_resource type="Script" path="res://scripts/Trivia.cs" id="1_ybbgo"]
@@ -75,33 +75,6 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Animation" id="Animation_46jwf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Image:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_fxa84")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_437jg"]
 resource_name = "Trivia_1"
 length = 30.0
@@ -130,29 +103,129 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1334t"]
-_data = {
-"RESET": SubResource("Animation_46jwf"),
-"Trivia_1": SubResource("Animation_437jg")
-}
-
-[sub_resource type="Animation" id="Animation_jmjao"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_1j4ub"]
+resource_name = "Trivia_2"
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Trivia:position")
+tracks/0/path = NodePath("Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(5),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(61, 705)]
+"update": 1,
+"values": [ExtResource("3_fxa84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_j657c"]
+resource_name = "Trivia_3"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fxa84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gjdf6"]
+resource_name = "Trivia_4"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fxa84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ollek"]
+resource_name = "Trivia_5"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fxa84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1334t"]
+_data = {
+"Trivia_1": SubResource("Animation_437jg"),
+"Trivia_2": SubResource("Animation_1j4ub"),
+"Trivia_3": SubResource("Animation_j657c"),
+"Trivia_4": SubResource("Animation_gjdf6"),
+"Trivia_5": SubResource("Animation_ollek")
 }
 
 [sub_resource type="Animation" id="Animation_040r0"]
-resource_name = "Trivia_3"
+resource_name = "Trivia"
 length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -167,14 +240,9 @@ tracks/0/keys = {
 "values": [Vector2(50, 650), Vector2(50, 600), Vector2(50, 500), Vector2(50, 400), Vector2(50, 300), Vector2(50, 200), Vector2(50, 100), Vector2(50, 0), Vector2(50, -100), Vector2(50, -200), Vector2(50, -300), Vector2(50, -400), Vector2(50, -500), Vector2(50, -600), Vector2(50, -700), Vector2(50, -800), Vector2(50, -900), Vector2(50, -1000), Vector2(50, -1100), Vector2(50, -1200), Vector2(50, -1300), Vector2(50, -1400), Vector2(50, -1500), Vector2(50, -1600), Vector2(50, -1700), Vector2(50, -1800), Vector2(50, -1900), Vector2(50, -2000), Vector2(50, -2100), Vector2(50, -2200)]
 }
 
-[sub_resource type="Animation" id="Animation_0axhg"]
-resource_name = "credits_2"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rq8xn"]
 _data = {
-"RESET": SubResource("Animation_jmjao"),
-"Trivia_3": SubResource("Animation_040r0"),
-"credits_2": SubResource("Animation_0axhg")
+"Trivia": SubResource("Animation_040r0")
 }
 
 [node name="Trivia" type="Control"]
@@ -194,10 +262,10 @@ tile_set = SubResource("TileSet_uq06s")
 [node name="Trivia" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 61.0
-offset_top = 705.0
-offset_right = 841.0
-offset_bottom = 2577.0
+offset_left = 50.0
+offset_top = 650.0
+offset_right = 830.0
+offset_bottom = 2522.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 52
@@ -236,6 +304,7 @@ offset_bottom = 255.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+texture = ExtResource("3_fxa84")
 expand_mode = 1
 
 [node name="Title" type="Label" parent="."]
@@ -319,7 +388,7 @@ playback_auto_capture = false
 libraries = {
 "": SubResource("AnimationLibrary_rq8xn")
 }
-autoplay = "Trivia_3"
+autoplay = "Trivia"
 speed_scale = 0.5
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
