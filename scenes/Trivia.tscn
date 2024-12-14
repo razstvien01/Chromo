@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_hqdaq"]
 [ext_resource type="Script" path="res://scripts/Trivia.cs" id="1_ybbgo"]
 [ext_resource type="PackedScene" uid="uid://vr8qxojkbv7y" path="res://scenes/effects/CellParticles.tscn" id="2_hysgj"]
-[ext_resource type="Texture2D" uid="uid://dpxavsqtdqb3f" path="res://assets/Trivias/trivia4.png" id="3_fxa84"]
+[ext_resource type="Texture2D" uid="uid://dpxavsqtdqb3f" path="res://assets/Trivias/chromosomes.png" id="3_fxa84"]
 [ext_resource type="StyleBox" uid="uid://cx3m8ptj0dk4c" path="res://resources/theme/rounded_corners_panel.tres" id="4_o1o2q"]
 [ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="5_x05vt"]
 [ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="6_gtaof"]
@@ -76,7 +76,7 @@ length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GImage1/1:visible")
+tracks/0/path = NodePath("Image:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,21 +161,14 @@ text = "Congratulations on completing Level 1! As a reward, here’s what you ne
 horizontal_alignment = 3
 autowrap_mode = 3
 
-[node name="GImage1" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1032.0
-offset_top = 192.0
-offset_right = 1072.0
-offset_bottom = 232.0
-
-[node name="1" type="TextureRect" parent="GImage1"]
+[node name="Image" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-offset_left = -143.0
-offset_top = -121.0
-offset_right = 444.0
-offset_bottom = 390.0
+offset_left = 889.0
+offset_top = 71.0
+offset_right = 1476.0
+offset_bottom = 582.0
 size_flags_vertical = 3
 texture = ExtResource("3_fxa84")
 expand_mode = 1

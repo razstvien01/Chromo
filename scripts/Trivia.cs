@@ -1,14 +1,26 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Trivia : Control
 {
 	private TriviaResource _triviaResource;
-	public TriviaResource TriviaResource {
+	private Dictionary<int, string[]> triviaImages = new Dictionary<int, string[]>
+{
+		{ 1, new string[] { "res://assets/Trivias/chromosomes.png" } },
+		// { 2, new string[] { "dog", "cat", "rabbit" } },
+		// { 3, new string[] { "dog", "cat", "rabbit" } },
+		// { 4, new string[] { "dog", "cat", "rabbit" } },
+		// { 5, new string[] { "dog", "cat", "rabbit" } },
+};
+
+	public TriviaResource TriviaResource
+	{
 		get => _triviaResource;
-		set {
+		set
+		{
 			_triviaResource = value;
-			if(_triviaResource is null) return;
+			if (_triviaResource is null) return;
 
 			triviaText.Text = _triviaResource.Title + _triviaResource.Trivia;
 			triviaTitle.Text = _triviaResource.Title;
@@ -35,7 +47,7 @@ public partial class Trivia : Control
 	{
 		triviaText = GetNode<Label>("%Trivia");
 		triviaTitle = GetNode<Label>("%Title");
-		// triviaImage = GetNode<TextureRect>("%Image");
+		triviaImage = GetNode<TextureRect>("%Image");
 		triviaNarration = GetNode<AudioStreamPlayer>("%Narration");
 		proceedButton = GetNode<Button>("ProceedButton");
 		triviaAnimation = GetNode<AnimationPlayer>("TriviaAnimation");
@@ -44,17 +56,57 @@ public partial class Trivia : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+
 	}
-	
-	public void _OnProceedButtonPressed(){
+
+	public void _OnProceedButtonPressed()
+	{
 		GD.Print("Proceed Button Pressed.");
-		QueueFree(); 
+		QueueFree();
 	}
-	
-	void _OnNarrationFinished(){
+
+	void _OnNarrationFinished()
+	{
 		proceedButton.Visible = true;
 		GetNode<PanelContainer>("PanelContainer").Visible = true;
 		triviaTitle.Visible = true;
+		AddTextureRect(1);
+	}
+
+	private void AddTextureRect(int key)
+	{
+		// Path to the container
+		VBoxContainer vbox = GetNode<VBoxContainer>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer");
+
+		if (!triviaImages.ContainsKey(key))
+		{
+			GD.PrintErr($"Key {key} does not exist in triviaImages dictionary.");
+			return;
+		}
+
+		string[] imagePaths = triviaImages[key];
+
+		foreach (string imagePath in imagePaths)
+		{
+			// Load the texture
+			Texture2D texture = GD.Load<Texture2D>(imagePath);
+			if (texture == null)
+			{
+				GD.PrintErr($"Failed to load texture at path: {imagePath}");
+				continue;
+			}
+
+			// Create a new TextureRect
+			TextureRect textureRect = new TextureRect
+			{
+				Texture = texture,
+				StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
+				// SizeFlagsHorizontal = (int)Control.SizeFlags.Expand,
+				// SizeFlagsVertical = (int)Control.SizeFlags.Expand
+			};
+
+			// Add the TextureRect to the VBoxContainer
+			vbox.AddChild(textureRect);
+		}
 	}
 }
