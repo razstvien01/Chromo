@@ -4,109 +4,112 @@ using System.Collections.Generic;
 
 public partial class Trivia : Control
 {
-	private TriviaResource _triviaResource;
-	private Dictionary<int, string[]> triviaImages = new Dictionary<int, string[]>
-{
-		{ 1, new string[] { "res://assets/Trivias/chromosomes.png" } },
-		// { 2, new string[] { "dog", "cat", "rabbit" } },
-		// { 3, new string[] { "dog", "cat", "rabbit" } },
-		// { 4, new string[] { "dog", "cat", "rabbit" } },
-		// { 5, new string[] { "dog", "cat", "rabbit" } },
-};
+    private TriviaResource _triviaResource;
 
-	public TriviaResource TriviaResource
-	{
-		get => _triviaResource;
-		set
-		{
-			_triviaResource = value;
-			if (_triviaResource is null) return;
+    private readonly Dictionary<int, string[]> triviaImages = new()
+    {
+        { 1, new[] { "res://assets/Trivias/chromosomes.png", "res://assets/Trivias/23pairs.png" } },
+    };
 
-			triviaText.Text = _triviaResource.Title + _triviaResource.Trivia;
-			triviaTitle.Text = _triviaResource.Title;
-			GetNode<Label>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
-			// triviaImage.Texture = _triviaResource.Image;
-			triviaNarration.Stream = _triviaResource.Narration;
-			triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
-			triviaNarration.Play();
-		}
-	}
+    private Label triviaText;
+    private Label triviaTitle;
+    private TextureRect triviaImage;
+    private AudioStreamPlayer triviaNarration;
+    private Button proceedButton;
+    private AnimationPlayer triviaAnimation;
 
-	private Label triviaText;
-	private Label triviaTitle;
-	private TextureRect triviaImage;
-	private AudioStreamPlayer triviaNarration;
-	private ScrollContainer scrollContainer;
-	private bool scrollAdjusting = false;
-	private double elapsedTime = 0;
-	private Button proceedButton;
-	private AnimationPlayer triviaAnimation;
+    public TriviaResource TriviaResource
+    {
+        get => _triviaResource;
+        set
+        {
+            _triviaResource = value;
+            if (_triviaResource == null) return;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		triviaText = GetNode<Label>("%Trivia");
-		triviaTitle = GetNode<Label>("%Title");
-		triviaImage = GetNode<TextureRect>("%Image");
-		triviaNarration = GetNode<AudioStreamPlayer>("%Narration");
-		proceedButton = GetNode<Button>("ProceedButton");
-		triviaAnimation = GetNode<AnimationPlayer>("TriviaAnimation");
-	}
+            UpdateTriviaContent();
+        }
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public override void _Ready()
+    {
+        InitializeNodes();
+    }
 
-	}
+    private void InitializeNodes()
+    {
+        triviaText = GetNode<Label>("%Trivia");
+        triviaTitle = GetNode<Label>("%Title");
+        triviaImage = GetNode<TextureRect>("%Image");
+        triviaNarration = GetNode<AudioStreamPlayer>("%Narration");
+        proceedButton = GetNode<Button>("ProceedButton");
+        triviaAnimation = GetNode<AnimationPlayer>("TriviaAnimation");
+    }
 
-	public void _OnProceedButtonPressed()
-	{
-		GD.Print("Proceed Button Pressed.");
-		QueueFree();
-	}
+    private void UpdateTriviaContent()
+    {
+        triviaText.Text = $"{_triviaResource.Title}{_triviaResource.Trivia}";
+        triviaTitle.Text = _triviaResource.Title;
+        GetNode<Label>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
+        triviaNarration.Stream = _triviaResource.Narration;
+        triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
+        triviaNarration.Play();
+    }
 
-	void _OnNarrationFinished()
-	{
-		proceedButton.Visible = true;
-		GetNode<PanelContainer>("PanelContainer").Visible = true;
-		triviaTitle.Visible = true;
-		AddTextureRect(1);
-	}
+    public void _OnProceedButtonPressed()
+    {
+        GD.Print("Proceed Button Pressed.");
+        QueueFree();
+    }
 
-	private void AddTextureRect(int key)
-	{
-		// Path to the container
-		VBoxContainer vbox = GetNode<VBoxContainer>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer");
+    private void _OnNarrationFinished()
+    {
+        proceedButton.Visible = true;
+				GetNode<Panel>("Panel").Visible = false;
+        SetTriviaPanelVisibility(true);
+        AddTriviaImages(1);
+    }
 
-		if (!triviaImages.ContainsKey(key))
-		{
-			GD.PrintErr($"Key {key} does not exist in triviaImages dictionary.");
-			return;
-		}
+    private void SetTriviaPanelVisibility(bool isVisible)
+    {
+        GetNode<PanelContainer>("PanelContainer").Visible = isVisible;
+        triviaTitle.Visible = isVisible;
+    }
 
-		string[] imagePaths = triviaImages[key];
+    private void AddTriviaImages(int key)
+    {
+        VBoxContainer vbox = GetNode<VBoxContainer>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer");
 
-		foreach (string imagePath in imagePaths)
-		{
-			// Load the texture
-			Texture2D texture = GD.Load<Texture2D>(imagePath);
-			if (texture == null)
-			{
-				GD.PrintErr($"Failed to load texture at path: {imagePath}");
-				continue;
-			}
+        if (!triviaImages.TryGetValue(key, out string[] imagePaths))
+        {
+            GD.PrintErr($"Key {key} does not exist in triviaImages dictionary.");
+            return;
+        }
 
-			// Create a new TextureRect
-			TextureRect textureRect = new TextureRect
-			{
-				Texture = texture,
-				StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
-				// SizeFlagsHorizontal = (int)Control.SizeFlags.Expand,
-				// SizeFlagsVertical = (int)Control.SizeFlags.Expand
-			};
+        foreach (string imagePath in imagePaths)
+        {
+            AddTextureRectToVBox(vbox, imagePath);
+        }
+    }
 
-			// Add the TextureRect to the VBoxContainer
-			vbox.AddChild(textureRect);
-		}
-	}
+    private void AddTextureRectToVBox(VBoxContainer vbox, string imagePath)
+    {
+        Texture2D texture = GD.Load<Texture2D>(imagePath);
+        if (texture == null)
+        {
+            GD.PrintErr($"Failed to load texture at path: {imagePath}");
+            return;
+        }
+
+        TextureRect textureRect = CreateTextureRect(texture);
+        vbox.AddChild(textureRect);
+    }
+
+    private TextureRect CreateTextureRect(Texture2D texture)
+    {
+        return new TextureRect
+        {
+            Texture = texture,
+            StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered
+        };
+    }
 }
