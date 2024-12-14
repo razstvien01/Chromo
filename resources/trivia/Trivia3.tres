@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("3_1rmqs")
+TriviaLevel = 3
 Trivia = "Heredity is the process by which physical and mental traits are passed from parents to offspring through genes. These genes are sections of DNA, the molecule that carries the genetic instructions for life. DNA is organized into chromosomes, which are tightly packed structures located in the cell's nucleus. Each chromosome has a specific point called the centromere that divides it into a short arm, labeled \"p,\" and a long arm, labeled \"q.\" Together, these structures carry the blueprint of who we are."
 Title = "THE BASIS OF HEREDITY. "
 Narration = ExtResource("1_d5065")
