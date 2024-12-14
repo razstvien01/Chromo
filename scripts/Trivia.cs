@@ -12,6 +12,7 @@ public partial class Trivia : Control
 
 			triviaText.Text = _triviaResource.Title + _triviaResource.Trivia;
 			triviaTitle.Text = _triviaResource.Title;
+			GetNode<Label>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
 			// triviaImage.Texture = _triviaResource.Image;
 			triviaNarration.Stream = _triviaResource.Narration;
 			triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
@@ -53,6 +54,7 @@ public partial class Trivia : Control
 	
 	void _OnNarrationFinished(){
 		proceedButton.Visible = true;
-		
+		GetNode<PanelContainer>("PanelContainer").Visible = true;
+		triviaTitle.Visible = true;
 	}
 }
