@@ -6,7 +6,14 @@
 [resource]
 script = ExtResource("3_1rmqs")
 TriviaLevel = 3
-Trivia = "Heredity is the process by which physical and mental traits are passed from parents to offspring through genes. These genes are sections of DNA, the molecule that carries the genetic instructions for life. DNA is organized into chromosomes, which are tightly packed structures located in the cell's nucleus. Each chromosome has a specific point called the centromere that divides it into a short arm, labeled \"p,\" and a long arm, labeled \"q.\" Together, these structures carry the blueprint of who we are."
+Trivia = "[center][b][color=yellow]The Basis of Heridity[/color][/b] 🌱[/center]
+Heredity is the process by which [color=pink][i]physical[/i][/color] and [color=pink][i]mental traits[/i][/color] are passed from [color=yellow][b]parents to offspring[/b][/color] through [color=lightblue][b]genes[/b][/color].
+
+These [color=yellow][i]genes[/i][/color] are sections of [color=pink][b]DNA[/b][/color], the molecule that carries the [color=lightblue][i]genetic instructions[/i][/color] for life. DNA is organized into [color=yellow][b]chromosomes[/b][/color], tightly packed structures located in the [color=pink][i]cell's nucleus[/i][/color].
+
+Each chromosome has a specific point called the [color=yellow][b]centromere[/b][/color], dividing it into a [color=pink][i]short arm[/i][/color], labeled [color=lightblue][b]\"p\"[/b][/color], and a [color=lightblue][i]long arm[/i][/color], labeled [color=pink][b]\"q\"[/b][/color].
+
+Together, these structures carry the [color=yellow][b]blueprint of who we are[/b][/color]! 🧬"
 Title = "THE BASIS OF HEREDITY. "
 Narration = ExtResource("1_d5065")
-TriviaAnimationSpeed = 0.53
+TriviaAnimationSpeed = 0.59

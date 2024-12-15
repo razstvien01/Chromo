@@ -6,7 +6,17 @@
 [resource]
 script = ExtResource("3_whyn7")
 TriviaLevel = 1
-Trivia = "Congratulations on completing Level 1! As a reward, here’s what you need to know about chromosome structure. Ever wonder why we inherit unique traits like curly hair or a bright smile? It’s all thanks to DNA, the genetic blueprint stored in the nucleus of our cells. DNA is made of nucleotides, each built from a phosphate group, a deoxyribose sugar, and nitrogenous bases that pair up to form a double helix. These strands pack tightly into chromosomes, which carry genes—the units of heredity responsible for traits passed from one generation to the next. From how we look to how we laugh, it’s all encoded in this remarkable molecule!"
+Trivia = "[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
+As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
+
+[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
+* a [color=pink][i]phosphate group[/i][/color],
+* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
+* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
+
+These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+
+From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"
 Title = ""
 Narration = ExtResource("2_dak4g")
-TriviaAnimationSpeed = 0.5
+TriviaAnimationSpeed = 0.55

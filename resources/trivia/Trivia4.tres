@@ -6,7 +6,12 @@
 [resource]
 script = ExtResource("2_lp0jn")
 TriviaLevel = 4
-Trivia = "Chromosomes are fascinating! Each one is supported by proteins called histones, which help them fit neatly inside the nucleus. Humans have 23 pairs of chromosomes, one set inherited from each parent. During meiosis, homologous chromosomes separate just like Gregor Mendel's law of segregation predicts. This process ensures genetic diversity and explains how traits are passed down from one generation to the next."
+Trivia = "[center][b][color=yellow]Chromosomes and Their Role[/color][/b] 🌟[/center]
+[color=pink][b]Chromosomes are fascinating![/b][/color] Each one is supported by [color=yellow][i]proteins called histones[/i][/color], which help them fit neatly inside the [color=lightblue][i]nucleus[/i][/color].
+
+Humans have [color=pink][b]23 pairs of chromosomes[/b][/color], one set inherited from each parent. During [color=yellow][i]meiosis[/i][/color], [color=lightblue][b]homologous chromosomes[/b][/color] separate just like [color=pink][i]Gregor Mendel's law of segregation[/i][/color] predicts.
+
+This process ensures [color=yellow][b]genetic diversity[/b][/color] and explains how [color=lightblue][i]traits[/i][/color] are passed down from one generation to the next. 🌱"
 Title = "CHROMOSOMES AND THEIR ROLE. "
 Narration = ExtResource("1_4vwgn")
-TriviaAnimationSpeed = 0.54
+TriviaAnimationSpeed = 0.6

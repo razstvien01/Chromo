@@ -6,7 +6,16 @@
 [resource]
 script = ExtResource("2_nb1we")
 TriviaLevel = 5
-Trivia = "At the heart of heredity is DNA, or deoxyribonucleic acid, which contains all the information needed to build and maintain life. DNA is made of nucleotides, each composed of a sugar, a phosphate group, and one of four nitrogenous bases: adenine (A), thymine (T), cytosine (C), and guanine (G). These bases pair in a specific way—A with T and C with G—forming the rungs of DNA's iconic double helix structure. This code is what makes each individual unique!"
+Trivia = "[center][b][color=yellow]DNA - THE CODE OF LIFE[/color][/b] 🧬[/center]  
+At the heart of heredity is [color=pink][b]DNA[/b][/color], or [color=yellow][i]deoxyribonucleic acid[/i][/color], which contains all the information needed to [color=lightblue][i]build and maintain life[/i][/color].  
+
+[color=yellow][b]DNA[/b][/color] is made of [color=pink][i]nucleotides[/i][/color], each composed of:  
+* a [color=yellow][i]sugar[/i][/color],  
+* a [color=pink][i]phosphate group[/i][/color], and  
+* one of four [color=lightblue][i]nitrogenous bases[/i][/color]: adenine ([color=yellow][b]A[/b][/color]), thymine ([color=yellow][b]T[/b][/color]), cytosine ([color=yellow][b]C[/b][/color]), and guanine ([color=yellow][b]G[/b][/color]).  
+
+These bases pair in a specific way—[color=pink][i]A with T[/i][/color] and [color=pink][i]C with G[/i][/color]—forming the rungs of [color=yellow][b]DNA's iconic double helix structure[/b][/color]. 🌀  
+This [color=lightblue][i]code[/i][/color] is what makes each individual [color=pink][b]unique![/b][/color] 🌟  "
 Title = "DNA - THE CODE OF LIFE. "
 Narration = ExtResource("1_h2nva")
-TriviaAnimationSpeed = 0.425
+TriviaAnimationSpeed = 0.51

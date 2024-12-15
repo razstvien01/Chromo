@@ -11,13 +11,14 @@ public partial class Trivia : Control
 				{ 1, new[] { "res://assets/Trivias/chromosomes.png", "res://assets/Trivias/23pairs.png" } },
 		};
 	private int triviaLevel;
-	private Label triviaText;
-	private Label triviaTitle;
+	private RichTextLabel triviaText;
+	// private Label triviaTitle;
 	private TextureRect triviaImage;
 	private AudioStreamPlayer triviaNarration;
 	private Button proceedButton;
 	private AnimationPlayer triviaAnimation;
 	private AnimationPlayer imageAnimation;
+	private string currImageAnimation;
 	public TriviaResource TriviaResource
 	{
 		get => _triviaResource;
@@ -37,8 +38,8 @@ public partial class Trivia : Control
 
 	private void InitializeNodes()
 	{
-		triviaText = GetNode<Label>("%Trivia");
-		triviaTitle = GetNode<Label>("%Title");
+		triviaText = GetNode<RichTextLabel>("%Trivia");
+		// triviaTitle = GetNode<Label>("%Title");
 		triviaImage = GetNode<TextureRect>("%Image");
 		triviaNarration = GetNode<AudioStreamPlayer>("%Narration");
 		proceedButton = GetNode<Button>("ProceedButton");
@@ -48,9 +49,8 @@ public partial class Trivia : Control
 
 	private void UpdateTriviaContent()
 	{
-		triviaText.Text = $"{_triviaResource.Title}{_triviaResource.Trivia}";
-		triviaTitle.Text = _triviaResource.Title;
-		GetNode<Label>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
+		triviaText.Text = _triviaResource.Trivia;
+		GetNode<RichTextLabel>("PanelContainer/TriviaScroll/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
 		triviaNarration.Stream = _triviaResource.Narration;
 		triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
 
@@ -62,19 +62,18 @@ public partial class Trivia : Control
 
 	private void PlayImageAnimation(int triviaLevel)
 	{
-		string animation = $"Trivia_{triviaLevel}";
-		if (imageAnimation.HasAnimation(animation))
+		currImageAnimation = $"Trivia_{triviaLevel}";
+		if (imageAnimation.HasAnimation(currImageAnimation))
 		{
-			imageAnimation.Play(animation);
-			GD.Print($"Playing animation: {animation}");
+			imageAnimation.Play(currImageAnimation);
+			GD.Print($"Playing animation: {currImageAnimation}");
 		}
 		else
 		{
-			GD.PrintErr($"Animation '{triviaLevel}' does not exist in imageAnimation.");
+			GD.PrintErr($"Animation '{currImageAnimation}' does not exist in imageAnimation.");
 		}
 	}
-
-
+	
 	public void _OnProceedButtonPressed()
 	{
 		GD.Print("Proceed Button Pressed.");
@@ -92,12 +91,12 @@ public partial class Trivia : Control
 	private void SetTriviaPanelVisibility(bool isVisible)
 	{
 		GetNode<PanelContainer>("PanelContainer").Visible = isVisible;
-		triviaTitle.Visible = isVisible;
+		// triviaTitle.Visible = isVisible;
 	}
 
 	private void AddTriviaImages(int key)
 	{
-		VBoxContainer vbox = GetNode<VBoxContainer>("PanelContainer/TriviaScroll/MarginContainer/VBoxContainer");
+		VBoxContainer vbox = GetNode<VBoxContainer>("PanelContainer/TriviaScroll/VBoxContainer");
 
 		if (!triviaImages.TryGetValue(key, out string[] imagePaths))
 		{
