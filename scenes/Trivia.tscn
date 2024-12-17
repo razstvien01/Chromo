@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://wljaekgjmo34"]
+[gd_scene load_steps=24 format=4 uid="uid://wljaekgjmo34"]
 
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_hqdaq"]
 [ext_resource type="Script" path="res://scripts/Trivia.cs" id="1_ybbgo"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dpxavsqtdqb3f" path="res://assets/Trivias/chromosomes.png" id="3_fxa84"]
 [ext_resource type="StyleBox" uid="uid://cx3m8ptj0dk4c" path="res://resources/theme/rounded_corners_panel.tres" id="4_o1o2q"]
 [ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="5_x05vt"]
-[ext_resource type="AudioStream" uid="uid://cqhgjskcxg5kp" path="res://assets/Audio/Narration/2.wav" id="7_tbpwa"]
+[ext_resource type="Texture2D" uid="uid://bukmegkmb152i" path="res://assets/Trivias/double-helix.jpg" id="7_ko6ec"]
+[ext_resource type="Texture2D" uid="uid://byl5jq0y0c6hh" path="res://assets/Trivias/bright_smile.png" id="7_vk2uw"]
+[ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="8_fnj2j"]
+[ext_resource type="Texture2D" uid="uid://cxig3vqtxyxq7" path="res://assets/Trivias/chromosome.png" id="8_u5bmf"]
+[ext_resource type="Texture2D" uid="uid://gvg8huok1lst" path="res://assets/Trivias/cell_nucleus.png" id="9_j8ldb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eud71"]
 texture = ExtResource("1_hqdaq")
@@ -77,27 +81,39 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="Animation" id="Animation_437jg"]
 resource_name = "Trivia_1"
-length = 6.0
+length = 50.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(7, 12.5, 16, 19, 43),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_fxa84")]
+"values": [ExtResource("7_vk2uw"), ExtResource("8_u5bmf"), ExtResource("9_j8ldb"), ExtResource("7_ko6ec"), ExtResource("7_vk2uw")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(7, 12.5, 16, 19, 43),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["\"From how we look to how we laugh—traits passed through generations!\"", "\"Chromosomes carry genes, the units of heredity!\"", "\"DNA resides in the nucleus, our genetic control center!\"", "\"DNA: The blueprint of life, packed in a beautiful double helix!\"", "\"From how we look to how we laugh—traits passed through generations!\""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImageArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -109,7 +125,7 @@ length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -121,7 +137,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
+tracks/1/path = NodePath("ImageArea/Panel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -137,7 +153,7 @@ length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -149,7 +165,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
+tracks/1/path = NodePath("ImageArea/Panel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -165,7 +181,7 @@ length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -177,7 +193,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
+tracks/1/path = NodePath("ImageArea/Panel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -193,7 +209,7 @@ length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Image:texture")
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -205,7 +221,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
+tracks/1/path = NodePath("ImageArea/Panel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -215,8 +231,60 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_f3uob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fxa84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ImageArea/Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImageArea/CaptionLabel:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["\"DNA: The blueprint of life, packed in a beautiful double helix!\""]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ImageArea:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1334t"]
 _data = {
+"RESET": SubResource("Animation_f3uob"),
 "Trivia_1": SubResource("Animation_437jg"),
 "Trivia_2": SubResource("Animation_1j4ub"),
 "Trivia_3": SubResource("Animation_j657c"),
@@ -275,31 +343,49 @@ theme_override_font_sizes/mono_font_size = 52
 theme_override_font_sizes/normal_font_size = 52
 theme_override_font_sizes/bold_font_size = 52
 bbcode_enabled = true
-text = "[center][b][color=yellow]Chromosomes and Their Role[/color][/b] 🌟[/center]
-[color=pink][b]Chromosomes are fascinating![/b][/color] Each one is supported by [color=yellow][i]proteins called histones[/i][/color], which help them fit neatly inside the [color=lightblue][i]nucleus[/i][/color].
+text = "[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
+As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
 
-Humans have [color=pink][b]23 pairs of chromosomes[/b][/color], one set inherited from each parent. During [color=yellow][i]meiosis[/i][/color], [color=lightblue][b]homologous chromosomes[/b][/color] separate just like [color=pink][i]Gregor Mendel's law of segregation[/i][/color] predicts.
+[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
+* a [color=pink][i]phosphate group[/i][/color],
+* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
+* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
 
-This process ensures [color=yellow][b]genetic diversity[/b][/color] and explains how [color=lightblue][i]traits[/i][/color] are passed down from one generation to the next. 🌱"
+These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+
+From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"
 scroll_active = false
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
+[node name="ImageArea" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -562.0
-offset_top = -231.0
-offset_right = -77.0
-offset_bottom = 190.0
+offset_left = -366.0
+offset_top = -102.0
+offset_right = -326.0
+offset_bottom = -62.0
 grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ImageArea"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -225.5
+offset_right = 302.0
+offset_bottom = 225.5
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6okxv")
 
-[node name="Image" type="TextureRect" parent="Panel"]
+[node name="Image" type="TextureRect" parent="ImageArea/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -307,25 +393,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -221.5
-offset_top = -198.5
-offset_right = 221.5
-offset_bottom = 198.5
+offset_left = -268.5
+offset_top = -202.5
+offset_right = 268.5
+offset_bottom = 202.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 texture = ExtResource("3_fxa84")
 expand_mode = 1
 
+[node name="CaptionLabel" type="Label" parent="ImageArea"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_top = 231.0
+offset_right = 302.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "\"DNA: The blueprint of life, packed in a beautiful double helix!\""
+horizontal_alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 73.0
-offset_top = -269.0
-offset_right = 1432.0
+offset_left = 31.0
+offset_top = -306.0
+offset_right = 845.0
 offset_bottom = 203.0
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("4_o1o2q")
@@ -339,7 +440,7 @@ theme_override_constants/separation = 15
 alignment = 1
 
 [node name="Trivia" type="RichTextLabel" parent="PanelContainer/TriviaScroll/VBoxContainer"]
-custom_minimum_size = Vector2(1300, 0)
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -393,12 +494,13 @@ libraries = {
 "": SubResource("AnimationLibrary_rq8xn")
 }
 autoplay = "Trivia"
-speed_scale = 0.6
+speed_scale = 0.55
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("7_tbpwa")
+stream = ExtResource("8_fnj2j")
 autoplay = true
 
 [connection signal="pressed" from="ProceedButton" to="." method="_OnProceedButtonPressed"]
+[connection signal="animation_finished" from="ImageAnimation" to="." method="_OnImageAnimationFinished"]
 [connection signal="finished" from="Narration" to="." method="_OnNarrationFinished"]
