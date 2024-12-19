@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bdkvdpo5bne1a"]
+[gd_scene load_steps=24 format=4 uid="uid://bdkvdpo5bne1a"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_gcmyl"]
 [ext_resource type="Resource" uid="uid://bbk5dlven3h8o" path="res://resources/trivia/Trivia1.tres" id="2_jadjg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="9_i72y7"]
 [ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="9_w346k"]
 [ext_resource type="Texture2D" uid="uid://dfdr3e0hyuncq" path="res://assets/Tilemaps/FloatingCells.png" id="11_nit71"]
+[ext_resource type="PackedScene" uid="uid://caglg8yvpfju5" path="res://scenes/area/MiniTriviaArea.tscn" id="13_273df"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("2_mxq3e")
@@ -713,6 +714,9 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8w8lw")
 sources/1 = SubResource("TileSetAtlasSource_mcc7i")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skity"]
+size = Vector2(360, 480)
+
 [node name="Stage_1" type="Node2D"]
 position = Vector2(-18, -4)
 script = ExtResource("1_gcmyl")
@@ -922,6 +926,16 @@ position = Vector2(-1, -1)
 tile_map_data = PackedByteArray("AAAEAAYAAAAHAAQAAAAIAAYAAAAJAAQAAAAFAAYAAAAIAAQAAAAGAAYAAAAIAAQAAAAHAAYAAAAIAAQAAAAFAAEAAQABAAAAAAAIAAEAAQABAAEAAAAYAAcAAQABAAAAAAAQAAcAAQABAAEAAAAKAAQAAAAHAAUAAAAMAAQAAAAJAAUAAAALAAQAAAAIAAUAAAAUAAQAAAAHAAUAAAAYAAQAAAAJAAUAAAAVAAQAAAAIAAUAAAAWAAQAAAAIAAUAAAAXAAQAAAAIAAUAAAAcAAQAAAAJAAQAAAAXAAcAAAAJAAQAAAAWAAcAAAAHAAQAAAANAAcAAAAIAAUAAAAMAAcAAAAHAAUAAAAOAAcAAAAIAAUAAAAPAAcAAAAJAAUAAAABAAcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ls32l")
 
+[node name="MiniTriviaArea" parent="." instance=ExtResource("13_273df")]
+position = Vector2(766, 106)
+scale = Vector2(0.2, 0.2)
+AnimationName = "Mini_Trivia1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniTriviaArea"]
+position = Vector2(5, -49.9999)
+shape = SubResource("RectangleShape2D_skity")
+
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
+[connection signal="MiniTriviaStarted" from="MiniTriviaArea" to="." method="_on_mini_trivia_area_mini_trivia_started"]
 
 [editable path="Character"]

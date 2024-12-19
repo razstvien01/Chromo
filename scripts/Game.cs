@@ -15,6 +15,7 @@ public partial class Game : Node2D
 	private PauseMenu pauseMenu;
 	private PackedScene currentScene;
 	private Struggles currentInstance;
+	private MiniTrivia miniTrivia;
 	private int currentIndex = 0;
 	private AudioStreamPlayer bgAudioPlayer;
 	private GameOverDialog _gameOverDialog;
@@ -58,6 +59,8 @@ public partial class Game : Node2D
 
 		// Use GameState to determine progress
 		currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
+		miniTrivia = GetNode<MiniTrivia>("%MiniTrivia");
+		miniTrivia.Connect(nameof(MiniTrivia.MiniTriviaEnd), Callable.From<string>(OnMiniTriviaEnd));
 
 		LoadScene(currentIndex);
 	}
@@ -157,6 +160,7 @@ public partial class Game : Node2D
 				struggles.Connect(nameof(Struggles.NextScene), Callable.From(_NextScene));
 				struggles.Connect(nameof(Struggles.LoadTrivia), Callable.From<TriviaResource>(LoadTriviaScene));
 				struggles.Connect(nameof(Struggles.Pause), Callable.From(() => pauseMenu.Show()));
+				struggles.Connect(nameof(Struggles.LoadMiniTrivia), Callable.From<string>(LoadMiniTrivia));
 				pauseMenu.CurrentLevelName = struggles.LevelName;
 				
 				CharacterBody2D character = struggles.GetNodeOrNull<CharacterBody2D>("Character");
@@ -171,12 +175,24 @@ public partial class Game : Node2D
 			}
 
 			ChangeBgm(AudioEnum.Level);
-
-
 		}
 		else
 		{
 			GD.PrintErr($"Failed to load scene at path: {currScenePath}");
+		}
+	}
+
+	private void LoadMiniTrivia(string animationName) {
+		miniTrivia.Show();
+		miniTrivia.PlayAnimation(animationName);
+	}
+
+	private void OnMiniTriviaEnd(string animationName) {
+		miniTrivia.Hide();
+
+		if (currentInstance is Struggles struggles) {
+			struggles.UiControlsVisible = true;
+			struggles.HideMiniTrivia(animationName);
 		}
 	}
 
