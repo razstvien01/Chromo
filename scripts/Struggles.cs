@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class Struggles : Node2D
 {
@@ -18,6 +19,8 @@ public partial class Struggles : Node2D
 	public delegate void LoadTriviaEventHandler(TriviaResource triviaResource);
 	[Signal]
 	public delegate void PauseEventHandler();
+	[Signal]
+	public delegate void LoadMiniTriviaEventHandler(string tiviaAnimationName);
 
 	Character character;
 
@@ -77,5 +80,25 @@ public partial class Struggles : Node2D
 		UiControlsVisible = true; //* will show again the UI Controls
 
 		character.ResetSprite();
+		ShowAllMiniTrivia();
 	}
+
+	private void _on_mini_trivia_area_mini_trivia_started(string animationName) {
+		UiControlsVisible = false;
+		EmitSignal(SignalName.LoadMiniTrivia, animationName);
+	}
+
+	public void HideMiniTrivia(string miniTriviaAnimationName) {
+		var miniTriviaArea = GetChildren().First(x => x is MiniTriviaArea miniTriviaArea && miniTriviaArea.AnimationName.Equals(miniTriviaAnimationName)) as MiniTriviaArea;
+		miniTriviaArea.Disable();
+	}
+
+	public void ShowAllMiniTrivia() =>
+		GetChildren().Where(x => x is MiniTriviaArea)
+					 .Select(x => x as MiniTriviaArea)
+					 .ToList()
+					 .ForEach(x => {
+						x.Enable();
+					 });
+	
 }

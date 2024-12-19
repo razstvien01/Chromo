@@ -1,0 +1,196 @@
+[gd_scene load_steps=6 format=3 uid="uid://bys1gjt8yshv8"]
+
+[ext_resource type="Script" path="res://scripts/MiniTrivia.cs" id="1_v1qn2"]
+[ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="2_ldtw7"]
+
+[sub_resource type="Animation" id="Animation_npkt7"]
+resource_name = "Mini_Trivia1"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50.2333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
+As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
+
+[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
+* a [color=pink][i]phosphate group[/i][/color],
+* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
+* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
+
+These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+
+From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!", "[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
+As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
+
+[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
+* a [color=pink][i]phosphate group[/i][/color],
+* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
+* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
+
+These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+
+From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.566667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.83755, 50),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 250), Vector2(0, -2800)]
+}
+
+[sub_resource type="Animation" id="Animation_fv7xx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -2800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
+As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
+
+[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
+* a [color=pink][i]phosphate group[/i][/color],
+* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
+* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
+
+These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+
+From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_niv4u"]
+_data = {
+"Mini_Trivia1": SubResource("Animation_npkt7"),
+"RESET": SubResource("Animation_fv7xx")
+}
+
+[node name="MiniTrivia" type="Control"]
+custom_minimum_size = Vector2(1200, 500)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -600.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_v1qn2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(900, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1938, 0.57, 0.54492, 0.768627)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Container" type="Control" parent="ColorRect/MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/HBoxContainer/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2800.0
+offset_bottom = -524.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 52
+theme_override_font_sizes/italics_font_size = 52
+theme_override_font_sizes/mono_font_size = 52
+theme_override_font_sizes/normal_font_size = 52
+theme_override_font_sizes/bold_font_size = 52
+bbcode_enabled = true
+text = "[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
+As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
+
+[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
+* a [color=pink][i]phosphate group[/i][/color],
+* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
+* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
+
+These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+
+From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_niv4u")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ldtw7")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="onAnimationFinished"]
