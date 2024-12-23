@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7y0oh2vo1ni6"
+path="res://.godot/imported/CONGRATULATIONS LVL 2.wav-947987ed420d481ef1c32faf805558fc.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Narration/CONGRATULATIONS LVL 2.wav"
+dest_files=["res://.godot/imported/CONGRATULATIONS LVL 2.wav-947987ed420d481ef1c32faf805558fc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
