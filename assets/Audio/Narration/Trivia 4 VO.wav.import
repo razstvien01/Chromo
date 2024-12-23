@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dex5lvp64wtu6"
+path="res://.godot/imported/Trivia 4 VO.wav-40c9f7051a2941158577e9cb73e7f5c9.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Narration/Trivia 4 VO.wav"
+dest_files=["res://.godot/imported/Trivia 4 VO.wav-40c9f7051a2941158577e9cb73e7f5c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
