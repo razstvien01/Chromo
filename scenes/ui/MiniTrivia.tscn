@@ -1,11 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bys1gjt8yshv8"]
+[gd_scene load_steps=20 format=3 uid="uid://bys1gjt8yshv8"]
 
 [ext_resource type="Script" path="res://scripts/MiniTrivia.cs" id="1_v1qn2"]
-[ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="2_ldtw7"]
+[ext_resource type="AudioStream" uid="uid://5g3nahnhk0nq" path="res://assets/Audio/Narration/Trivia 1 VO.wav" id="2_mj16u"]
+[ext_resource type="Texture2D" uid="uid://ck30x72u2h71u" path="res://assets/Trivias/MiniTrivia.png" id="3_0hoy4"]
+[ext_resource type="AudioStream" uid="uid://b7ui0edo8ohla" path="res://assets/Audio/Narration/Trivia 2 VO.wav" id="4_seqwv"]
+[ext_resource type="Texture2D" uid="uid://bqbry830lac7e" path="res://assets/Trivias/MiniTrivia2.png" id="5_8hx6i"]
+[ext_resource type="AudioStream" uid="uid://dt58yrql5844o" path="res://assets/Audio/Narration/Trivia 3 VO.wav" id="6_20iue"]
+[ext_resource type="Texture2D" uid="uid://dwhui0idfgf51" path="res://assets/Trivias/MiniTrivia3.png" id="7_2j6hw"]
+[ext_resource type="AudioStream" uid="uid://dex5lvp64wtu6" path="res://assets/Audio/Narration/Trivia 4 VO.wav" id="8_k6xru"]
+[ext_resource type="Texture2D" uid="uid://qcye860raalr" path="res://assets/Trivias/MiniTrivia4.png" id="9_8i1ct"]
+[ext_resource type="AudioStream" uid="uid://mn0viyvyxu3r" path="res://assets/Audio/Narration/Trivia 5 VO.wav" id="10_8pafv"]
+[ext_resource type="Texture2D" uid="uid://c5c02n7qbetep" path="res://assets/Trivias/MiniTrivia5.png" id="11_dun53"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdooi"]
+bg_color = Color(0.99997, 0.788669, 0.593, 1)
+border_width_left = 3
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="Animation" id="Animation_npkt7"]
 resource_name = "Mini_Trivia1"
-length = 50.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,30 +30,17 @@ tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/Rich
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 50.2333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
-As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
+"values": ["[center][b][color=yellow]Chromosomes[/color][/b][/center]
 
-[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
-* a [color=pink][i]phosphate group[/i][/color],
-* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
-* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
+Chromosomes are structures that carry our [b][color=lightblue]genes[/color][/b], which determine our [color=lightblue]traits[/color]. They are made of [b][color=pink]DNA[/color][/b] and are found in the cell's [color=pink]nucleus[/color].
 
-These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
+Each chromosome has a part called the [color=yellow]centromere[/color], which divides it into two sections: the [b][color=lightblue]short arm (p)[/color][/b] and the [b][color=lightblue]long arm (q)[/color][/b].
 
-From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!", "[center][b][color=yellow]Congratulations on completing Level 1![/color][/b] 🎉[/center]
-As a reward, here’s what you need to know about [color=pink][b]chromosome structure[/b][/color]. Ever wonder why we inherit unique traits like [color=lightblue][i]curly hair[/i][/color] or a [color=lightblue][i]bright smile[/i][/color]? It’s all thanks to [color=yellow][b]DNA[/b][/color], the genetic blueprint stored in the [color=pink][i]nucleus of our cells[/i][/color].
-
-[color=yellow]DNA[/color] is made of [color=yellow][b]nucleotides[/b][/color], each built from
-* a [color=pink][i]phosphate group[/i][/color],
-* a [color=lightblue][i]deoxyribose sugar[/i][/color], and
-* [color=yellow][i]nitrogenous bases[/i][/color] that pair up to form a [color=pink][b]double helix[/b][/color].
-
-These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which carry [color=lightblue][i]genes[/i][/color]—the units of heredity responsible for traits passed from one generation to the next.
-
-From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"]
+Humans have [b][color=yellow]46 chromosomes[/color][/b] in [color=pink]23 pairs[/color], which we inherit from our parents.
+ "]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,10 +61,386 @@ tracks/2/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/Rich
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.83755, 50),
+"times": PackedFloat32Array(0, 2.83755, 29.9667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 500), Vector2(0, 250), Vector2(0, -2800)]
+"values": [Vector2(0, 500), Vector2(0, 250), Vector2(0, -1600)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_mj16u")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer/TextureRect:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.2, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_0hoy4"), null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.2, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_i5s3k"]
+resource_name = "Mini_Trivia2"
+length = 23.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.333333, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["[center][b][color=yellow]Chromosomes[/color][/b][/center]
+
+Chromosomes are structures that carry our [b][color=lightblue]genes[/color][/b], which determine our [color=lightblue]traits[/color]. They are made of [b][color=pink]DNA[/color][/b] and are found in the cell's [color=pink]nucleus[/color].
+
+Each chromosome has a part called the [color=yellow]centromere[/color], which divides it into two sections: the [b][color=lightblue]short arm (p)[/color][/b] and the [b][color=lightblue]long arm (q)[/color][/b].
+
+Humans have [b][color=yellow]46 chromosomes[/color][/b] in [color=pink]23 pairs[/color], which we inherit from our parents.
+", "[center][b][color=yellow]Histones[/color][/b][/center]
+
+Histones are [b][color=pink]proteins[/color][/b] that help keep [b][color=lightblue]chromosomes organized[/color][/b] in the [color=pink]nucleus[/color].
+
+During [color=yellow]meiosis[/color], histones help arrange chromosomes so they can separate properly. This process is important for creating [b][color=lightblue]genetic diversity[/color][/b] and helps pass [color=yellow]traits[/color] from parents to their children."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, -1300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_seqwv")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.166667, 22.5667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3, 23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer/TextureRect:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3, 23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_8hx6i"), null]
+}
+
+[sub_resource type="Animation" id="Animation_ajtaa"]
+length = 34.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center][b][color=yellow]DNA (Deoxyribonucleic Acid)[/color][/b][/center]
+
+DNA also called as Deoxyribonucleic Acid is the [b][color=pink]code of life[/color][/b] that tells our bodies how to [color=lightblue]grow and work[/color].
+
+It is made of small units called [b][color=yellow]nucleotides[/color][/b], which include:  
+* a [color=pink]sugar[/color],  
+* a [color=lightblue]phosphate group[/color], and  
+* one of four [color=yellow]nitrogenous bases[/color]:  
+   - adenine ([b]A[/b]),  
+   - thymine ([b]T[/b]),  
+   - cytosine ([b]C[/b]),  
+   - guanine ([b]G[/b]).
+
+The bases pair up—[b][color=pink]A with T[/color][/b] and [b][color=lightblue]C with G[/color][/b]—forming the shape of DNA, known as the [b][color=yellow]double helix[/color][/b].
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_20iue")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.73333, 33.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 100), Vector2(0, -2150)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.7, 34.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer/TextureRect:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 34),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_2j6hw"), null]
+}
+
+[sub_resource type="Animation" id="Animation_ynhva"]
+length = 23.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center][b][color=yellow]DNA and Chromosomes[/color][/b][/center]
+
+DNA is tightly packed into [b][color=pink]chromosomes[/color][/b], which carry [b][color=yellow]genes[/color][/b]—the instructions for our [color=lightblue]traits[/color].
+
+Each gene is located at a specific spot on a chromosome called a [b][color=pink]locus[/color][/b].
+
+Knowing how these parts work helps us learn how [b][color=yellow]traits are passed down in families[/color][/b].
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_k6xru")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.1667, 22.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 150), Vector2(0, -1400)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.16667, 22.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer/TextureRect:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_8i1ct")]
+}
+
+[sub_resource type="Animation" id="Animation_you61"]
+length = 22.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center][b][color=yellow]The Importance of DNA Organization[/color][/b][/center]
+
+The way [b][color=pink]DNA[/color][/b] is organized in [b][color=yellow]chromosomes[/color][/b] is crucial for [color=lightblue]cell function[/color].
+
+When cells divide, [b][color=yellow]chromosomes[/color][/b] must separate correctly so that each new cell gets the right [b][color=pink]genetic information[/color][/b].
+
+This process is essential for [color=lightblue]growth[/color] and for passing traits to the [b][color=yellow]next generation[/color][/b].
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_8pafv")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Container/RichTextLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.93333, 22),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 150), Vector2(0, -1400)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.93333, 22),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer/TextureRect:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_dun53")]
 }
 
 [sub_resource type="Animation" id="Animation_fv7xx"]
@@ -99,10 +479,50 @@ These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which 
 
 From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer/TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/MarginContainer/HBoxContainer/Panel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_niv4u"]
 _data = {
 "Mini_Trivia1": SubResource("Animation_npkt7"),
+"Mini_Trivia2": SubResource("Animation_i5s3k"),
+"Mini_Trivia3": SubResource("Animation_ajtaa"),
+"Mini_Trivia4": SubResource("Animation_ynhva"),
+"Mini_Trivia5": SubResource("Animation_you61"),
 "RESET": SubResource("Animation_fv7xx")
 }
 
@@ -119,6 +539,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_v1qn2")
+metadata/_edit_horizontal_guides_ = [-140.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(900, 300)
@@ -155,8 +576,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2800.0
-offset_bottom = -524.0
+offset_top = 500.0
+offset_bottom = 2776.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -180,9 +601,27 @@ These strands pack tightly into [color=yellow][b]chromosomes[/b][/color], which 
 From [color=lightblue][i]how we look[/i][/color] to [color=lightblue][i]how we laugh[/i][/color], it’s all encoded in this [color=yellow][b]remarkable molecule[/b][/color]!"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer"]
+[node name="Panel" type="Panel" parent="ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdooi")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -191,6 +630,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ldtw7")
+stream = ExtResource("6_20iue")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="onAnimationFinished"]

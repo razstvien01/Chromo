@@ -4,6 +4,16 @@ public partial class MiniTriviaArea : Area2D
 {
 	[Export]
 	public string AnimationName { get; set; }
+
+    private Sprite2D Sprite2D => GetNode<Sprite2D>("Sprite2D");
+
+    [Export]
+    public Texture2D Texture { 
+        get => Sprite2D.Texture;
+        set {
+            Sprite2D.Texture = value;
+        } 
+    }
 	
     [Signal]
     public delegate void MiniTriviaStartedEventHandler(string animationName);
@@ -25,5 +35,4 @@ public partial class MiniTriviaArea : Area2D
             EmitSignal(SignalName.MiniTriviaStarted, AnimationName);
         }
     }
-
 }

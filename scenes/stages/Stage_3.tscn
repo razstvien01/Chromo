@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cecdpljtre03s"]
+[gd_scene load_steps=25 format=4 uid="uid://cecdpljtre03s"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_8fewj"]
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="2_oxp2m"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="8_clm64"]
 [ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="9_u02s2"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="10_sqqsh"]
+[ext_resource type="PackedScene" uid="uid://caglg8yvpfju5" path="res://scenes/area/MiniTriviaArea.tscn" id="14_2rv74"]
+[ext_resource type="Texture2D" uid="uid://da1rrptgjv00o" path="res://assets/Icons/Boveri.png" id="15_il4a0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("2_oxp2m")
@@ -201,6 +203,9 @@ terrain_set_0/terrain_2/name = "Interactables"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8w8lw")
 sources/1 = SubResource("TileSetAtlasSource_mcc7i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12teh"]
+size = Vector2(281.25, 581.25)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_8fewj")
@@ -465,6 +470,16 @@ buttonType = 1
 [node name="DoorArea" parent="." instance=ExtResource("10_sqqsh")]
 position = Vector2(791, 120)
 
+[node name="MiniTrivia" parent="." instance=ExtResource("14_2rv74")]
+position = Vector2(596, 242)
+scale = Vector2(0.16, 0.16)
+AnimationName = "Mini_Trivia3"
+Texture = ExtResource("15_il4a0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniTrivia"]
+position = Vector2(9.375, -15.625)
+shape = SubResource("RectangleShape2D_12teh")
+
 [connection signal="ShowGameOver" from="Puddle6P" to="." method="_ShowGameOver"]
 [connection signal="ShowGameOver" from="Puddle7P" to="." method="_ShowGameOver"]
 [connection signal="ShowGameOver" from="Puddle2Y" to="." method="_ShowGameOver"]
@@ -475,3 +490,4 @@ position = Vector2(791, 120)
 [connection signal="ShowGameOver" from="Puddle4P" to="." method="_ShowGameOver"]
 [connection signal="ShowGameOver" from="Puddle3Y2" to="." method="_ShowGameOver"]
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
+[connection signal="MiniTriviaStarted" from="MiniTrivia" to="." method="_on_mini_trivia_mini_trivia_started"]

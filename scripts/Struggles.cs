@@ -83,7 +83,7 @@ public partial class Struggles : Node2D
 		ShowAllMiniTrivia();
 	}
 
-	private void _on_mini_trivia_area_mini_trivia_started(string animationName) {
+	private void _on_mini_trivia_mini_trivia_started(string animationName) {
 		UiControlsVisible = false;
 		EmitSignal(SignalName.LoadMiniTrivia, animationName);
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d4ihvgxy64i2r"]
+[gd_scene load_steps=25 format=4 uid="uid://d4ihvgxy64i2r"]
 
 [ext_resource type="Script" path="res://scripts/Struggles.cs" id="1_2xc0u"]
 [ext_resource type="Resource" uid="uid://c5sv8smrpgh6u" path="res://resources/trivia/Trivia4.tres" id="2_dmk4t"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://5tnwsv10ckq7" path="res://scenes/WaterArea.tscn" id="10_axaxj"]
 [ext_resource type="PackedScene" uid="uid://cjuwsjv2auyde" path="res://scenes/area/ButtonArea.tscn" id="11_ydlin"]
 [ext_resource type="PackedScene" uid="uid://42saj7mmjk7x" path="res://scenes/area/DoorArea.tscn" id="12_xl63u"]
+[ext_resource type="PackedScene" uid="uid://caglg8yvpfju5" path="res://scenes/area/MiniTriviaArea.tscn" id="13_8yn43"]
+[ext_resource type="Texture2D" uid="uid://da1rrptgjv00o" path="res://assets/Icons/Boveri.png" id="14_rxr6v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6ag7"]
 texture = ExtResource("2_uwvyw")
@@ -204,6 +206,9 @@ terrain_set_0/terrain_2/name = "Interactables"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8w8lw")
 sources/1 = SubResource("TileSetAtlasSource_mcc7i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pbc0"]
+size = Vector2(575, 362.5)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_2xc0u")
@@ -616,4 +621,15 @@ position = Vector2(742, 74)
 tile_map_data = PackedByteArray("AAAOAAQAAQABAAEAAAARAAQAAQABAAAAAAAPAAEAAQAAAAAAAAAOAAwAAQABAAEAAAARAAwAAQABAAEAAAAOAAcAAAAJAAQAAAAMAAcAAAAHAAQAAAASAAcAAAAIAAUAAAARAAcAAAAHAAUAAAATAAcAAAAJAAUAAAANAAcAAAAIAAQAAAAOAAkAAAAJAAUAAAAMAAkAAAAHAAUAAAANAAkAAAAIAAUAAAASAAkAAAAIAAQAAAARAAkAAAAHAAQAAAATAAkAAAAJAAQAAAAMAAwAAQABAAAAAAATAAwAAQABAAAAAAAIAAoAAAAJAAUAAAAHAAoAAAAHAAUAAAAWAAgAAAAHAAQAAAAYAAgAAAAJAAQAAAAXAAgAAAAIAAQAAAAYAAUAAAAIAAQAAAAXAAUAAAAHAAQAAAAZAAUAAAAJAAQAAAAaAAUAAAAHAAUAAAAbAAUAAAAIAAUAAAAcAAUAAAAJAAUAAAAeAAcAAAAJAAUAAAAcAAcAAAAHAAUAAAAdAAcAAAAIAAUAAAAKAAIAAAAJAAQAAAAJAAIAAAAHAAQAAAA=")
 tile_set = SubResource("TileSet_ls32l")
 
+[node name="MiniTrivia" parent="." instance=ExtResource("13_8yn43")]
+position = Vector2(766, 403)
+scale = Vector2(0.16, 0.16)
+AnimationName = "Mini_Trivia4"
+Texture = ExtResource("14_rxr6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniTrivia"]
+position = Vector2(12.5, -6.25)
+shape = SubResource("RectangleShape2D_2pbc0")
+
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
+[connection signal="MiniTriviaStarted" from="MiniTrivia" to="." method="_on_mini_trivia_mini_trivia_started"]

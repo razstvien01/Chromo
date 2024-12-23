@@ -927,7 +927,7 @@ tile_map_data = PackedByteArray("AAAEAAYAAAAHAAQAAAAIAAYAAAAJAAQAAAAFAAYAAAAIAAQ
 tile_set = SubResource("TileSet_ls32l")
 
 [node name="MiniTriviaArea" parent="." instance=ExtResource("13_273df")]
-position = Vector2(766, 106)
+position = Vector2(1357, 298)
 scale = Vector2(0.2, 0.2)
 AnimationName = "Mini_Trivia1"
 
@@ -936,6 +936,6 @@ position = Vector2(5, -49.9999)
 shape = SubResource("RectangleShape2D_skity")
 
 [connection signal="NextScene" from="DoorArea" to="." method="_NextScene"]
-[connection signal="MiniTriviaStarted" from="MiniTriviaArea" to="." method="_on_mini_trivia_area_mini_trivia_started"]
+[connection signal="MiniTriviaStarted" from="MiniTriviaArea" to="." method="_on_mini_trivia_mini_trivia_started"]
 
 [editable path="Character"]
