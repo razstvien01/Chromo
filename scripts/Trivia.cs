@@ -103,9 +103,8 @@ public partial class Trivia : Control
 	private void _OnNarrationFinished()
 	{
 		proceedButton.Visible = true;
-		GetNode<Panel>("Panel").Visible = false;
 		SetTriviaPanelVisibility(true);
-		AddTriviaImages(1);
+		// AddTriviaImages(1);
 	}
 
 	private void SetTriviaPanelVisibility(bool isVisible)
@@ -150,5 +149,18 @@ public partial class Trivia : Control
 			Texture = texture,
 			StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered
 		};
+	}
+	
+	private void _OnImageAnimationFinished(string animation){
+		currImageAnimation = animation;
+		if (imageAnimation.HasAnimation(currImageAnimation))
+		{
+			imageAnimation.Play(currImageAnimation);
+			GD.Print($"Playing animation: {currImageAnimation}");
+		}
+		else
+		{
+			GD.PrintErr($"Animation '{currImageAnimation}' does not exist in imageAnimation.");
+		}
 	}
 }
