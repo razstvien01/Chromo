@@ -398,7 +398,10 @@ speed_scale = 0.6
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_tbpwa")
-autoplay = true
+
+[node name="CongratulationsAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -11.234
 
 [connection signal="pressed" from="ProceedButton" to="." method="_OnProceedButtonPressed"]
 [connection signal="finished" from="Narration" to="." method="_OnNarrationFinished"]

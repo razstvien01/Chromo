@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5sv8smrpgh6u"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c5sv8smrpgh6u"]
 
 [ext_resource type="AudioStream" uid="uid://cqhgjskcxg5kp" path="res://assets/Audio/Narration/2.wav" id="1_4vwgn"]
+[ext_resource type="AudioStream" uid="uid://170drd3egmya" path="res://assets/Audio/Narration/CONGRATULATIONS LVL 4.wav" id="1_vh2fl"]
 [ext_resource type="Script" path="res://scripts/resources/TriviaResource.cs" id="2_lp0jn"]
 
 [resource]
@@ -13,5 +14,6 @@ Humans have [color=pink][b]23 pairs of chromosomes[/b][/color], one set inherite
 
 This process ensures [color=yellow][b]genetic diversity[/b][/color] and explains how [color=lightblue][i]traits[/i][/color] are passed down from one generation to the next. 🌱"
 Title = "CHROMOSOMES AND THEIR ROLE. "
+CongratulationsAudio = ExtResource("1_vh2fl")
 Narration = ExtResource("1_4vwgn")
 TriviaAnimationSpeed = 0.6

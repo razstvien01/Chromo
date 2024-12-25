@@ -15,6 +15,7 @@ public partial class Trivia : Control
 	// private Label triviaTitle;
 	private TextureRect triviaImage;
 	private AudioStreamPlayer triviaNarration;
+	private AudioStreamPlayer congratulationsAudio;
 	private Button proceedButton;
 	private AnimationPlayer triviaAnimation;
 	private AnimationPlayer imageAnimation;
@@ -42,22 +43,41 @@ public partial class Trivia : Control
 		// triviaTitle = GetNode<Label>("%Title");
 		triviaImage = GetNode<TextureRect>("%Image");
 		triviaNarration = GetNode<AudioStreamPlayer>("%Narration");
+		congratulationsAudio = GetNode<AudioStreamPlayer>("%CongratulationsAudio");
+
+		congratulationsAudio.Finished += PlayNarration;
+
 		proceedButton = GetNode<Button>("ProceedButton");
 		triviaAnimation = GetNode<AnimationPlayer>("TriviaAnimation");
 		imageAnimation = GetNode<AnimationPlayer>("ImageAnimation");
+	}
+
+	private void PlayCongratulationAudio() {
+		congratulationsAudio.Stream = _triviaResource.CongratulationsAudio;
+		congratulationsAudio.Play();
+		GD.Print("Congratulations will trigger PlayNarration");
+	}
+
+	private void PlayNarration() {
+		triviaNarration.Stream = _triviaResource.Narration;
+		triviaNarration.Play();
 	}
 
 	private void UpdateTriviaContent()
 	{
 		triviaText.Text = _triviaResource.Trivia;
 		GetNode<RichTextLabel>("PanelContainer/TriviaScroll/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
-		triviaNarration.Stream = _triviaResource.Narration;
 		triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
 
 		int triviaLevel = _triviaResource.TriviaLevel;
 		PlayImageAnimation(triviaLevel);
 
-		triviaNarration.Play();
+		if(_triviaResource.CongratulationsAudio is not null) {
+			PlayCongratulationAudio();
+		} else {
+			GD.Print("Narration Calling from UpdateTriviaContent");
+			PlayNarration();
+		}
 	}
 
 	private void PlayImageAnimation(int triviaLevel)

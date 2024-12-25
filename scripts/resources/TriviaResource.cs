@@ -10,6 +10,8 @@ public partial class TriviaResource : Resource
     [Export]
     public string Title { get; set; }
     [Export]
+    public AudioStream CongratulationsAudio { get; set; }
+    [Export]
     public AudioStream Narration { get; set; }
     [Export]
     public float TriviaAnimationSpeed { get; set; }
