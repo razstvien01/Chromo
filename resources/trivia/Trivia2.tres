@@ -20,4 +20,4 @@ Together, these elements unlock the [color=pink][b]mysteries of inheritance[/b][
 Title = ""
 CongratulationsAudio = ExtResource("1_id0f3")
 Narration = ExtResource("2_3pgyd")
-TriviaAnimationSpeed = 0.63
+TriviaAnimationSpeed = 0.6

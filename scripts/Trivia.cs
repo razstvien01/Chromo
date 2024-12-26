@@ -68,6 +68,8 @@ public partial class Trivia : Control
 		triviaText.Text = _triviaResource.Trivia;
 		GetNode<RichTextLabel>("PanelContainer/TriviaScroll/VBoxContainer/Trivia").Text = _triviaResource.Trivia;
 		triviaAnimation.SpeedScale = _triviaResource.TriviaAnimationSpeed;
+		
+		GD.Print("Speed: " + triviaAnimation.SpeedScale);
 
 		int triviaLevel = _triviaResource.TriviaLevel;
 		PlayImageAnimation(triviaLevel);

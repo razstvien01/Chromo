@@ -18,4 +18,4 @@ Together, these structures carry the [color=yellow][b]blueprint of who we are[/b
 Title = "THE BASIS OF HEREDITY. "
 CongratulationsAudio = ExtResource("1_q11rb")
 Narration = ExtResource("1_d5065")
-TriviaAnimationSpeed = 0.59
+TriviaAnimationSpeed = 0.55
