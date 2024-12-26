@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dyvxo2q4h8poi"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dyvxo2q4h8poi"]
 
 [ext_resource type="AudioStream" uid="uid://cfe7ksrvj7lsy" path="res://assets/Audio/Narration/1.wav" id="1_d5065"]
+[ext_resource type="AudioStream" uid="uid://d0pjhw12p77p" path="res://assets/Audio/Narration/CONGRATULATIONS LVL 3.wav" id="1_q11rb"]
 [ext_resource type="Script" path="res://scripts/resources/TriviaResource.cs" id="3_1rmqs"]
 
 [resource]
@@ -15,5 +16,6 @@ Each chromosome has a specific point called the [color=yellow][b]centromere[/b][
 
 Together, these structures carry the [color=yellow][b]blueprint of who we are[/b][/color]! 🧬"
 Title = "THE BASIS OF HEREDITY. "
+CongratulationsAudio = ExtResource("1_q11rb")
 Narration = ExtResource("1_d5065")
 TriviaAnimationSpeed = 0.59
