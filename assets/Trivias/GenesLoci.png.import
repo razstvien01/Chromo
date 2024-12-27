@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lcav1vq7myk"
-path="res://.godot/imported/Chromosome in the Cell's Nucleus.png-9233db6c52bcaf8acaaa75351a4396da.ctex"
+uid="uid://bu75mv1e7n0l6"
+path="res://.godot/imported/GenesLoci.png-500749be3ad48a2200c81d2b7543083d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/Chromosome in the Cell's Nucleus.png"
-dest_files=["res://.godot/imported/Chromosome in the Cell's Nucleus.png-9233db6c52bcaf8acaaa75351a4396da.ctex"]
+source_file="res://assets/Trivias/GenesLoci.png"
+dest_files=["res://.godot/imported/GenesLoci.png-500749be3ad48a2200c81d2b7543083d.ctex"]
 
 [params]
 

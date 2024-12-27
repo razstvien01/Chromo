@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkg3xq56pyfm0"
-path="res://.godot/imported/dna_nucleotide_structure.jpg-883e009618104da81b290874a89a8247.ctex"
+uid="uid://cepdux7axjc00"
+path="res://.godot/imported/PQArm.png-df7ec604dc7a87afbe80e2b7865f003f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/dna_nucleotide_structure.jpg"
-dest_files=["res://.godot/imported/dna_nucleotide_structure.jpg-883e009618104da81b290874a89a8247.ctex"]
+source_file="res://assets/Trivias/PQArm.png"
+dest_files=["res://.godot/imported/PQArm.png-df7ec604dc7a87afbe80e2b7865f003f.ctex"]
 
 [params]
 

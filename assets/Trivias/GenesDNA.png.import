@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckia0qu7e5wql"
-path="res://.godot/imported/histones_chromo.png-7de14a6bed0d4c10ba8c415ba411ff78.ctex"
+uid="uid://c64sl6npjrmhv"
+path="res://.godot/imported/GenesDNA.png-0ebb3cdc588ee7d3d0aa813b01d47967.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/histones_chromo.png"
-dest_files=["res://.godot/imported/histones_chromo.png-7de14a6bed0d4c10ba8c415ba411ff78.ctex"]
+source_file="res://assets/Trivias/GenesDNA.png"
+dest_files=["res://.godot/imported/GenesDNA.png-0ebb3cdc588ee7d3d0aa813b01d47967.ctex"]
 
 [params]
 

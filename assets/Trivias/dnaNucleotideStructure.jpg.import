@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3kh1fqctb4us"
-path="res://.godot/imported/meiosis-JCmod.png-4f1f97d727634ba67492fea08f799894.ctex"
+uid="uid://dkg3xq56pyfm0"
+path="res://.godot/imported/dnaNucleotideStructure.jpg-65abb16afe18fa311473e71efe246d0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/meiosis-JCmod.png"
-dest_files=["res://.godot/imported/meiosis-JCmod.png-4f1f97d727634ba67492fea08f799894.ctex"]
+source_file="res://assets/Trivias/dnaNucleotideStructure.jpg"
+dest_files=["res://.godot/imported/dnaNucleotideStructure.jpg-65abb16afe18fa311473e71efe246d0f.ctex"]
 
 [params]
 

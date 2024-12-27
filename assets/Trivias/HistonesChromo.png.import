@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bukmegkmb152i"
-path="res://.godot/imported/double-helix.jpg-ef5699155f5787218a69e2011eb6fa89.ctex"
+uid="uid://ckia0qu7e5wql"
+path="res://.godot/imported/HistonesChromo.png-b32358e8f3416524489a50b866877a7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/double-helix.jpg"
-dest_files=["res://.godot/imported/double-helix.jpg-ef5699155f5787218a69e2011eb6fa89.ctex"]
+source_file="res://assets/Trivias/HistonesChromo.png"
+dest_files=["res://.godot/imported/HistonesChromo.png-b32358e8f3416524489a50b866877a7d.ctex"]
 
 [params]
 

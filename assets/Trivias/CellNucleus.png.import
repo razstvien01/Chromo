@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu75mv1e7n0l6"
-path="res://.godot/imported/genes_loci.png-0f4a3625cb92b6e63c9b30d4e255d027.ctex"
+uid="uid://gvg8huok1lst"
+path="res://.godot/imported/CellNucleus.png-079ef3a74fce36d4389a4054497bcc24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/genes_loci.png"
-dest_files=["res://.godot/imported/genes_loci.png-0f4a3625cb92b6e63c9b30d4e255d027.ctex"]
+source_file="res://assets/Trivias/CellNucleus.png"
+dest_files=["res://.godot/imported/CellNucleus.png-079ef3a74fce36d4389a4054497bcc24.ctex"]
 
 [params]
 

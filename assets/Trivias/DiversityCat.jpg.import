@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gvg8huok1lst"
-path="res://.godot/imported/cell_nucleus.png-39b839754591627d61cb7dc49ac8a9e2.ctex"
+uid="uid://bpcvkvonxvdtd"
+path="res://.godot/imported/DiversityCat.jpg-682b7eaa6a4ca48d54d05a289625b155.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/cell_nucleus.png"
-dest_files=["res://.godot/imported/cell_nucleus.png-39b839754591627d61cb7dc49ac8a9e2.ctex"]
+source_file="res://assets/Trivias/DiversityCat.jpg"
+dest_files=["res://.godot/imported/DiversityCat.jpg-682b7eaa6a4ca48d54d05a289625b155.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byl5jq0y0c6hh"
-path="res://.godot/imported/bright_smile.png-09a16e31aec6dc712d66237461055b81.ctex"
+uid="uid://bukmegkmb152i"
+path="res://.godot/imported/DoubleHelix.jpg-b52800ea40adba8b0420a6f725023aaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/bright_smile.png"
-dest_files=["res://.godot/imported/bright_smile.png-09a16e31aec6dc712d66237461055b81.ctex"]
+source_file="res://assets/Trivias/DoubleHelix.jpg"
+dest_files=["res://.godot/imported/DoubleHelix.jpg-b52800ea40adba8b0420a6f725023aaa.ctex"]
 
 [params]
 

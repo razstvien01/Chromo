@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bfqhfw8ft5h"
-path="res://.godot/imported/suton_boveri.png-d4bc34bfcbe33e879b4085737debc817.ctex"
+uid="uid://b8lcav1vq7myk"
+path="res://.godot/imported/ChromosomeInTheCellNucleus.png-b88371673faef1b86cfa5cd657765295.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/suton_boveri.png"
-dest_files=["res://.godot/imported/suton_boveri.png-d4bc34bfcbe33e879b4085737debc817.ctex"]
+source_file="res://assets/Trivias/ChromosomeInTheCellNucleus.png"
+dest_files=["res://.godot/imported/ChromosomeInTheCellNucleus.png-b88371673faef1b86cfa5cd657765295.ctex"]
 
 [params]
 

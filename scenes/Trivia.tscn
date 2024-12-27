@@ -6,21 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://dpxavsqtdqb3f" path="res://assets/Trivias/chromosomes.png" id="3_fxa84"]
 [ext_resource type="StyleBox" uid="uid://cx3m8ptj0dk4c" path="res://resources/theme/rounded_corners_panel.tres" id="4_o1o2q"]
 [ext_resource type="Theme" uid="uid://d1ork7mrb6tou" path="res://resources/theme/rounded_theme.tres" id="5_x05vt"]
-[ext_resource type="Texture2D" uid="uid://bukmegkmb152i" path="res://assets/Trivias/double-helix.jpg" id="7_ko6ec"]
-[ext_resource type="Texture2D" uid="uid://byl5jq0y0c6hh" path="res://assets/Trivias/bright_smile.png" id="7_vk2uw"]
+[ext_resource type="Texture2D" uid="uid://bukmegkmb152i" path="res://assets/Trivias/DoubleHelix.jpg" id="7_ko6ec"]
+[ext_resource type="Texture2D" uid="uid://byl5jq0y0c6hh" path="res://assets/Trivias/BrightSmile.png" id="7_vk2uw"]
 [ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="8_fnj2j"]
 [ext_resource type="Texture2D" uid="uid://cxig3vqtxyxq7" path="res://assets/Trivias/chromosome.png" id="8_u5bmf"]
-[ext_resource type="Texture2D" uid="uid://gvg8huok1lst" path="res://assets/Trivias/cell_nucleus.png" id="9_j8ldb"]
-[ext_resource type="Texture2D" uid="uid://b3bfqhfw8ft5h" path="res://assets/Trivias/suton_boveri.png" id="11_s3pw0"]
-[ext_resource type="Texture2D" uid="uid://bu75mv1e7n0l6" path="res://assets/Trivias/genes_loci.png" id="12_s7rqh"]
-[ext_resource type="Texture2D" uid="uid://cepdux7axjc00" path="res://assets/Trivias/pq_arm.png" id="13_4xuyp"]
-[ext_resource type="Texture2D" uid="uid://c64sl6npjrmhv" path="res://assets/Trivias/genes_dna.png" id="14_lbv3d"]
-[ext_resource type="Texture2D" uid="uid://b8lcav1vq7myk" path="res://assets/Trivias/Chromosome in the Cell's Nucleus.png" id="15_yvqyy"]
-[ext_resource type="Texture2D" uid="uid://ckia0qu7e5wql" path="res://assets/Trivias/histones_chromo.png" id="16_mj2cp"]
+[ext_resource type="Texture2D" uid="uid://gvg8huok1lst" path="res://assets/Trivias/CellNucleus.png" id="9_j8ldb"]
+[ext_resource type="Texture2D" uid="uid://b3bfqhfw8ft5h" path="res://assets/Trivias/SutonBoveri.png" id="11_s3pw0"]
+[ext_resource type="Texture2D" uid="uid://bu75mv1e7n0l6" path="res://assets/Trivias/GenesLoci.png" id="12_s7rqh"]
+[ext_resource type="Texture2D" uid="uid://cepdux7axjc00" path="res://assets/Trivias/PQArm.png" id="13_4xuyp"]
+[ext_resource type="Texture2D" uid="uid://c64sl6npjrmhv" path="res://assets/Trivias/GenesDNA.png" id="14_lbv3d"]
+[ext_resource type="Texture2D" uid="uid://b8lcav1vq7myk" path="res://assets/Trivias/ChromosomeInTheCellNucleus.png" id="15_yvqyy"]
+[ext_resource type="Texture2D" uid="uid://ckia0qu7e5wql" path="res://assets/Trivias/HistonesChromo.png" id="16_mj2cp"]
 [ext_resource type="Texture2D" uid="uid://oiwhky1l7kgf" path="res://assets/Trivias/Karyotype.jpg" id="17_81evj"]
-[ext_resource type="Texture2D" uid="uid://d3kh1fqctb4us" path="res://assets/Trivias/meiosis-JCmod.png" id="18_vmox6"]
-[ext_resource type="Texture2D" uid="uid://bpcvkvonxvdtd" path="res://assets/Trivias/diversity_cat.jpg" id="19_i3r34"]
-[ext_resource type="Texture2D" uid="uid://dkg3xq56pyfm0" path="res://assets/Trivias/dna_nucleotide_structure.jpg" id="20_kpipk"]
+[ext_resource type="Texture2D" uid="uid://d3kh1fqctb4us" path="res://assets/Trivias/meiosisJCmod.png" id="18_vmox6"]
+[ext_resource type="Texture2D" uid="uid://bpcvkvonxvdtd" path="res://assets/Trivias/DiversityCat.jpg" id="19_i3r34"]
+[ext_resource type="Texture2D" uid="uid://dkg3xq56pyfm0" path="res://assets/Trivias/dnaNucleotideStructure.jpg" id="20_kpipk"]
 [ext_resource type="Texture2D" uid="uid://cwl1fm4gl2ng8" path="res://assets/Trivias/ATCG.jpg" id="21_0cyf0"]
 [ext_resource type="Texture2D" uid="uid://b7vx7lmw7kjiw" path="res://assets/Trivias/individuality.png" id="22_icbg2"]
 
@@ -90,6 +90,33 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="Animation" id="Animation_xlqkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fxa84")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["\"DNA: The blueprint of life, packed in a beautiful double helix!\""]
+}
 
 [sub_resource type="Animation" id="Animation_437jg"]
 resource_name = "Trivia_1"
@@ -169,33 +196,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_xlqkb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_fxa84")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["\"DNA: The blueprint of life, packed in a beautiful double helix!\""]
 }
 
 [sub_resource type="Animation" id="Animation_bdyio"]

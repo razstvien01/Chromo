@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cepdux7axjc00"
-path="res://.godot/imported/pq_arm.png-2bce88817cf9d48818fd65d8fa4d3928.ctex"
+uid="uid://d3kh1fqctb4us"
+path="res://.godot/imported/meiosisJCmod.png-dd2c145238719c593b743c22b6a5f2cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/pq_arm.png"
-dest_files=["res://.godot/imported/pq_arm.png-2bce88817cf9d48818fd65d8fa4d3928.ctex"]
+source_file="res://assets/Trivias/meiosisJCmod.png"
+dest_files=["res://.godot/imported/meiosisJCmod.png-dd2c145238719c593b743c22b6a5f2cc.ctex"]
 
 [params]
 

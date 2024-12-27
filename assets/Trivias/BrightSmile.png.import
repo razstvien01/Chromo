@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64sl6npjrmhv"
-path="res://.godot/imported/genes_dna.png-80398fd67b617482d2d61ca216ff191a.ctex"
+uid="uid://byl5jq0y0c6hh"
+path="res://.godot/imported/BrightSmile.png-32ee8162bb3482e7b4f7fac98eca95ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/genes_dna.png"
-dest_files=["res://.godot/imported/genes_dna.png-80398fd67b617482d2d61ca216ff191a.ctex"]
+source_file="res://assets/Trivias/BrightSmile.png"
+dest_files=["res://.godot/imported/BrightSmile.png-32ee8162bb3482e7b4f7fac98eca95ee.ctex"]
 
 [params]
 

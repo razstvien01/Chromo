@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpcvkvonxvdtd"
-path="res://.godot/imported/diversity_cat.jpg-20d1f73b5402c6803901b4b32b63aaa7.ctex"
+uid="uid://b3bfqhfw8ft5h"
+path="res://.godot/imported/SutonBoveri.png-c8c83cfcf0e831edb79f496d40a5faa0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trivias/diversity_cat.jpg"
-dest_files=["res://.godot/imported/diversity_cat.jpg-20d1f73b5402c6803901b4b32b63aaa7.ctex"]
+source_file="res://assets/Trivias/SutonBoveri.png"
+dest_files=["res://.godot/imported/SutonBoveri.png-c8c83cfcf0e831edb79f496d40a5faa0.ctex"]
 
 [params]
 
