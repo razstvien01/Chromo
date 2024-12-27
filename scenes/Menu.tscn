@@ -139,6 +139,8 @@ offset_left = 131.0
 offset_top = 246.0
 offset_right = 656.0
 offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MenuContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -152,6 +154,7 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Continue"
@@ -160,6 +163,7 @@ autowrap_mode = 3
 [node name="StartButton" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
@@ -168,6 +172,7 @@ autowrap_mode = 3
 [node name="ChooseLevelButton" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Choose Level"
@@ -176,6 +181,7 @@ autowrap_mode = 3
 [node name="TriviaButton" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "View Trivias"
@@ -184,6 +190,7 @@ autowrap_mode = 3
 [node name="Exam" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Take Exam"
@@ -192,6 +199,7 @@ autowrap_mode = 3
 [node name="ExitButton" type="Button" parent="ScrollContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("6_q42tg")
 theme_override_font_sizes/font_size = 30
 text = "Exit
