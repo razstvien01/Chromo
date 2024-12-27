@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://wljaekgjmo34"]
+[gd_scene load_steps=36 format=4 uid="uid://wljaekgjmo34"]
 
 [ext_resource type="Texture2D" uid="uid://b4jfiqgo2aheq" path="res://assets/Tilemaps/BG.png" id="1_hqdaq"]
 [ext_resource type="Script" path="res://scripts/Trivia.cs" id="1_ybbgo"]
@@ -11,6 +11,18 @@
 [ext_resource type="AudioStream" uid="uid://dygf1h0y72l1h" path="res://assets/Audio/Narration/4.wav" id="8_fnj2j"]
 [ext_resource type="Texture2D" uid="uid://cxig3vqtxyxq7" path="res://assets/Trivias/chromosome.png" id="8_u5bmf"]
 [ext_resource type="Texture2D" uid="uid://gvg8huok1lst" path="res://assets/Trivias/cell_nucleus.png" id="9_j8ldb"]
+[ext_resource type="Texture2D" uid="uid://b3bfqhfw8ft5h" path="res://assets/Trivias/suton_boveri.png" id="11_s3pw0"]
+[ext_resource type="Texture2D" uid="uid://bu75mv1e7n0l6" path="res://assets/Trivias/genes_loci.png" id="12_s7rqh"]
+[ext_resource type="Texture2D" uid="uid://cepdux7axjc00" path="res://assets/Trivias/pq_arm.png" id="13_4xuyp"]
+[ext_resource type="Texture2D" uid="uid://c64sl6npjrmhv" path="res://assets/Trivias/genes_dna.png" id="14_lbv3d"]
+[ext_resource type="Texture2D" uid="uid://b8lcav1vq7myk" path="res://assets/Trivias/Chromosome in the Cell's Nucleus.png" id="15_yvqyy"]
+[ext_resource type="Texture2D" uid="uid://ckia0qu7e5wql" path="res://assets/Trivias/histones_chromo.png" id="16_mj2cp"]
+[ext_resource type="Texture2D" uid="uid://oiwhky1l7kgf" path="res://assets/Trivias/Karyotype.jpg" id="17_81evj"]
+[ext_resource type="Texture2D" uid="uid://d3kh1fqctb4us" path="res://assets/Trivias/meiosis-JCmod.png" id="18_vmox6"]
+[ext_resource type="Texture2D" uid="uid://bpcvkvonxvdtd" path="res://assets/Trivias/diversity_cat.jpg" id="19_i3r34"]
+[ext_resource type="Texture2D" uid="uid://dkg3xq56pyfm0" path="res://assets/Trivias/dna_nucleotide_structure.jpg" id="20_kpipk"]
+[ext_resource type="Texture2D" uid="uid://cwl1fm4gl2ng8" path="res://assets/Trivias/ATCG.jpg" id="21_0cyf0"]
+[ext_resource type="Texture2D" uid="uid://b7vx7lmw7kjiw" path="res://assets/Trivias/individuality.png" id="22_icbg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eud71"]
 texture = ExtResource("1_hqdaq")
@@ -79,57 +91,6 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="Animation" id="Animation_f3uob"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_fxa84")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ImageArea/Panel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ImageArea/CaptionLabel:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["\"DNA: The blueprint of life, packed in a beautiful double helix!\""]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ImageArea:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_437jg"]
 resource_name = "Trivia_1"
 length = 50.0
@@ -170,9 +131,9 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_1j4ub"]
+[sub_resource type="Animation" id="Animation_fmlu2"]
 resource_name = "Trivia_2"
-length = 30.0
+length = 43.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,7 +141,46 @@ tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(5, 11, 22, 31),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_s3pw0"), ExtResource("7_ko6ec"), ExtResource("12_s7rqh"), ExtResource("13_4xuyp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5, 11, 22, 31),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["\"Sutton and Boveri: Pioneers of the Chromosomal Theory of Inheritance\"", "\"The Double Helix: DNA’s Unique Structure\"", "\"Genes at Work: Understanding Loci on Chromosomes\"", "\"Exploring Chromosomal Anatomy: The q Arm\""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImageArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xlqkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_fxa84")]
@@ -188,19 +188,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ImageArea/Panel:visible")
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": ["\"DNA: The blueprint of life, packed in a beautiful double helix!\""]
 }
 
-[sub_resource type="Animation" id="Animation_j657c"]
+[sub_resource type="Animation" id="Animation_bdyio"]
 resource_name = "Trivia_3"
-length = 30.0
+length = 43.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -208,27 +208,39 @@ tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(13, 21, 29),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_fxa84")]
+"values": [ExtResource("14_lbv3d"), ExtResource("15_yvqyy"), ExtResource("13_4xuyp")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ImageArea/Panel:visible")
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(13, 21, 29),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["\"Genes: Small Sections of DNA That Define Life\"", "\"Chromosomes: DNA Packed Inside the Nucleus\"", "\"Chromosome Anatomy: The Centromere, p Arm, and q Arm\""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImageArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(13),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_gjdf6"]
+[sub_resource type="Animation" id="Animation_f3a0a"]
 resource_name = "Trivia_4"
-length = 30.0
+length = 38.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -236,27 +248,39 @@ tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(8, 16, 21, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_fxa84")]
+"values": [ExtResource("16_mj2cp"), ExtResource("17_81evj"), ExtResource("18_vmox6"), ExtResource("19_i3r34")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ImageArea/Panel:visible")
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(8, 16, 21, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["\"Chromosomes and Histones: The Organized Blueprint of Life\"", "\"The Human Genome: 23 Chromosome Pairs\"", "\"Meiosis: Ensuring Genetic Diversity\"", "\"Genetic Diversity: Passing Traits Across Generations\""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImageArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_ollek"]
+[sub_resource type="Animation" id="Animation_5oprm"]
 resource_name = "Trivia_5"
-length = 30.0
+length = 49.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -264,19 +288,31 @@ tracks/0/path = NodePath("ImageArea/Panel/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(7, 17, 31, 44),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_fxa84")]
+"values": [ExtResource("7_ko6ec"), ExtResource("20_kpipk"), ExtResource("21_0cyf0"), ExtResource("22_icbg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ImageArea/Panel:visible")
+tracks/1/path = NodePath("ImageArea/CaptionLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(7, 17, 31, 44),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["\"DNA's Double Helix: The Blueprint of Life\"", "\"The Building Block of DNA: A Nucleotide\"", "\"Base Pairing: A with T and C with G\"", "\"DNA: The Code That Makes You Unique!\""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImageArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -284,12 +320,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1334t"]
 _data = {
-"RESET": SubResource("Animation_f3uob"),
+"RESET": SubResource("Animation_xlqkb"),
 "Trivia_1": SubResource("Animation_437jg"),
-"Trivia_2": SubResource("Animation_1j4ub"),
-"Trivia_3": SubResource("Animation_j657c"),
-"Trivia_4": SubResource("Animation_gjdf6"),
-"Trivia_5": SubResource("Animation_ollek")
+"Trivia_2": SubResource("Animation_fmlu2"),
+"Trivia_3": SubResource("Animation_bdyio"),
+"Trivia_4": SubResource("Animation_f3a0a"),
+"Trivia_5": SubResource("Animation_5oprm")
 }
 
 [sub_resource type="Animation" id="Animation_040r0"]
