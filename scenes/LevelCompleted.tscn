@@ -90,23 +90,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -584.0
-offset_top = -283.0
-offset_right = 584.0
-offset_bottom = 293.0
+offset_left = -586.0
+offset_top = -318.5
+offset_right = 586.0
+offset_bottom = 310.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 15
+alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Chromosome Conquered: Mission Accomplished!"
+theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 23
-text = "Congratulations, Genetic Explorer! 🌟 You've unlocked all the parts of the chromosomes and mastered their secrets! From the double helix to heredity’s blueprint, your journey revealed the intricate design shaping life. Your curiosity and determination shine brightly in the realm of science. Thank you for completing this adventure—keep exploring biology’s wonders!"
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[center][b][color=yellow]Chromosome Conquered: Mission Accomplished![/color][/b] 🧬[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "[center][i]Congratulations, Genetic Explorer![/i] 🌟[/center]
+
+You've unlocked all the parts of the [color=yellow][b]chromosomes[/b][/color] and mastered their secrets! From the [color=pink][i]double helix[/i][/color] to heredity’s [color=lightblue][b]blueprint[/b][/color], your journey revealed the [color=yellow][i]intricate design shaping life[/i][/color].  
+
+Your [color=lightblue][b]curiosity[/b][/color] and [color=pink][i]determination[/i][/color] shine brightly in the realm of science.  
+
+[center][color=yellow][b]Thank you[/b][/color] for completing this adventure—keep exploring [color=pink][i]biology’s wonders![/i][/color] 🌟[/center]"
+fit_content = true
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -115,9 +137,12 @@ layout_mode = 2
 alignment = 1
 
 [node name="CharacterA" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_yo05l")]
-position = Vector2(257, 94)
+position = Vector2(257, 96)
 scale = Vector2(6, 6)
 script = null
+
+[node name="Icon" parent="VBoxContainer/HBoxContainer/CharacterA" index="2"]
+scale = Vector2(1, 1)
 
 [node name="Eyes" parent="VBoxContainer/HBoxContainer/CharacterA" index="3"]
 frame = 3
@@ -130,18 +155,21 @@ texture = ExtResource("4_685qh")
 expand_mode = 2
 
 [node name="CharacterA2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_yo05l")]
-position = Vector2(908, 89)
+position = Vector2(908, 98)
 scale = Vector2(6, 6)
 script = null
 
 [node name="Icon" parent="VBoxContainer/HBoxContainer/CharacterA2" index="2"]
+scale = Vector2(1, 1)
 frame = 4
 
 [node name="Eyes" parent="VBoxContainer/HBoxContainer/CharacterA2" index="3"]
 frame_progress = 0.0
 
 [node name="BackMenuButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme = ExtResource("6_45mng")
 theme_override_font_sizes/font_size = 30
@@ -156,7 +184,13 @@ autoplay = true
 stream = ExtResource("6_5o7o0")
 autoplay = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/BackMenuButton" to="." method="_OnBackMenuButtonPressed"]
+[connection signal="finished" from="Narration" to="." method="_OnNarrationFinished"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
 
 [editable path="VBoxContainer/HBoxContainer/CharacterA"]
 [editable path="VBoxContainer/HBoxContainer/CharacterA2"]
