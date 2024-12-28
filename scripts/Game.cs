@@ -51,6 +51,9 @@ public partial class Game : Node2D
 		pauseMenu.Connect(nameof(PauseMenu.Restart), Callable.From(OnRestart));
 		_gameOverDialog.Connect(nameof(GameOverDialog.ButtonPressed), Callable.From<bool>(OnGameOverDialogPressed));
 
+		miniTrivia = GetNode<MiniTrivia>("%MiniTrivia");
+		miniTrivia.Connect(nameof(MiniTrivia.MiniTriviaEnd), Callable.From<string>(OnMiniTriviaEnd));
+
 		if (GameState.GetInstance().CurrentLoadStage != -1)
 		{
 			LoadScene(GameState.GetInstance().CurrentLoadStage);
@@ -59,8 +62,6 @@ public partial class Game : Node2D
 
 		// Use GameState to determine progress
 		currentIndex = GameState.GetInstance().IsLoadProgress ? LoadProgress() : 0;
-		miniTrivia = GetNode<MiniTrivia>("%MiniTrivia");
-		miniTrivia.Connect(nameof(MiniTrivia.MiniTriviaEnd), Callable.From<string>(OnMiniTriviaEnd));
 
 		LoadScene(currentIndex);
 	}
@@ -183,6 +184,8 @@ public partial class Game : Node2D
 	}
 
 	private void LoadMiniTrivia(string animationName) {
+		GD.Print(string.Format("Mini Trivia test {0}", miniTrivia is null));
+		GD.Print(string.Format("animationName test {0}", animationName));
 		miniTrivia.Show();
 		miniTrivia.PlayAnimation(animationName);
 	}
